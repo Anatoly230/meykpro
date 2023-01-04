@@ -1,0 +1,88 @@
+.page-body {
+
+  &__haeader {}
+}
+
+.header {
+
+  &__wrapper {
+    @include show-outline(green);
+    // @include section-wrapper;
+  }
+
+  &__menu-wrapper {
+    background-color: $grey;
+    justify-content: space-between;
+@include tablet {
+  display: flex;
+}
+  }
+
+  &__toggle-menu {
+    display: none;
+  }
+
+  &__menu {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__callback-btn {
+    display: block;
+    @include reset-link-style($white);
+    padding-inline: rem(28);
+    padding-block: rem(12);
+    background-color: $pink;
+  }
+
+  &__adding-info-wrapper {}
+
+  &__logo {}
+
+  &__info-wrapper {}
+
+  &__info {}
+
+  &__info--mode {}
+
+  &__contacts-wrapper {}
+
+  &__contact {}
+
+  &__contact--mail {}
+
+  &__benefits {}
+}
+
+.menu {
+  @include reset-list-style;
+
+  &__item {
+    @include tablet {
+      padding-inline: rem(18);
+      padding-block-start: rem(12);
+      padding-block-end: rem(12);
+      border-block-end: rem(3) solid rgba($pink, 0);
+    }
+
+    &:hover {
+      @include tablet {
+        border-block-color: rgba($pink, 1);
+      }
+
+    }
+  }
+
+  &__item-link {
+    @include reset-link-style($white);
+  }
+
+  &__item-link:hover {}
+}
+
+.benefits {
+  @include reset-list-style;
+
+  &__item {}
+}

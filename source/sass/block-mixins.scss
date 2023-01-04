@@ -73,6 +73,16 @@
   @content;
 }
 
+@mixin toggle-parametrs() {
+  width: 20px;
+  height: 2px;
+  background-color: $black;
+}
+
+@mixin reset-link-style($color: $black){
+  text-decoration: none;
+  color: $color;
+}
 
 // for block debug start
 @mixin show-outline($color: red, $weight: 2px) {
