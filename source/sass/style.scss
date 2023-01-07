@@ -6,9 +6,18 @@
 @import "breakpoints.scss";
 @import "global.scss";
 @import "fonts.scss";
+@import "./blocks/simple-grid.scss";
 @import "./blocks/page-body.scss";
 @import "./blocks/logo.scss";
 @import "./blocks/toggle-menu.scss";
+@import "./blocks/menu.scss";
+@import "./blocks/benefits.scss";
+@import "./blocks/header.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/poster.scss";
+@import "./blocks/about.scss";
+@import "./blocks/why-us.scss";
+@import "./blocks/bragging.scss";
 
 @import "blocks/visually-hidden.scss";
 @import "./blocks/test.scss";

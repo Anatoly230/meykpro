@@ -1,0 +1,13 @@
+.why-us {
+    padding-block: rem(20);
+  
+    &__heading {
+        margin: 0 auto;
+        margin-block-end: rem(40);
+    }
+  
+    &__list {
+      @include section-wrapper;
+    }
+  }
+  

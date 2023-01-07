@@ -1,0 +1,45 @@
+.footer {
+    background-color: $footer-green;
+  
+    &__wrapper {
+      padding-block: rem(40) rem(20);
+      @include section-wrapper;
+    }
+  
+    &__contacts-info {}
+  
+    &__logo {
+      margin-block-end: rem(20);
+    }
+  
+    &__contacts {
+      @include reset-list-style;
+      text-align: center;
+      margin-block-end: rem(20);
+    }
+  
+    &__contacts-item {
+      margin-block-end: rem(10)
+    }
+  
+    &__contacts-link {
+      @include reset-link-style($white);
+    }
+  
+    &__socs {}
+  
+    &__user-counter {
+      display: flex;
+      justify-content: center;
+    }
+  
+    &__user-counter-link {
+      justify-self: center;
+    }
+  
+    &__copyrights {
+      font-size: rem(13);
+      text-align: center;
+      color: rgba($white, 0.5);
+    }
+  }

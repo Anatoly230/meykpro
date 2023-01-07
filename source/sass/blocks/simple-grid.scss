@@ -1,0 +1,12 @@
+.simple-grid {
+    @include reset-list-style;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(15);
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__item {}
+}

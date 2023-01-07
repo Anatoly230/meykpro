@@ -1,23 +1,31 @@
+$toggle-color: $white;
+$toggle-close-color: $toggle-color;
+$toggle-width: rem(30);
+$toggle-height: rem(20);
+$toggle-strip-indent: rem(9);
+$toggle-strip-height: rem(2);
+
 .toggle-menu {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 27px;
-  height: 14px;
+  width: $toggle-width;
+  height: $toggle-height;
   border: none;
   background-color: transparent;
   padding: 0;
 
   &::before,
   &::after {
-    @include toggle-parametrs;
+    @include toggle-parametrs($toggle-color, $toggle-strip-height);
     content: "";
     transition: transform 0.2s linear 0s;
   }
 
   &::before {
-    box-shadow: 0 6px 0 $black;
+    box-shadow: 0 $toggle-strip-indent 0 $toggle-color;
     transition: box-shadow 0.2s linear 50ms;
   }
 
@@ -37,13 +45,13 @@
   &--close::before {
     width: 100%;
     box-shadow: 0 0 0 rgba($black, 0);
-    background-color: $black;
-    transform: translateY(6px) rotate(45deg);
+    background-color: $toggle-close-color;
+    transform: translateY($toggle-strip-indent) rotate(45deg);
   }
 
   &--close::after {
     width: 100%;
-    background-color: $black;
-    transform: translateY(-6px) rotate(-45deg);
+    background-color: $toggle-close-color;
+    transform: translateY(-$toggle-strip-indent) rotate(-45deg);
   }
 }

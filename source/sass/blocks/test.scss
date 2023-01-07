@@ -1,88 +1,126 @@
-.page-body {
+.contacts {
 
-  &__haeader {}
-}
-
-.header {
-
-  &__wrapper {
-    @include show-outline(green);
-    // @include section-wrapper;
-  }
-
-  &__menu-wrapper {
-    background-color: $grey;
-    justify-content: space-between;
-@include tablet {
-  display: flex;
-}
-  }
-
-  &__toggle-menu {
-    display: none;
-  }
-
-  &__menu {
+  &__form {
+    @include section-wrapper;
+    margin-block-end: rem(20);
+    
     @include tablet {
-      display: flex;
+      margin-block-end: rem(40);
     }
   }
 
-  &__callback-btn {
-    display: block;
-    @include reset-link-style($white);
-    padding-inline: rem(28);
-    padding-block: rem(12);
-    background-color: $pink;
+  &__heading {
+    margin: 0 auto;
+    margin-block-end: rem(50);
   }
 
-  &__adding-info-wrapper {}
+  &__info {
+    @include section-wrapper;
+    text-align: center;
+    margin-block-end: rem(30);
+    color: $disabled;
+    font-size: rem(13);
 
-  &__logo {}
+    @include tablet {
+      margin-block-end: rem(50);
+      font-size: rem(15);
 
-  &__info-wrapper {}
+    }
+  }
 
-  &__info {}
-
-  &__info--mode {}
-
-  &__contacts-wrapper {}
-
-  &__contact {}
-
-  &__contact--mail {}
-
-  &__benefits {}
+  &__map {}
 }
 
-.menu {
-  @include reset-list-style;
+.form {
+  display: grid;
+  row-gap: rem(20);
+  // padding-block: rem(30);
 
-  &__item {
-    @include tablet {
-      padding-inline: rem(18);
-      padding-block-start: rem(12);
-      padding-block-end: rem(12);
-      border-block-end: rem(3) solid rgba($pink, 0);
-    }
+  @include tablet {
+    column-gap: rem(20);
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    &:hover {
+  &__group {
+    display: grid;
+    row-gap: rem(15);
+
+    &--message {
       @include tablet {
-        border-block-color: rgba($pink, 1);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+          "npt"
+          "npt"
+          "sub";
       }
-
     }
   }
 
-  &__item-link {
-    @include reset-link-style($white);
+  &__group-message {
+    @include tablet {
+      grid-area: npt;
+    }
   }
 
-  &__item-link:hover {}
+  &__submit {
+    align-self: end;
+
+    @include tablet {
+      grid-area: sub;
+      justify-self: end;
+    }
+  }
 }
 
-.benefits {
-  @include reset-list-style;
+.input {
+  display: flex;
+  flex-direction: column;
 
-  &__item {}
+  &__name {
+    padding-block-end: rem(5);
+    padding-inline-start: rem(10);
+
+  }
+
+  &__field {
+    padding: rem(12);
+    border-radius: rem(5);
+    border-color: $base-gray;
+    border-width: rem(1);
+    box-shadow: none;
+
+
+    &--message {
+      height: 200px;
+      resize: none;
+
+      @include tablet {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.btn {
+  background-color: rgba($green, 0.85);
+  border: none;
+  color: $white;
+  padding: rem(12);
+  width: 100%;
+
+  @include tablet {
+    border-radius: rem(5);
+  }
+
+  &:hover {
+    cursor: pointer;
+    // color: rgba($white, 0.7);
+    background-color: $green;
+    // box-shadow: 0 1px 1px rgba($off-black, 0.3);
+  }
+}
+
+.map {
+  height: rem(300);
+
 }
