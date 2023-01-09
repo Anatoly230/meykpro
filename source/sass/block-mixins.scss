@@ -9,8 +9,7 @@
   width: 100%;
   max-width: $desktop-width;
   margin: 0 auto;
-  padding-inline-start: calc(20 / 320 * 100%);
-  padding-inline-end: calc(20 / 320 * 100%);
+  padding-inline: calc(20 / 320 * 100%);
 
   @include tablet {
     padding-inline-start: rem(50);
@@ -31,8 +30,8 @@
   }
 
   @include tablet {
-    padding-inline-start: calc(50 / 320 * 100%);
-    padding-inline-end: calc(50 / 320 * 100%);
+    padding-inline-start: calc(40 / 320 * 100%);
+    padding-inline-end: calc(40 / 320 * 100%);
   }
 
   @include desktop {

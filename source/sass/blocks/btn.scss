@@ -1,0 +1,43 @@
+.btn {
+    @include reset-link-style;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($green, 0.85);
+    border: none;
+    color: $white;
+    padding-block: rem(10);
+    padding-inline: rem(20);
+    width: 100%;
+    min-height: rem(40);
+    border-radius: rem(20);
+
+
+    @include tablet {
+        border-radius: rem(5);
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: $green;
+    }
+
+    &--buy {
+        background-color: $pink;
+    }
+
+    &--collapse {
+        background-color: $disabled;
+        &:hover {
+            background-color: $disabled-darked;
+        }
+    }
+
+    &--more {
+        background-color: $logo-yellow;
+        &:hover {
+            background-color: $logo-yellow-darkened;
+        }
+    }
+}
