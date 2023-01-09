@@ -1,0 +1,34 @@
+.heading {
+    // @include show-outline;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    font-size: 30px;
+    font-weight: 100;
+
+    &__content {
+        font-weight: 800;
+        flex-shrink: 2;
+        min-width: 200px;
+        max-width: 280px;
+        margin-inline: 20px;
+
+        @include tablet {
+            max-width: 400px;
+            margin-inline: 60px;
+        }
+    }
+
+    &::before,
+    &::after {
+        @include pseudo-el;
+        width: 10px;
+        height: 2px;
+        background-color: $base-violet;
+        flex-grow: 1;
+    }
+
+}

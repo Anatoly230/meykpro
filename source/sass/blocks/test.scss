@@ -3,15 +3,15 @@
   &__form {
     @include section-wrapper;
     margin-block-end: rem(20);
-    
+
     @include tablet {
       margin-block-end: rem(40);
     }
   }
 
   &__heading {
-    margin: 0 auto;
-    margin-block-end: rem(50);
+    // @include wrapper;
+    margin-block-end: rem(70);
   }
 
   &__info {
@@ -31,34 +31,37 @@
   &__map {}
 }
 
+$row-count: 3;
+
 .form {
   display: grid;
   row-gap: rem(20);
-  // padding-block: rem(30);
 
   @include tablet {
     column-gap: rem(20);
     grid-template-columns: repeat(2, 1fr);
   }
 
+  @include desktop {
+    column-gap: rem(35);
+  }
+
   &__group {
     display: grid;
     row-gap: rem(15);
-
+    
     &--message {
+      row-gap: rem(25);
       @include tablet {
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-areas:
-          "npt"
-          "npt"
-          "sub";
+        row-gap: rem(15);
+        grid-template-rows: repeat($row-count, 1fr);
       }
     }
   }
 
   &__group-message {
     @include tablet {
-      grid-area: npt;
+      grid-row: 1 / -2;
     }
   }
 
@@ -66,7 +69,7 @@
     align-self: end;
 
     @include tablet {
-      grid-area: sub;
+      grid-row: -2 / -1;
       justify-self: end;
     }
   }
