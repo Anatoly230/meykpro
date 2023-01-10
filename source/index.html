@@ -151,24 +151,20 @@
 				<span class="heading__content">Прайс</span>
 			</h2>
 			<ul class="price__list">
-				<li class="price__list-item parametrs">
+				<li class="price__list-item parametrs  parametrs-js">
 					<div class="parametrs__heading-wrapper">
-						<h3 class="parametrs__heading">
-							<span class="parametrs__heading-quotes">«</span>
-							Standart
-							<span class="parametrs__heading-quotes">»</span>
-						</h3>
+						<h3 class="parametrs__heading">&laquo;Standart&raquo;</h3>
 						<p class="parametrs__price">3100р.</p>
 					</div>
-					<div class="parametrs__pic-wrapper">
+					<div class="parametrs__pic-wrapper parametrs-js__pic-wrapper">
 						<img class="parametrs__pic" src="./img/portfolio/kfc.jpg" alt="Кубик на микрофон  KFC"
 							width="240" height="240">
-						<button class="parametrs__pic-btn slide-pic hide" type="button"
+						<button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button"
 							aria-label="Предыдущая фотогорафия">&lt;</button>
-						<button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic hide" type="button"
-							aria-label="Следующая фотогорафия">&gt;</button>
+						<button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide"
+							type="button" aria-label="Следующая фотогорафия">&gt;</button>
 					</div>
-					<dl class="parametrs__wrapper">
+					<dl class="parametrs__wrapper parametrs-js__content">
 						<div class="parametrs__item parametr">
 							<dt class="parametr__name">Размер стороны</dt>
 							<dd class="parametr__value">65&times;65&nbsp;мм.</dd>
@@ -188,29 +184,26 @@
 					</dl>
 
 					<div class="parametrs__toggle-wrapper">
-						<a href="" class="toggle-btn parametrs__toggle parametrs__toggle--first btn btn--collapse hide">
-							<span class="toggle-btn__open hide">Подробнее</span>
-							<span class="toggle-btn__close">Свернуть</span>
+						<a href="" class="toggle-btn-js parametrs__toggle parametrs__toggle--more btn btn--collapse">
+							<span class="toggle-btn-js__open hide">Подробнее</span>
+							<span class="toggle-btn-js__close">Свернуть</span>
 						</a>
-						<a href="" class="parametrs__toggle btn btn--buy">Заказать</a>
+						<a href=""
+							class="toggle-btn-js toggle-btn-js--buy parametrs__toggle parametrs__toggle--buy btn btn--buy">Заказать</a>
 					</div>
 				</li>
 				<li class="price__list-item parametrs">
 					<div class="parametrs__heading-wrapper">
-						<h3 class="parametrs__heading">
-							<span class="parametrs__heading-quotes">«</span>
-							Euro
-							<span class="parametrs__heading-quotes">»</span>
-						</h3>
+						<h3 class="parametrs__heading">&laquo;Euro&raquo;</h3>
 						<p class="parametrs__price">3400р.</p>
 					</div>
 					<div class="parametrs__pic-wrapper">
 						<img class="parametrs__pic" src="./img/portfolio/sok.jpg" alt="Кубик на микрофон  KFC"
 							width="240" height="240">
-						<button class="parametrs__pic-btn slide-pic hide" type="button"
+						<button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button"
 							aria-label="Предыдущая фотогорафия">&lt;</button>
-						<button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic hide" type="button"
-							aria-label="Следующая фотогорафия">&gt;</button>
+						<button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide"
+							type="button" aria-label="Следующая фотогорафия">&gt;</button>
 					</div>
 					<dl class="parametrs__wrapper">
 						<div class="parametrs__item parametr">
@@ -232,11 +225,12 @@
 					</dl>
 
 					<div class="parametrs__toggle-wrapper">
-						<a href="" class="toggle-btn parametrs__toggle parametrs__toggle--first btn btn--collapse hide">
+						<a href=""
+							class="toggle-btn parametrs__toggle parametrs__toggle--more parametrs__toggle--hide btn btn--collapse">
 							<span class="toggle-btn__open hide">Подробнее</span>
 							<span class="toggle-btn__close">Свернуть</span>
 						</a>
-						<a href="" class="parametrs__toggle btn btn--buy">Заказать</a>
+						<a href="" class="parametrs__toggle parametrs__toggle--buy btn btn--buy">Заказать</a>
 					</div>
 				</li>
 			</ul>
@@ -335,7 +329,7 @@
 			<p class="footer__copyrights">&copy;&nbsp;2013-2023 &laquo;МейкПро&raquo;. <span class="visually-hidden">Все
 					права защищены</span></p>
 	</footer>
-	<script src="./js/toggle-menu.min.js"></script>
+	<script type="module" src="./js/main.js"></script>
 
 	<!-- Yandex.Metrika counter -->
 	<script
@@ -345,7 +339,7 @@
 	</noscript> <!-- /Yandex.Metrika counter -->
 
 	<!--Инициализация верхнего слайдера-->
-	<script>
+	<!-- <script>
 		!(function () {
 
 			$('.main-slider').slick({
@@ -360,7 +354,7 @@
 			});
 
 		})();
-	</script>
+	</script> -->
 
 	<!--jivosayt-->
 	<!-- BEGIN JIVOSITE CODE {literal} -->
