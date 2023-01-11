@@ -8,7 +8,16 @@ const changeInfo = [
 
 function removeIfContains(elem, classTitle) {
   if (elem.classList.contains(classTitle)) {
-      elem.classList.remove(classTitle)
+    elem.classList.remove(classTitle)
+  }
+}
+
+function removeAddIfContains(elem, containClass, addClass) {
+  if (elem.classList.contains(containClass)) {
+    elem.classList.remove(containClass);
+    if (addClass !== undefined) {
+      elem.classList.add(addClass);
+    }
   }
 }
 
@@ -63,5 +72,5 @@ function addToDOM(parent, sample, datas, classesAndValues) {
 };
 
 
-export { addToDOM, changeDOM, removeIfContains };
+export { addToDOM, changeDOM, removeAddIfContains };
 

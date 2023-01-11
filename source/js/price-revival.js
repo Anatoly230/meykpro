@@ -1,4 +1,4 @@
-import {removeIfContains} from './rendering.js';
+import { removeAddIfContains } from './rendering.js';
 
 const price = document.querySelector('.price');
 const moreBtns = price.querySelectorAll('.parametrs__toggle--more')
@@ -8,22 +8,34 @@ const imageBlocks = price.querySelectorAll('.parametrs__pic-wrapper');
 const parametrsBlocks = price.querySelectorAll('.parametrs__wrapper');
 const moreBuyBlocks = price.querySelectorAll('.parametrs__toggle-wrapper');
 
+price.addEventListener('click', function(e){
+    e.preventDefault();
+    if(e.target.classList.contains('parametrs__toggle--more')){
+        removeAddIfContains(e.target, 'btn--more', 'toggle-btn-js--collapse')
+console.log(e.target.classList)
+console.log('Заменить класс на collapse')
+    }
+// console.log(e.target.classList)
+
+})
+
 function getImegeSlidBtns() {
     priceImageBtns.forEach(function (item) {
-        removeIfContains(item, 'slide-pic--hide')
+        removeAddIfContains(item, 'slide-pic--hide')
     })
 }
 
-function getMoreBts(){
+function getMoreBts() {
     moreBtns.forEach(function (item) {
-        removeIfContains(item, 'parametrs__toggle--hide')
+        removeAddIfContains(item, 'parametrs__toggle--hide');
+        removeAddIfContains(item, 'btn--collapse', 'btn--more');
     })
 }
 
 getMoreBts();
 
 
-getImegeSlidBtns()
+// getImegeSlidBtns()
 
 console.log(imageBlocks, parametrsBlocks, moreBuyBlocks)
 
