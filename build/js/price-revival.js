@@ -35,7 +35,7 @@ function getMoreBts() {
 getMoreBts();
 
 
-// getImegeSlidBtns()
+getImegeSlidBtns()
 
 console.log(imageBlocks, parametrsBlocks, moreBuyBlocks)
 
