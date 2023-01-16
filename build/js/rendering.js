@@ -6,9 +6,9 @@ const changeInfo = [
 ]
 
 
-function removeIfContains(elem, classTitle) {
-  if (elem.classList.contains(classTitle)) {
-    elem.classList.remove(classTitle)
+function removeIfContains(elem, containClass) {
+  if (elem.classList.contains(containClass)) {
+    elem.classList.remove(containClass)
   }
 }
 
