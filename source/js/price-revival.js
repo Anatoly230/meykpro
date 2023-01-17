@@ -1,10 +1,9 @@
 import { removeAddIfContains } from './rendering.js';
 
 const price = document.querySelector('.price');
-const moreBtns = price.querySelectorAll('.parametrs__toggle--more')
+const moreBtns = price.querySelectorAll('.btn--more')
 // const buyBtns = price.querySelectorAll('.parametrs__toggle--buy')
 const priceImageBtns = price.querySelectorAll('.slide-pic');
-let openedPrice = null;
 
 function definOPenCloseElement() {
     let price = {
@@ -28,6 +27,7 @@ function definOPenCloseElement() {
 }
 
 let test = definOPenCloseElement();
+
 
 function isContains(element, containClass) {
     return element.classList.contains(containClass);
@@ -67,6 +67,7 @@ function toggleElemenClass(element, parentClass, classOne, classTwo) {
 
 function setOtherClass(element, currentClass, targetClass) {
     let foundElement = getParentElement(element, currentClass);
+    console.log(foundElement);
     if (foundElement) {
         test.setCurrent(getParentElement(element, 'parametrs'));
         console.log(test.getCurrent())
@@ -76,16 +77,19 @@ function setOtherClass(element, currentClass, targetClass) {
 
 price.addEventListener('click', function (e) {
     e.preventDefault();
-    let element = getParentElement(e.target, 'parametrs__toggle--more')
-    console.log(element)
-    if (isContains(element, 'btn--collapse')) {
-        element.classList.remove('btn--collapse');
-        element.classList.add('btn--more');
-    } else {
-        element.classList.remove('btn--more');
-        element.classList.add('btn--collapse');
-    }
-    // setOtherClass(e.target, 'btn--more', 'toggle-btn-js--collapse');
+    // let element = getParentElement(e.target, 'parametrs__toggle--more')
+    // console.log(element)
+    // if (isContains(element, 'btn--collapse')) {
+    //     element.classList.remove('btn--collapse');
+    //     element.classList.add('btn--more');
+    // } else {
+    //     element.classList.remove('btn--more');
+    //     element.classList.add('btn--collapse');
+    // }
+
+    // console.log('hi')
+    // console.log(getParentElement(e.target, 'btn--more'))
+    setOtherClass(e.target, 'parametrs__toggle--more', 'toggle-btn-js--collapse');
 
 })
 
@@ -98,15 +102,14 @@ function getImegeSlidBtns() {
 function getMoreBts() {
     moreBtns.forEach(function (item) {
         removeAddIfContains(item, 'parametrs__toggle--hide');
-        removeAddIfContains(item, 'btn--collapse');
+        removeAddIfContains(item, 'btn--hide');
     })
 }
 
 getMoreBts();
 
-
 // getImegeSlidBtns()
 
-// console.log(imageBlocks, parametrsBlocks, moreBuyBlocks)
+
 
 export { price };

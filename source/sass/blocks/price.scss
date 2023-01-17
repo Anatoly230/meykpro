@@ -1,0 +1,11 @@
+.price {
+    &__list {
+        @include section-wrapper;
+    }
+
+    &__list-item {
+        @include tablet {
+            margin-block-end: rem(20);
+        }
+    }
+}

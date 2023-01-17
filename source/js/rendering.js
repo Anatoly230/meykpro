@@ -66,7 +66,7 @@ function addToDOM(parent, sample, datas, classesAndValues) {
       value = getOut(data, item.source);
       assignToElement(element.querySelector(item.class), item.target, value);
     })
-    elementStorage.appendChild(element)
+    elementStorage.appendChild(element);
   })
   parent.appendChild(elementStorage)
 };

@@ -13,11 +13,9 @@
     min-height: rem(40);
     border-radius: rem(20);
 
-
     @include tablet {
         border-radius: rem(5);
     }
-
 
     &:hover {
         cursor: pointer;
@@ -49,5 +47,104 @@
         margin-inline-end: rem(15);
         fill: $white;
     }
-}
 
+    &__icon--js {
+        display: initial;
+        width: 19px;
+        height: auto;
+        fill: $green;
+        padding: 0;
+
+        @include tablet {
+            width: initial;
+            margin-inline-end: rem(8);
+            fill: $white;
+        }
+
+        @include desktop {
+            margin-inline-end: rem(15);
+            fill: $white;
+        }
+    }
+
+    &__text--js {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &:hover &__icon {
+        opacity: 0.7;
+    }
+
+    &:focus &__icon {
+        opacity: 0.4;
+    }
+
+    &__text--hide {
+        display: none;
+    }
+
+    &__icon--js-cart {
+        fill: $pink;
+        width: 24px;
+
+        @include tablet {
+            fill: $white;
+            width: 21px;
+        }
+    }
+
+    &--hide {
+        display: none;
+    }
+
+    &--js {
+        padding: 5px;
+        background-color: transparent;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+
+    &--js-more {
+        @include tablet {
+            background-color: $logo-yellow;
+        }
+
+        &:hover {
+            @include tablet {
+                background-color: $logo-yellow-darkened;
+            }
+        }
+
+        &:active {
+            @include tablet {
+                background-color: rgba($logo-yellow-darkened, 0.6);
+            }
+        }
+    }
+
+    &--js-buy {
+        @include tablet {
+            background-color: $pink;
+        }
+
+        &:hover {
+            @include tablet {
+                background-color: $green;
+            }
+        }
+
+        &:active {
+            @include tablet {
+                background-color: rgba($green, 0.6);
+            }
+        }
+    }
+
+}
