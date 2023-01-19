@@ -14,8 +14,18 @@ function definOPenCloseElement() {
         getCurrent: function () {
             return price.current;
         },
-        setCurrent: function (value) {
-            price.current = value;
+        setCurrent: function (element) {
+            if(element.dataset.about !== 'current'){
+                element.dataset.about = 'current';
+                price.previos = price.current;
+                price.current = element;
+            }else{
+                price.current.dataset.about = '';
+                element.dataset.about = 'current';
+                price.current = element;
+
+            }
+
         },
         getPrevios: function () {
             return price.previos;
@@ -26,20 +36,12 @@ function definOPenCloseElement() {
     }
 }
 
-let test = definOPenCloseElement();
+let seniorUnit = definOPenCloseElement();
 
 
 function isContains(element, containClass) {
     return element.classList.contains(containClass);
 }
-
-// function ifContainsOrNo(element, classOne, classTwo) {
-//     if (isContains(element, classOne)) {
-//         element.classList.add(classOne);
-//     } else { 
-//         element.classList.add(classTwo);
-//     }
-// }
 
 function getParentElement(element, parentClass) {
     while (!element.classList.contains(parentClass)) {
@@ -69,29 +71,54 @@ function setOtherClass(element, currentClass, targetClass) {
     let foundElement = getParentElement(element, currentClass);
     console.log(foundElement);
     if (foundElement) {
-        test.setCurrent(getParentElement(element, 'parametrs'));
-        console.log(test.getCurrent())
+        seniorUnit.setCurrent(getParentElement(element, 'parametrs'));
+        console.log(seniorUnit.getCurrent())
         removeAddIfContains(foundElement, currentClass, targetClass)
     }
 }
 
+function getToggleClass(element, toggleClass) {
+    element.classList.toggle(toggleClass);
+}
+
+function moreBuyBtnsToggle(element) {
+    let btnIcon = element.querySelector('.btn__icon'),
+        btnTexts = element.querySelectorAll('.btn__text'),
+        btnBuy = element.parentElement.querySelector('.btn--buy'),
+        btnBuyIcon = btnBuy.querySelector('.btn__icon'),
+        btnBuyText = btnBuy.querySelector('.btn__text');
+    getToggleClass(element, 'btn--js-more');
+    getToggleClass(element, 'btn--js-collapse');
+    getToggleClass(element, 'btn--js');
+    getToggleClass(btnIcon, 'btn__icon--js');
+    getToggleClass(btnBuy, 'btn--js-buy');
+    getToggleClass(btnBuy, 'btn--js');
+    getToggleClass(btnBuyIcon, 'btn__icon--js');
+    getToggleClass(btnBuyIcon, 'btn__icon--js-cart');
+    getToggleClass(btnBuyText, 'btn__text--js');
+    btnTexts.forEach(function (item) {
+        getToggleClass(item, 'btn__text--hide');
+        getToggleClass(item, 'btn__text--js');
+    })
+    btnIcon = btnTexts = btnBuy = btnBuyIcon = btnBuyText = null;
+}
+
 price.addEventListener('click', function (e) {
     e.preventDefault();
-    // let element = getParentElement(e.target, 'parametrs__toggle--more')
-    // console.log(element)
-    // if (isContains(element, 'btn--collapse')) {
-    //     element.classList.remove('btn--collapse');
-    //     element.classList.add('btn--more');
-    // } else {
-    //     element.classList.remove('btn--more');
-    //     element.classList.add('btn--collapse');
-    // }
+    seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'))
+    let classtitle = 'btn--more',
+        newElement = getParentElement(e.target, classtitle);
+        let rootItem = seniorUnit.getCurrent();
+    if (newElement !== null) {
 
-    // console.log('hi')
-    // console.log(getParentElement(e.target, 'btn--more'))
-    setOtherClass(e.target, 'parametrs__toggle--more', 'toggle-btn-js--collapse');
+        getToggleClass(seniorUnit.getCurrent(), 'parametrs--js')
+        moreBuyBtnsToggle(newElement);
 
+    } else { console.log(`target elemnt not contains the class "${classtitle}"`) }
 })
+
+
+
 
 function getImegeSlidBtns() {
     priceImageBtns.forEach(function (item) {
@@ -108,7 +135,7 @@ function getMoreBts() {
 
 getMoreBts();
 
-// getImegeSlidBtns()
+getImegeSlidBtns()
 
 
 

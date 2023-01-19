@@ -26,13 +26,6 @@
         background-color: $pink;
     }
 
-    &--collapse {
-        background-color: $disabled;
-
-        &:hover {
-            background-color: $disabled-darked;
-        }
-    }
 
     &--more {
         background-color: $logo-yellow;
@@ -126,6 +119,14 @@
             @include tablet {
                 background-color: rgba($logo-yellow-darkened, 0.6);
             }
+        }
+    }
+
+    &--js-collapse {
+        background-color: $disabled;
+
+        &:hover {
+            background-color: $disabled-darked;
         }
     }
 
