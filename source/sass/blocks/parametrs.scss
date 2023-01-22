@@ -51,7 +51,8 @@
 
     &__heading-wrapper--js {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(110px, 1fr) 1fr;
+        column-gap: rem(20);
         padding-block: 0;
         grid-column: 1 / 2;
         grid-row: 1 / -1;
@@ -82,10 +83,10 @@
     }
 
     &__heading--js {
-        margin-inline-end: rem(20);
+        margin-inline-end: 0;
 
         @include desktop {
-            justify-self: end;
+            justify-self: start;
         }
     }
 
@@ -204,6 +205,9 @@
 
     &__toggle:first-of-type {
         margin-inline-end: 20px;
+    }
+    &__toggle--js:first-of-type {
+        margin-inline-end: 0;
     }
 
     &__toggle-wrapper--js {

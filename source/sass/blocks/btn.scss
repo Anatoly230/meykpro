@@ -37,8 +37,11 @@
 
     &__icon {
         display: none;
-        margin-inline-end: rem(15);
         fill: $white;
+
+        @include tablet {
+            margin-inline-end: rem(15);
+        }
     }
 
     &__icon--js {
@@ -95,8 +98,13 @@
     }
 
     &--js {
+        width: 40px;
         padding: 5px;
         background-color: transparent;
+
+        @include tablet {
+            width: 100%;
+        }
 
         &:hover {
             background-color: transparent;

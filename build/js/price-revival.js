@@ -1,41 +1,33 @@
 import { removeAddIfContains } from './rendering.js';
 
 const price = document.querySelector('.price');
-const moreBtns = price.querySelectorAll('.btn--more')
-// const buyBtns = price.querySelectorAll('.parametrs__toggle--buy')
+const parametrsSet = price.querySelectorAll('.parametrs')
 const priceImageBtns = price.querySelectorAll('.slide-pic');
 
 function definOPenCloseElement() {
     let price = {
-        current: null,
-        previos: null,
+        current: null
     }
     return {
-        getCurrent: function () {
-            return price.current;
-        },
         setCurrent: function (element) {
-            if(element.dataset.about !== 'current'){
+            if (isDataSetAbout(element, 'current')) {
+                element.dataset.about = '';
+                price.current = null;
+                revialPrice(element);
+            } else {
                 element.dataset.about = 'current';
-                price.previos = price.current;
-                price.current = element;
-            }else{
-                price.current.dataset.about = '';
-                element.dataset.about = 'current';
-                price.current = element;
-
+                revialPrice(element);
+                if (price.current !== null) {
+                    revialPrice(price.current);
+                    price.current.dataset.about = '';
+                    price.current = element;
+                } else {
+                    price.current = element;
+                }
             }
-
-        },
-        getPrevios: function () {
-            return price.previos;
-        },
-        setPrevios: function (value) {
-            price.previos = value;
-        },
+        }
     }
 }
-
 let seniorUnit = definOPenCloseElement();
 
 
@@ -53,72 +45,73 @@ function getParentElement(element, parentClass) {
     return element;
 }
 
-function toggleElemenClass(element, parentClass, classOne, classTwo) {
-    let targetElemnt = getParentElement(element, parentClass),
-        contansClass, addingClass;
-    if (icContains(targetElemnt, classOne)) {
-        contansClass = classOne;
-        addingClass = classTwo;
-    } else if (icContains(targetElemnt, classTwo)) {
-        contansClass = classtwo;
-        addingClass = classOne;
-    }
-    targetElemnt.classList.remove(contansClass);
-    targetElemnt.classList.add(addingClass);
-}
-
-function setOtherClass(element, currentClass, targetClass) {
-    let foundElement = getParentElement(element, currentClass);
-    console.log(foundElement);
-    if (foundElement) {
-        seniorUnit.setCurrent(getParentElement(element, 'parametrs'));
-        console.log(seniorUnit.getCurrent())
-        removeAddIfContains(foundElement, currentClass, targetClass)
-    }
-}
-
 function getToggleClass(element, toggleClass) {
     element.classList.toggle(toggleClass);
 }
 
-function moreBuyBtnsToggle(element) {
-    let btnIcon = element.querySelector('.btn__icon'),
-        btnTexts = element.querySelectorAll('.btn__text'),
-        btnBuy = element.parentElement.querySelector('.btn--buy'),
+function isDataSetAbout(element, attr) {
+    return element.dataset.about === attr;
+}
+
+function revialPrice(element) {
+    let headerWrapper = element.querySelector('.parametrs__heading-wrapper'),
+        parametrHeader = headerWrapper.querySelector('.parametrs__heading'),
+        parametrPrice = headerWrapper.querySelector('.parametrs__price'),
+        picWrapper = element.querySelector('.parametrs__pic-wrapper'),
+        parametrsWrapper = element.querySelector('.parametrs__wrapper'),
+        parametrSet = element.querySelectorAll('.parametr'),
+        parametrsBtnWrapper = element.querySelector('.parametrs__toggle-wrapper'),
+        btnMore = element.querySelector('.btn--more'),
+        btnIcon = btnMore.querySelector('.btn__icon'),
+        btnTexts = btnMore.querySelectorAll('.btn__text'),
+        btnBuy = btnMore.parentElement.querySelector('.btn--buy'),
         btnBuyIcon = btnBuy.querySelector('.btn__icon'),
         btnBuyText = btnBuy.querySelector('.btn__text');
-    getToggleClass(element, 'btn--js-more');
-    getToggleClass(element, 'btn--js-collapse');
-    getToggleClass(element, 'btn--js');
+    getToggleClass(element, 'parametrs--js');
+    getToggleClass(headerWrapper, 'parametrs__heading-wrapper--js');
+    getToggleClass(parametrHeader, 'parametrs__heading--js');
+    getToggleClass(parametrPrice, 'parametrs__price--js');
+    getToggleClass(picWrapper, 'parametrs__pic-wrapper--js');
+    getToggleClass(parametrsWrapper, 'parametrs__wrapper--js');
+    getToggleClass(parametrsBtnWrapper, 'parametrs__toggle-wrapper--js');
+    getToggleClass(btnMore, 'parametrs__toggle--js');
+    getToggleClass(btnMore, 'btn--js-more');
+    getToggleClass(btnMore, 'btn--js-collapse');
+    getToggleClass(btnMore, 'btn--js');
+    removeAddIfContains(btnMore, 'btn--hide');
     getToggleClass(btnIcon, 'btn__icon--js');
     getToggleClass(btnBuy, 'btn--js-buy');
     getToggleClass(btnBuy, 'btn--js');
     getToggleClass(btnBuyIcon, 'btn__icon--js');
     getToggleClass(btnBuyIcon, 'btn__icon--js-cart');
     getToggleClass(btnBuyText, 'btn__text--js');
+
+    parametrSet.forEach(function (item) {
+        getToggleClass(item, 'parametr--js-hide');
+        if (isDataSetAbout(item, 'show')) {
+            getToggleClass(item.querySelector('.parametr__name'), 'parametr__name--js-hide')
+            getToggleClass(item, 'parametr--js-show')
+        }
+    })
+
     btnTexts.forEach(function (item) {
         getToggleClass(item, 'btn__text--hide');
         getToggleClass(item, 'btn__text--js');
     })
+
     btnIcon = btnTexts = btnBuy = btnBuyIcon = btnBuyText = null;
+}
+
+function isMoreBtn(element) {
+    return getParentElement(element, 'btn--more');
 }
 
 price.addEventListener('click', function (e) {
     e.preventDefault();
-    seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'))
-    let classtitle = 'btn--more',
-        newElement = getParentElement(e.target, classtitle);
-        let rootItem = seniorUnit.getCurrent();
-    if (newElement !== null) {
-
-        getToggleClass(seniorUnit.getCurrent(), 'parametrs--js')
-        moreBuyBtnsToggle(newElement);
-
-    } else { console.log(`target elemnt not contains the class "${classtitle}"`) }
+    if (isMoreBtn(e.target)) {
+        seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'));
+    }
 })
-
-
-
 
 function getImegeSlidBtns() {
     priceImageBtns.forEach(function (item) {
@@ -126,17 +119,14 @@ function getImegeSlidBtns() {
     })
 }
 
-function getMoreBts() {
-    moreBtns.forEach(function (item) {
-        removeAddIfContains(item, 'parametrs__toggle--hide');
-        removeAddIfContains(item, 'btn--hide');
+function launchPrice() {
+    parametrsSet.forEach(function (item) {
+        revialPrice(item);
     })
 }
 
-getMoreBts();
 
-getImegeSlidBtns()
-
-
+// getImegeSlidBtns()
+launchPrice();
 
 export { price };
