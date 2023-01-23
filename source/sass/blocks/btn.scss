@@ -52,9 +52,9 @@
         padding: 0;
 
         @include tablet {
+            display: none;
             width: initial;
-            margin-inline-end: rem(8);
-            fill: $white;
+            margin-inline-end: rem(15);
         }
 
         @include desktop {
@@ -68,7 +68,16 @@
 
         @include tablet {
             display: flex;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-decoration-color: inherit;
+            text-underline-offset: 10px;
+
         }
+    }
+
+    &__text--js-buy {
+        display: none;
     }
 
     &:hover &__icon {
@@ -88,8 +97,9 @@
         width: 24px;
 
         @include tablet {
-            fill: $white;
-            width: 21px;
+            display: initial;
+            // fill: $white;
+            // width: 21px;
         }
     }
 
@@ -103,7 +113,8 @@
         background-color: transparent;
 
         @include tablet {
-            width: 100%;
+            padding: 0;
+            width: auto;
         }
 
         &:hover {
@@ -113,22 +124,30 @@
 
 
     &--js-more {
+
         @include tablet {
-            background-color: $logo-yellow;
+            color: $disabled-darked;
         }
 
         &:hover {
             @include tablet {
-                background-color: $logo-yellow-darkened;
+                color: $disabled;
             }
+        }
+
+        &:hover .btn__text--js {
+            text-decoration-color: $disabled;
+            text-underline-offset: 12px;
+
         }
 
         &:active {
             @include tablet {
-                background-color: rgba($logo-yellow-darkened, 0.6);
+                color: rgba($disabled, 0.5);
             }
         }
     }
+
 
     &--js-collapse {
         background-color: $disabled;
@@ -140,18 +159,18 @@
 
     &--js-buy {
         @include tablet {
-            background-color: $pink;
+            // background-color: $pink;
         }
 
         &:hover {
             @include tablet {
-                background-color: $green;
+                // background-color: $green;
             }
         }
 
         &:active {
             @include tablet {
-                background-color: rgba($green, 0.6);
+                // background-color: rgba($green, 0.6);
             }
         }
     }

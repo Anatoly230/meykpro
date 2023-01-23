@@ -84,7 +84,8 @@ function revialPrice(element) {
     getToggleClass(btnBuy, 'btn--js');
     getToggleClass(btnBuyIcon, 'btn__icon--js');
     getToggleClass(btnBuyIcon, 'btn__icon--js-cart');
-    getToggleClass(btnBuyText, 'btn__text--js');
+    getToggleClass(btnBuyText, 'btn__text--js-buy');
+    // getToggleClass(btnBuyText, 'btn__text--js');
 
     parametrSet.forEach(function (item) {
         getToggleClass(item, 'parametr--js-hide');
@@ -107,8 +108,9 @@ function isMoreBtn(element) {
 }
 
 price.addEventListener('click', function (e) {
-    e.preventDefault();
+
     if (isMoreBtn(e.target)) {
+        e.preventDefault();
         seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'));
     }
 })
