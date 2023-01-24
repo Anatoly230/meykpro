@@ -1,0 +1,57 @@
+.item-status {
+    position: relative;
+
+    &::before,
+    &::after {
+        box-shadow: 0 0 5px rgba($disabled, 0.7);
+        display: flex;
+        color: $white;
+        min-width: 40px;
+        min-height: 40px;
+        padding-inline: 10px;
+        padding-block: 5px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 5px;
+        top: 15px;
+        left: 15px;
+        text-transform: capitalize;
+        
+        @include tablet {
+            top: 25px;
+            left: 25px;
+            min-width: 45px;
+            min-height: 45px;
+            // text-transform: uppercase;
+
+        }
+
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+
+    &--hit::before {
+        content: "хит";
+        background-color: $pink;
+    }
+
+    &--exclusive::after {
+        content: "exclsve";
+        background-color: $logo-yellow-darkened;
+        left: initial;
+        right: 15px;
+
+        @include tablet {
+            content: "exclusive";
+            top: 25px;
+            right: 25px;
+            font-size: initial;
+        }
+
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+}

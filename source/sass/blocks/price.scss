@@ -4,8 +4,6 @@
     }
 
     &__list-item {
-        @include tablet {
-            margin-block-end: rem(20);
-        }
+        @include tablet {}
     }
 }

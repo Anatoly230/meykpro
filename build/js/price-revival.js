@@ -128,7 +128,7 @@ function launchPrice() {
 }
 
 
-// getImegeSlidBtns()
+// getImegeSlidBtns();
 launchPrice();
 
 export { price };
