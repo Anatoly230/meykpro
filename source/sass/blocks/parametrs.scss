@@ -11,6 +11,7 @@
         grid-template-rows: repeat(3, auto);
     }
 
+
     &--js {
         display: grid;
         column-gap: rem(20);
@@ -206,6 +207,7 @@
     &__toggle:first-of-type {
         margin-inline-end: 20px;
     }
+
     &__toggle--js:first-of-type {
         margin-inline-end: 0;
     }

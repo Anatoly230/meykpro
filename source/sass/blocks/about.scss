@@ -1,10 +1,8 @@
 .about {
     padding-block: rem(20);
-    // background-image: url("../img/background/pattern-waved-ropes_2.svg");
-    background-size: 100px auto;
-    background-color: rgba(#f2eae1, 0.15);
 
     &__heading {
+        @include heading-wrapper;
         margin: 0 auto;
         margin-block-end: rem(30);
     }

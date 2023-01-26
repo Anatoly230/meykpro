@@ -1,4 +1,12 @@
 .price {
+    padding-block: rem(30) rem(30);
+
+    &__heading {
+        @include heading-wrapper;
+        padding: 0;
+        margin-block-end: rem(30);
+    }
+
     &__list {
         @include section-wrapper;
     }

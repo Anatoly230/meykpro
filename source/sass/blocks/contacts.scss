@@ -1,4 +1,6 @@
 .contacts {
+    // overflow-x: hidden;
+
     &__form {
         @include section-wrapper;
         margin-block-end: rem(20);
@@ -9,7 +11,7 @@
     }
 
     &__heading {
-        // @include wrapper;
+        @include heading-wrapper;
         margin-block-end: rem(20);
 
         @include tablet {
@@ -40,7 +42,7 @@
         font-size: rem(13);
 
         @include tablet {
-            margin-block-end: rem(50);
+            // margin-block-end: rem(50);
             font-size: rem(15);
 
         }
