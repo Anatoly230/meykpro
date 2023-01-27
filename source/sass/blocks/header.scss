@@ -1,131 +1,142 @@
 .header {
+  position: relative;
+  z-index: 0;
+  background-color: $white;
+
+  &__nav {
+    @include wrapper;
     position: relative;
-    z-index: 0;
-    background-color: $white;
-  
-    &__nav {
-      @include wrapper;
-      position: relative;
-    }
-  
-    &__menu-wrapper {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background-color: $grey;
-      justify-content: space-between;
-      z-index: 1;
-  
-      @include tablet {
-        padding-inline: rem(5) rem(10);
-        position: relative;
-        flex-direction: row;
-      }
-    }
-  
-    &__menu-wrapper::before {
-      @include tablet {
-        @include solidPer100vw;
-      }
-    }
-  
-    &__buttons-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-inline: rem(15);
-  
-      @include tablet {
-        padding-inline: 0;
-      }
-    }
-  
-    &__toggle-menu {
-      @include tablet {
-        display: none;
-      }
-    }
-  
-    &__menu {
-      order: 1;
-  
-      @include tablet {
-        order: inherit;
-      }
-    }
-  
-    &__callback-btn {
-      display: flex;
-      width: rem(200);
-      height: 100%;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      @include reset-link-style($white);
-      padding-inline: rem(28);
-      padding-block: rem(12);
-      background-color: $pink;
-  
-      &:hover {
-        background-color: $green;
-      }
-    }
-  
-    &__adding-info-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-inline: rem(15);
-      padding-block: rem(20);
-  
-      @include tablet {
-        padding-inline: rem(20);
-      }
-    }
-  
-    &__logo {
-      flex-shrink: 0;
-    }
-  
-    &__info-wrapper {
-      display: none;
-  
-      @include tablet {
-        display: initial;
-        max-width: rem(350);
-      }
-    }
-  
-    &__info {
-      text-align: center;
-    }
-  
-    &__info--mode {
-      font-size: rem(20);
-  
-      &::after {
-        display: block;
-        content: '';
-        width: 100%;
-        height: rem(1);
-        background-color: $grey;
-        margin-block-start: rem(10);
-        margin-block-end: rem(5);
-      }
-    }
-  
-    &__contacts-wrapper {
-      max-width: rem(160);
-    }
-  
-    &__contact {
-      @include reset-link-style($off-black);
-      display: block;
-      font-style: italic;
-    }
-  
-    &__contact--mail {}
-  
-    &__benefits {}
   }
-  
+
+  &__menu-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+    justify-content: space-between;
+    z-index: 1;
+
+    @include tablet {
+      padding-inline: rem(5) rem(10);
+      position: relative;
+      flex-direction: row;
+    }
+  }
+
+  &__menu-wrapper::before {
+    @include tablet {
+      @include solidPer100vw;
+    }
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: rem(15);
+
+    @include tablet {
+      padding-inline: 0;
+    }
+  }
+
+  &__toggle-menu {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    order: 1;
+
+    @include tablet {
+      order: inherit;
+    }
+  }
+
+  &__callback-btn {
+    display: flex;
+    width: rem(200);
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    @include reset-link-style($white);
+    padding-inline: rem(28);
+    padding-block: rem(12);
+    background-color: $pink;
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+
+  &__benefits {}
+}
+
+
+
+.header {
+
+  &__adding-info-wrapper {
+
+    padding-inline: rem(30);
+    padding-block: rem(30);
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    column-gap: rem(10);
+
+  }
+
+  &__logo {
+  }
+
+  &__info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    align-items: center;
+    column-gap: rem(20);
+  }
+
+  &__info {}
+
+  &__info--continuously {
+    order: 2;
+  }
+
+  &__info-pic {
+    width: rem(40);
+    height: auto;
+  }
+
+  &__info-pic--location {
+    width: rem(25);
+  }
+
+  &__info-text {
+    display: none;
+  }
+
+  &__contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    align-items: center;
+    column-gap: rem(10);
+  }
+
+  &__contact {}
+
+  &__contacts-pic {
+    width: rem(25);
+    height: auto;
+  }
+
+  &__contact-text {
+    display: none;
+  }
+
+  &__contact--mail {}
+}

@@ -64,12 +64,33 @@
 					</picture>
 				</a>
 				<div class="header__info-wrapper">
-					<p class="header__info header__info--mode">Принимаем заказы круглосуточно и&nbsp;без выходных.</p>
-					<p class="header__info">г. Москва, Полярная 31&nbsp;Б с17</p>
+					<p class="header__info header__info--continuously">
+						<svg class="header__info-pic" width="17" height="17"
+							aria-hidden="true">
+							<use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
+						</svg>
+						<span class="header__info-text">Принимаем заказы круглосуточно и&nbsp;без выходных.</span>
+					</p>
+					<p class="header__info">
+						<svg class="header__info-pic  header__info-pic--location" width="25" height="25" aria-hidden="true">
+							<use xlink:href="./img/icons/sprite.svg#location"></use>
+						</svg>
+						<span class="header__info-text">г. Москва, Полярная 31&nbsp;Б с17</span>
+					</p>
 				</div>
 				<div class="header__contacts-wrapper">
-					<a class="header__contact header__contact--mail" href="mailto:zakaz@meykpro.ru">zakaz@meykpro.ru</a>
-					<a class="header__contact " href="tel:+79854687651">8 (985) 468 76&nbsp;51</a>
+					<a class="header__contact header__contact--mail" href="mailto:zakaz@meykpro.ru">
+						<svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+							<use xlink:href="./img/icons/sprite.svg#mail"></use>
+						</svg>
+						<span class="header__contact-text">zakaz@meykpro.ru</span>
+					</a>
+					<a class="header__contact " href="tel:+79854687651">
+						<svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+							<use xlink:href="./img/icons/sprite.svg#phone"></use>
+						</svg>
+						<span class="header__contact-text">8 (985) 468 76&nbsp;51</span>
+					</a>
 				</div>
 			</div>
 			<ul class="header__benefits benefits">
@@ -100,21 +121,25 @@
 						Размерная линейка 65, 70, 80мм. Рекомендуемое отверстие под стержень микрофона 45мм.</p>
 					<p class="slide__price-wrapper">
 						<span class="slide__price">3100 руб.</span>
-						<button class="slide__price-buy-btn btn btn--buy">Заказать</button>
+						<a href="#contacts" class="slide__price-buy-btn btn btn--buy">Заказать</a>
 					</p>
 
 				</li>
 			</ul>
 			<div class="slider__buttons buttons-list">
-				<button class="buttons-list__item buttons-list__slide" type="button" aria-label="переключатель слайда" data-slide="right"></button>
-				<button class="buttons-list__item buttons-list__item--current" type="button"
-				aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
-				<button class="buttons-list__item buttons-list__slide buttons-list__slide--right" type="button" aria-label="переключатель слайда" data-slide="right"></button>
+				<button class="buttons-list__item buttons-list__slide" type="button" aria-label="переключатель слайда"
+					data-slide="right">&lt;</button>
+				<div class="buttons-list__wrapper">
+					<button class="buttons-list__item buttons-list__item--current" type="button"
+						aria-label="переключатель слайда"></button>
+					<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
+					<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
+					<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
+					<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
+					<button class="buttons-list__item" type="button" aria-label="переключатель слайда"></button>
+				</div>
+				<button class="buttons-list__item buttons-list__slide buttons-list__slide--right" type="button"
+					aria-label="переключатель слайда" data-slide="right">&gt;</button>
 			</div>
 		</section>
 
