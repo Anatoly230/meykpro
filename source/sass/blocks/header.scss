@@ -84,39 +84,99 @@
     padding-inline: rem(30);
     padding-block: rem(30);
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     column-gap: rem(10);
 
+    @include tablet {
+      grid-template-columns: auto 1fr auto;
+      justify-items: center;
+      align-items: center;
+      column-gap: rem(50);
+      padding-block: rem(15) rem(20);
+    }
+
+    @include desktop {
+      padding-inline: rem(10);
+    }
   }
 
   &__logo {
+    grid-column: 2 / 3;
+
+    @include tablet {
+      grid-column: 1 / 2;
+    }
+
   }
 
   &__info-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-items: end;
+    justify-items: start;
     align-items: center;
     column-gap: rem(20);
+    grid-column: 1 / 2;
+    grid-row: 1/-1;
+
+    @include tablet {
+      display: initial;
+      grid-column: 2 / 3;
+      max-width: rem(400);
+    }
   }
 
-  &__info {}
+  &__info {
+    @include tablet {
+      text-align: center;
+    }
+  }
 
   &__info--continuously {
-    order: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__info--continuously::after {
+    @include tablet {
+      margin-block: rem(12);
+      content: '';
+      display: block;
+      position: relative;
+      width: 70%;
+      height: 1px;
+      background-color: $disabled;
+    }
   }
 
   &__info-pic {
     width: rem(40);
     height: auto;
+    fill: $disabled-darked;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__info-pic--location {
     width: rem(25);
+
+    @include tablet {
+      fill: $green;
+      display: initial;
+      width: rem(18);
+    }
   }
 
   &__info-text {
     display: none;
+
+    @include tablet {
+      display: initial;
+
+    }
   }
 
   &__contacts-wrapper {
@@ -125,18 +185,67 @@
     justify-items: end;
     align-items: center;
     column-gap: rem(10);
+    grid-column: 3 / -1;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      row-gap: rem(15);
+      justify-items: start;
+    }
+
   }
 
-  &__contact {}
+  &__contact {
+
+    @include tablet {
+      @include reset-link-style;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: rem(15);
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+
+  &__contact:hover &__contacts-pic {
+    @include tablet {
+      transform: scale(118%);
+      fill: green;
+      transition-property: transform;
+      transition-duration: 90ms;
+    }
+  }
+
 
   &__contacts-pic {
     width: rem(25);
     height: auto;
+
+    @include tablet {
+      width: rem(19);
+    }
   }
 
   &__contact-text {
     display: none;
+
+    @include tablet {
+      display: initial;
+      max-width: rem(250);
+    }
   }
 
-  &__contact--mail {}
+  &__contact--mail {
+
+    @include tablet {
+      align-self: end;
+    }
+  }
 }

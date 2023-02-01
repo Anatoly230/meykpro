@@ -15,7 +15,9 @@
 
     &__slider {
 
-        background: linear-gradient(to bottom right, $white, #D5D8DF);
+        // background: linear-gradient(to bottom right, $white, #D5D8DF);
+        
+        background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
         padding-block: rem(40);
 
         @include tablet {
@@ -172,6 +174,10 @@
         background-color: $logo-yellow;
         width: rem(8);
         height: rem(8);
+        flex-grow: 0;
+        flex-shrink: 1;
+        
+        justify-self: center;
 
         @include tablet {
             cursor: pointer;
@@ -234,6 +240,7 @@
         height: rem(40);
         background-color: $white;
         flex-shrink: 0;
+        border-radius: 50%;
         font-size: rem(20);
         color: $disabled;
 

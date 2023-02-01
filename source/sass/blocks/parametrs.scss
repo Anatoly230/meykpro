@@ -20,14 +20,14 @@
         grid-template-columns: 1fr minmax(80px, 120px);
 
         @include tablet {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr) auto;
             margin-block: 0;
             column-gap: rem(60);
         }
 
         @include desktop {
             justify-content: center;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(5, 1fr) auto;
             column-gap: rem(20);
         }
     }
@@ -222,7 +222,7 @@
 
         @include tablet {
             column-gap: rem(20);
-            grid-template-columns: repeat(2, 1fr);
+            // grid-template-columns: repeat(2, 1fr);
             grid-column: -1 / -3;
         }
     }
