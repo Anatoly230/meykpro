@@ -154,17 +154,18 @@
     width: rem(40);
     height: auto;
     fill: $disabled-darked;
-
+    
     @include tablet {
       display: none;
     }
   }
-
+  
   &__info-pic--location {
+    fill: $green;
     width: rem(25);
 
     @include tablet {
-      fill: $green;
+      // fill: $green;
       display: initial;
       width: rem(18);
     }
@@ -216,10 +217,9 @@
 
   &__contact:hover &__contacts-pic {
     @include tablet {
-      transform: scale(118%);
-      fill: green;
+      transform: scale(110%);
       transition-property: transform;
-      transition-duration: 90ms;
+      transition-duration: 10ms;
     }
   }
 

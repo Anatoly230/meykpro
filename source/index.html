@@ -65,14 +65,14 @@
 				</a>
 				<div class="header__info-wrapper">
 					<p class="header__info header__info--continuously">
-						<svg class="header__info-pic" width="17" height="17"
-							aria-hidden="true">
+						<svg class="header__info-pic" width="17" height="17" aria-hidden="true">
 							<use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
 						</svg>
 						<span class="header__info-text">Принимаем заказы круглосуточно и&nbsp;без выходных. </span>
 					</p>
 					<p class="header__info">
-						<svg class="header__info-pic  header__info-pic--location" width="25" height="25" aria-hidden="true">
+						<svg class="header__info-pic  header__info-pic--location" width="25" height="25"
+							aria-hidden="true">
 							<use xlink:href="./img/icons/sprite.svg#location"></use>
 						</svg>
 						<span class="header__info-text">г. Москва, Полярная 31&nbsp;Б с17</span>
@@ -103,7 +103,7 @@
 	<main class="page-body__content micflag">
 		<h1 class="visually-hidden">Кубики на микрофон</h1>
 
-		<section class="micflag__slider ">
+		<!-- <section class="micflag__slider ">
 			<h2 class="visually-hidden">Модели кубиков на микрофон</h2>
 			<ul class="micflag__slider-content slider">
 				<li class="slider__item slide">
@@ -141,7 +141,7 @@
 				<button class="buttons-list__item buttons-list__slide buttons-list__slide--right" type="button"
 					aria-label="переключатель слайда" data-slide="right">&gt;</button>
 			</div>
-		</section>
+		</section> -->
 
 		<!-- <section class="micflag__about about">
 
@@ -212,6 +212,52 @@
 				</li>
 			</ul>
 		</section> -->
+
+
+		<section class="micflag__portfolio ">
+			<h2></h2>
+
+			<h2 class="micflag__portfolio-heading heading">
+				<span class="heading__content">Портфолио</span>
+			</h2>
+			<ul class="micflag__portfolio-wrapper portfolio">
+				<li class="portfolio__item">
+					<picture class="portfolio__item-pic-contaner">
+						<source media="(min-width: 1150px)"
+							srcset="./img/portfolio/bio_sea-desktop.jpg 1x, ./img/portfolio/bio_sea-desktop@2x.jpg 2x">
+						<source media="(min-width: 768px)"
+							srcset="./img/portfolio/bio_sea-tablet.jpg 1x, ./img/portfolio/bio_sea-tablet@2x.jpg 2x">
+						<img class="portfolio__pic" src="./img/portfolio/bio_sea.jpg"
+							srcset="./img/portfolio//bio_sea@2x.jpg 2x" width="130" height="112"
+							alt="кубик на микрофон типа prisma vl bio sea">
+					</picture>
+				</li>
+				<li class="portfolio__item">
+					<picture class="portfolio__item-pic-contaner">
+						<source media="(min-width: 1150px)"
+							srcset="./img/portfolio/bio_sea-desktop.jpg 1x, ./img/portfolio/bio_sea-desktop@2x.jpg 2x">
+						<source media="(min-width: 768px)"
+							srcset="./img/portfolio/bio_sea-tablet.jpg 1x, ./img/portfolio/bio_sea-tablet@2x.jpg 2x">
+						<img class="portfolio__pic" src="./img/portfolio/bio_sea.jpg"
+							srcset="./img/portfolio//bio_sea@2x.jpg 2x" width="130" height="112"
+							alt="кубик на микрофон типа prisma vl bio sea">
+					</picture>
+				</li>
+				<li class="portfolio__item">
+					<picture class="portfolio__item-pic-contaner">
+						<source media="(min-width: 1150px)"
+							srcset="./img/portfolio/bio_sea-desktop.jpg 1x, ./img/portfolio/bio_sea-desktop@2x.jpg 2x">
+						<source media="(min-width: 768px)"
+							srcset="./img/portfolio/bio_sea-tablet.jpg 1x, ./img/portfolio/bio_sea-tablet@2x.jpg 2x">
+						<img class="portfolio__pic" src="./img/portfolio/bio_sea.jpg"
+							srcset="./img/portfolio//bio_sea@2x.jpg 2x" width="130" height="112"
+							alt="кубик на микрофон типа prisma vl bio sea">
+					</picture>
+				</li>
+			</ul>
+
+		</section>
+
 
 		<section class="micflag__price price">
 			<h2 class="price__heading heading">
@@ -532,6 +578,62 @@
 						<div class="parametr" data-about="show">
 							<dt class="parametr__name" data-about="hide">Срок изготовления</dt>
 							<dd class="parametr__value">2-5 дней</dd>
+						</div>
+						<div class="parametr">
+							<dt class="parametr__name">Доставка</dt>
+							<dd class="parametr__value">от&nbsp;600р.</dd>
+						</div>
+					</dl>
+
+					<div class="parametrs__toggle-wrapper">
+						<a href="" class="parametrs__toggle btn btn--more btn--js-collapse btn--hide"
+							aria-label="сметреть подробности">
+							<svg class="btn__icon" width="17" height="17" aria-hidden="true">
+								<use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+							</svg>
+							<span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+							<span class="btn__text  " data-about="collapse">Свернуть
+								<span class="visually-hidden">
+									подробности
+								</span>
+							</span>
+						</a>
+						<a href="#contacts" class="parametrs__toggle btn btn--buy" aria-label="Совершить заказ">
+							<svg class="btn__icon" width="20" height="20" aria-hidden="true">
+								<use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+							</svg>
+							<span class="btn__text">Заказать</span>
+						</a>
+					</div>
+				</li>
+				<li class="price__list-item parametrs" data-about="">
+					<div class="parametrs__heading-wrapper">
+						<h3 class="parametrs__heading">
+							<span class="visually-hidden">Кубик на микрофон типа</span>
+							&laquo;Euro&nbsp;glass&raquo;
+						</h3>
+						<p class="parametrs__price">25000р.</p>
+					</div>
+					<div class="parametrs__pic-wrapper item-status item-status--exclusive">
+						<img class="parametrs__pic" src="./img/price/micflags/euplus.jpg" alt="Кубик на микрофон  KFC"
+							width="240" height="240">
+						<button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button"
+							aria-label="Предыдущая фотогорафия">&lt;</button>
+						<button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide"
+							type="button" aria-label="Следующая фотогорафия">&gt;</button>
+					</div>
+					<dl class="parametrs__wrapper">
+						<div class="parametr" data-about="show">
+							<dt class="parametr__name" data-about="hide">Размер стороны</dt>
+							<dd class="parametr__value">100&times;40&nbsp;мм.</dd>
+						</div>
+						<div class="parametr">
+							<dt class="parametr__name">Диаметр отверстия</dt>
+							<dd class="parametr__value">30&nbsp;мм.</dd>
+						</div>
+						<div class="parametr" data-about="show">
+							<dt class="parametr__name" data-about="hide">Срок изготовления</dt>
+							<dd class="parametr__value">5-7 дней</dd>
 						</div>
 						<div class="parametr">
 							<dt class="parametr__name">Доставка</dt>

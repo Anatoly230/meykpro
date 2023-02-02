@@ -77,6 +77,7 @@
         margin-inline-end: rem(30);
         text-transform: uppercase;
         font-size: rem(16);
+        font-weight: normal;
 
         @include tablet {
             font-size: rem(20);

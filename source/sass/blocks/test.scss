@@ -1,257 +1,39 @@
-.slider {
-    @include reset-list-style;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__item {}
-
-    &__buttons {
-        @include wrapper;
-    }
-}
-
 .micflag {
 
-    &__slider {
-
-        // background: linear-gradient(to bottom right, $white, #D5D8DF);
-        
-        background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
-        padding-block: rem(40);
-
-        @include tablet {
-            padding-block-start: rem(50);
-            padding-block-end: rem(70);
-        }
-
-        @include desktop {
-            padding-block-start: rem(80);
-            padding-block-end: rem(100);
-        }
-    }
-
-    &__slider-content {
+    &__portfolio {
         @include section-wrapper;
-        margin-block-end: rem(50);
-
-        @include tablet {
-            margin-block-end: rem(65);
-        }
     }
+
+    &__portfolio-heading {}
+
+    &__portfolio-wrapper {}
 }
 
+.heading {
 
-.slide {
+    &__content {}
+}
+
+.portfolio {
+    @include reset-list-style;
+    padding-block: rem(30);
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, auto);
-    justify-items: center;
-    max-width: rem(400);
-    padding-block-start: rem(10);
+    column-gap: rem(10);
+    row-gap: rem(10);
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 
-    @include tablet {
-        max-width: none;
-        grid-template-columns: auto 400px;
-        grid-template-rows: repeat(3, auto);
-        column-gap: rem(60);
-        row-gap: rem(30);
-    }
 
-    @include desktop {
-        row-gap: rem(35);
-        column-gap: rem(80);
-    }
-
-    &__heading {
-        order: 2;
-        font-size: rem(32);
-        margin-block-end: rem(30);
-
-        @include tablet {
-            margin-block-end: 0;
-            grid-column: -1 / -2;
-            grid-row: 1 / 2;
-        }
+    &__item {
+        @include show-outline;
 
     }
 
-    &__pic-contaner {
-        margin-block-end: rem(35);
-
-        @include tablet {
-            align-self: center;
-            grid-column: 1 / 2;
-            grid-row: 1 / -1;
-            margin-block-end: 0;
-        }
-
-        @include desktop {
-            align-self: end;
-        }
+    &__item-pic-contaner {
     }
 
     &__pic {
         display: block;
-
-        @include tablet {
-            width: rem(250);
-        }
-
-        @include desktop {
-            width: rem(320);
-        }
-
-    }
-
-    &__text {
-        order: 3;
-        text-align: left;
-        margin-block-end: rem(30);
-
-        @include tablet {
-            margin-block-end: 0;
-            grid-column: 2 / -1;
-            grid-row: 2 / 3;
-        }
-
-        @include desktop {
-            font-size: rem(20);
-        }
-
-    }
-
-    &__price-wrapper {
-
-        order: 4;
-        display: grid;
-        row-gap: rem(30);
-        justify-self: stretch;
-
-        @include tablet {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: rem(30);
-            grid-column: 2 / -1;
-            grid-row: 3 / -1;
-        }
-    }
-
-    &__price {
-        justify-self: center;
-        font-size: rem(32);
-        font-weight: bold;
-    }
-
-    &__price-buy-btn {
-        min-width: 100%;
-    }
-}
-
-.buttons-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: rem(20);
-    max-width: rem(460);
-    padding-inline: rem(27);
-
-    @include tablet {
-        justify-content: center;
-    }
-
-    &__wrapper {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: rem(15);
+        object-fit: cover;
     }
-
-    &__item {
-        border: none;
-        border-radius: 50%;
-        background-color: $logo-yellow;
-        width: rem(8);
-        height: rem(8);
-        flex-grow: 0;
-        flex-shrink: 1;
-        
-        justify-self: center;
-
-        @include tablet {
-            cursor: pointer;
-            background-color: transparent;
-            border: 2px solid $logo-yellow;
-            width: rem(15);
-            height: rem(15);
-        }
-
-        &:hover {
-            @include tablet {
-                transition-property: transform;
-                transition-duration: 30ms;
-                opacity: 0.6;
-                transform: scale(120%);
-            }
-        }
-
-        &:active {
-            @include tablet {
-                opacity: 0.3;
-            }
-        }
-    }
-
-
-
-    &__item--current {
-        background-color: $pink;
-        border-radius: 5px;
-        width: rem(30);
-
-        @include tablet {
-            cursor: initial;
-            border: none;
-            width: rem(40);
-            height: rem(10);
-        }
-
-        &:hover {
-            @include tablet {
-                opacity: 1;
-                transform: scale(100%);
-            }
-        }
-
-        &:active {
-            @include tablet {
-                opacity: 1;
-            }
-        }
-    }
-
-
-    &__slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: rem(40);
-        height: rem(40);
-        background-color: $white;
-        flex-shrink: 0;
-        border-radius: 50%;
-        font-size: rem(20);
-        color: $disabled;
-
-        @include tablet {
-            display: none;
-        }
-
-        &:hover {
-            opacity: 0.7;
-        }
-    }
-
-    &__slide--right {}
 }

@@ -1,0 +1,12 @@
+.slider {
+    @include reset-list-style;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__item {}
+
+    &__buttons {
+        @include wrapper;
+    }
+}

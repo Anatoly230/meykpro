@@ -1,4 +1,5 @@
 .micflag {
+    // z-index: -1;
     background-color: #fff;
 
     &__about {}
@@ -8,4 +9,31 @@
     &__price {}
 
     &__contacts {}
+
+    &__slider {
+
+        // background: linear-gradient(to bottom right, $white, #D5D8DF);
+
+        background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
+        padding-block: rem(40);
+
+        @include tablet {
+            padding-block-start: rem(50);
+            padding-block-end: rem(70);
+        }
+
+        @include desktop {
+            padding-block-start: rem(80);
+            padding-block-end: rem(100);
+        }
+    }
+
+    &__slider-content {
+        @include section-wrapper;
+        margin-block-end: rem(50);
+
+        @include tablet {
+            margin-block-end: rem(65);
+        }
+    }
 }

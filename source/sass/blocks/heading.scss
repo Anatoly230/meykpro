@@ -12,6 +12,7 @@ $heading-paddings : rem(30);
 
 
 .heading {
+    z-index: 1;
     display: flex;
     justify-content: center;
     position: relative;
