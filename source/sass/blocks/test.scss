@@ -20,16 +20,27 @@
     display: grid;
     column-gap: rem(10);
     row-gap: rem(10);
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(2, minmax(130px, 330px));
+
+    @include tablet {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        column-gap: rem(20);
+        row-gap: rem(20);
+    }
 
 
     &__item {
-        @include show-outline;
+        // @include show-outline;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 15px;
 
+        @include tablet {
+            border-radius: 5px;
+        }
     }
 
-    &__item-pic-contaner {
-    }
+    &__item-pic-contaner {}
 
     &__pic {
         display: block;

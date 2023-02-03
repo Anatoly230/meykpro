@@ -8,7 +8,7 @@
         display: grid;
         column-gap: rem(40);
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(3, auto);
+        grid-template-rows: repeat(2, auto) 45px;
     }
 
 
@@ -21,6 +21,7 @@
 
         @include tablet {
             grid-template-columns: repeat(3, 1fr) auto;
+            grid-template-rows: 1fr;
             margin-block: 0;
             column-gap: rem(60);
         }
@@ -200,7 +201,7 @@
         }
 
         @include desktop {
-            grid-column: 6 / 10;
+            grid-column: 8 / -1;
             grid-row: 3 / -1;
         }
     }
