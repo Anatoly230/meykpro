@@ -4,6 +4,8 @@ const price = document.querySelector('.price');
 const parametrsSet = price.querySelectorAll('.parametrs')
 const priceImageBtns = price.querySelectorAll('.slide-pic');
 
+
+// вся логика открытия и закрытия в объекте возвращающей функции definOPenCloseElement()
 function definOPenCloseElement() {
     let price = {
         current: null
@@ -14,9 +16,11 @@ function definOPenCloseElement() {
                 element.dataset.about = '';
                 price.current = null;
                 revialPrice(element);
+                element.scrollIntoView({block: "center", inline: "center"});  //прокрутка к нужному объекту
             } else {
                 element.dataset.about = 'current';
                 revialPrice(element);
+                element.scrollIntoView({block: "center", inline: "center"}); //прокрутка к нужному объекту
                 if (price.current !== null) {
                     revialPrice(price.current);
                     price.current.dataset.about = '';
@@ -28,6 +32,7 @@ function definOPenCloseElement() {
         }
     }
 }
+
 let seniorUnit = definOPenCloseElement();
 
 
