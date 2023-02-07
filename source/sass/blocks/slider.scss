@@ -1,10 +1,22 @@
 .slider {
+    position: relative;
+    // @include show-outline(violet);
     @include reset-list-style;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    // transition-property: position;
+    // transition-duration: 1000ms;
 
-    &__item {}
+
+    &__item {
+
+        flex-shrink: 0;
+        // @include show-outline;
+        margin-block-end: rem(50);
+
+        @include tablet {
+            margin-block-end: rem(65);
+        }
+    }
 
     &__buttons {
         @include wrapper;

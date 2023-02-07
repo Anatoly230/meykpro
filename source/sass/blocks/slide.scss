@@ -1,23 +1,38 @@
 .slide {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, auto);
-    justify-items: center;
-    max-width: rem(400);
-    padding-block-start: rem(10);
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 
-    @include tablet {
-        max-width: none;
-        grid-template-columns: auto 400px;
-        grid-template-rows: repeat(3, auto);
-        column-gap: rem(60);
-        row-gap: rem(30);
+    &__wrapper {
+        // @include show-outline(green);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        justify-items: center;
+        max-width: rem(400);
+        padding-inline: calc(20 / 320 * 100%);
+
+        @include tablet {
+            padding-inline-start: rem(50);
+            padding-inline-end: rem(50);
+        }
+
+        padding-block-start: rem(10);
+
+        @include tablet {
+            max-width: none;
+            grid-template-columns: auto 400px;
+            grid-template-rows: repeat(3, auto);
+            column-gap: rem(60);
+            row-gap: rem(30);
+        }
+
+        @include desktop {
+            row-gap: rem(35);
+            column-gap: rem(80);
+        }
     }
 
-    @include desktop {
-        row-gap: rem(35);
-        column-gap: rem(80);
-    }
 
     &__heading {
         order: 2;
@@ -43,12 +58,13 @@
         }
 
         @include desktop {
-            align-self: end;
+            // align-self: end;
         }
     }
 
     &__pic {
         display: block;
+        // min-width: rem(197);
 
         @include tablet {
             width: rem(250);

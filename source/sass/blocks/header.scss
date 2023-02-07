@@ -153,12 +153,12 @@
     width: rem(40);
     height: auto;
     fill: $disabled-darked;
-    
+
     @include tablet {
       display: none;
     }
   }
-  
+
   &__info-pic--location {
     fill: $green;
     width: rem(25);
@@ -226,6 +226,7 @@
   &__contacts-pic {
     width: rem(25);
     height: auto;
+    align-self: center;
 
     @include tablet {
       width: rem(19);

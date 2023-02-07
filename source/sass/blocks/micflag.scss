@@ -11,7 +11,8 @@
     &__contacts {}
 
     &__slider {
-
+        width: 100vw;
+        // overflow-x: hidden;
         // background: linear-gradient(to bottom right, $white, #D5D8DF);
 
         background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
@@ -29,11 +30,13 @@
     }
 
     &__slider-content {
-        @include section-wrapper;
-        margin-block-end: rem(50);
 
-        @include tablet {
-            margin-block-end: rem(65);
-        }
+
+        // @include section-wrapper;
+        // margin-block-end: rem(50);
+
+        // @include tablet {
+        //     margin-block-end: rem(65);
+        // }
     }
 }
