@@ -3,8 +3,8 @@
     // @include show-outline(violet);
     @include reset-list-style;
     display: flex;
-    // transition-property: position;
-    // transition-duration: 1000ms;
+    transition-property: position;
+    transition-duration: 1000ms;
 
 
     &__item {
