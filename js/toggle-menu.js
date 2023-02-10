@@ -11,6 +11,7 @@ function headerZIndexUp() {
   const body = document.querySelector('.page-body')
   header.style.zIndex = body.childElementCount + 1;
 }
+
 function testMenu() {
   if (toggleMenu.classList.contains('toggle-menu--hide')) {
     toggleMenu.classList.remove('toggle-menu--hide')

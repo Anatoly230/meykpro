@@ -12,6 +12,17 @@ function removeIfContains(elem, containClass) {
   }
 }
 
+
+function getParentElement(element, parentClass) {
+  while (!element.classList.contains(parentClass)) {
+      element = element.parentElement;
+      if (element === null) {
+          return null;
+      }
+  }
+  return element;
+}
+
 function removeAddIfContains(elem, containClass, addClass) {
   if (elem.classList.contains(containClass)) {
     elem.classList.remove(containClass);
@@ -72,5 +83,5 @@ function addToDOM(parent, sample, datas, classesAndValues) {
 };
 
 
-export { addToDOM, changeDOM, removeAddIfContains };
+export { addToDOM, changeDOM, removeAddIfContains, getParentElement };
 

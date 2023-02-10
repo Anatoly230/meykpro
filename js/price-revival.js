@@ -1,4 +1,4 @@
-import { removeAddIfContains } from './rendering.js';
+import { removeAddIfContains, getParentElement } from './rendering.js';
 
 const price = document.querySelector('.price');
 const parametrsSet = price.querySelectorAll('.parametrs')
@@ -38,16 +38,6 @@ let seniorUnit = definOPenCloseElement();
 
 function isContains(element, containClass) {
     return element.classList.contains(containClass);
-}
-
-function getParentElement(element, parentClass) {
-    while (!element.classList.contains(parentClass)) {
-        element = element.parentElement;
-        if (element === null) {
-            return null;
-        }
-    }
-    return element;
 }
 
 function getToggleClass(element, toggleClass) {
