@@ -1,24 +1,34 @@
 .slider {
     position: relative;
-    // @include show-outline(violet);
     @include reset-list-style;
     display: flex;
-    transition-property: position;
-    transition-duration: 1000ms;
+    transition-property: transform;
+    transition-duration: 400ms;
 
 
     &__item {
-
         flex-shrink: 0;
-        // @include show-outline;
         margin-block-end: rem(50);
 
         @include tablet {
             margin-block-end: rem(65);
         }
+
+        // &::before {
+        //     z-index: -1;
+        //     top: -100px;
+        //     position: absolute;
+        //     content: '';
+        //     display: block;
+        //     width: 100vw;
+        //     height: 100vh;
+        //     background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
+        //     background: linear-gradient(to bottom right, $white, #D5D8DF);
+        // }
     }
 
     &__buttons {
+        z-index: 2;
         @include wrapper;
     }
 }

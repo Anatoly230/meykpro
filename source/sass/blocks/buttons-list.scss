@@ -28,7 +28,9 @@
         flex-grow: 0;
         flex-shrink: 1;
         padding: 0;
-        
+        transition-property: width;
+        transition-duration: 600ms;
+
         @include tablet {
             cursor: pointer;
             background-color: transparent;
