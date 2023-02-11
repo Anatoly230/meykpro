@@ -111,6 +111,22 @@ function selectFromArray(array) {
   let index = getRandomNum(0, array.length - 1);
   return array[index];
 }
+function defineIndex(elmnt) {
+  try {
+    let i = 1,
+      element = elmnt;
+
+    while (element.previousElementSibling) {
+      element = element.previousElementSibling;
+      i++
+    }
+    return i;
+
+  } catch (err) {
+    console.log(err);
+  }
+
+}
 
 function getObjects(callBack, length = 25) {
   try {
@@ -126,4 +142,4 @@ function getObjects(callBack, length = 25) {
   }
 }
 
-export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape };
+export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape, defineIndex };

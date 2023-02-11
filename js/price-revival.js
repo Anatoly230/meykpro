@@ -16,7 +16,7 @@ function definOPenCloseElement() {
                 element.dataset.about = '';
                 price.current = null;
                 revialPrice(element);
-                element.scrollIntoView({block: "center", inline: "center"});  //прокрутка к нужному объекту
+                // element.scrollIntoView({block: "center", inline: "center"});  //прокрутка к нужному объекту
             } else {
                 element.dataset.about = 'current';
                 revialPrice(element);
@@ -123,7 +123,7 @@ function launchPrice() {
 }
 
 
-// getImegeSlidBtns();
+getImegeSlidBtns();
 launchPrice();
 
 export { price };
