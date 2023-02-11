@@ -16,6 +16,17 @@ function isCountEqual(count, counter) {
     return count === counter + 1;
 }
 
+// function getCustomSlide() {
+//     if (isCountEqual(sliderCount, counter)) {
+//         slider.style.transform = 'translateX(0%)';
+//         counter = 0;
+//     } else {
+//         counter++;
+//         slider.style.transform = `translateX(-${counter * 100}%)`;
+//     }
+//     pagination.assignCurrent(counter + 1)
+// }
+
 function getNextSlide() {
     if (isCountEqual(sliderCount, counter)) {
         slider.style.transform = 'translateX(0%)';
@@ -35,6 +46,7 @@ function getPreviosSlide() {
         counter--;
         slider.style.transform = `translateX(-${counter * 100}%)`;
     }
+    pagination.assignCurrent(counter + 1)
 }
 
 function getSlideButtons() {
@@ -93,7 +105,6 @@ function setCurrentPagination() {
             current = buttons[index - 1];
         },
         assignCurrent: function (index) {
-            console.log(current.classList);
             current.classList.toggle('buttons-list__item--current');
             this.setCurrent(index);
             current.classList.toggle('buttons-list__item--current');
@@ -103,14 +114,6 @@ function setCurrentPagination() {
 
 buttonPrevios.addEventListener('click', getPreviosSlide);
 buttonNext.addEventListener('click', getNextSlide);
-
-// let test = setCurrentPagination();
-
-// console.log(test);
-// console.log(test.defineCurrent());
-// console.log(test.getCurrent());
-// console.log(test.assignCurrent(4));
-// console.log(test.getCurrent());
 
 
 export { sliderBlock };
