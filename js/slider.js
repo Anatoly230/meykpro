@@ -7,8 +7,10 @@ let sliderCount = slider.children.length;
 let counter = 0;
 const buttonsList = document.querySelector('.buttons-list');
 const buttonPrevios = buttonsList.children[0],
-buttonNext = buttonsList.children[buttonsList.children.length - 1];
-let slideButtons = document.querySelectorAll('.buttons-list__slide');
+    buttonNext = buttonsList.children[buttonsList.children.length - 1];
+let slideButtons = document.querySelectorAll('.buttons-list__slide'),
+    pagination;
+
 
 function isCountEqual(count, counter) {
     return count === counter + 1;
@@ -22,6 +24,7 @@ function getNextSlide() {
         counter++;
         slider.style.transform = `translateX(-${counter * 100}%)`;
     }
+    pagination.assignCurrent(counter + 1)
 }
 
 function getPreviosSlide() {
@@ -32,7 +35,6 @@ function getPreviosSlide() {
         counter--;
         slider.style.transform = `translateX(-${counter * 100}%)`;
     }
-    window.setTimeout(3000)
 }
 
 function getSlideButtons() {
@@ -44,10 +46,10 @@ function getSlideButtons() {
 
 if (sliderCount >= 2) {
     buttonPrevios.after(setPagination());
+    pagination = setCurrentPagination();
+    pagination.defineCurrent();
     getSlideButtons();
-    slider.style.transitionDuration = '400ms';
-    slider.style.transitionProperty = 'transform';
-    window.setInterval(getNextSlide, 3000)
+    window.setInterval(getNextSlide, 3000);
 }
 
 
@@ -67,18 +69,48 @@ function setPagination() {
         }
         paginationList.appendChild(paginationItem);
     }
-
     return paginationList;
 }
 
 function setCurrentPagination() {
-    let buttons = document.querySelectorAll('.buttons-list__item')
-    console.log(buttons);
+    const buttons = Array.from(document.querySelector('.buttons-list__wrapper')
+        .querySelectorAll('.buttons-list__item'));
+    let current = null;
+
+    return {
+        defineCurrent: function () {
+            for (let i = 0; i < buttons.length; i++) {
+                if (buttons[i].classList.contains('buttons-list__item--current')) {
+                    current = buttons[i];
+                    break;
+                }
+            }
+        },
+        getCurrent: function () {
+            return current;
+        },
+        setCurrent: function (index) {
+            current = buttons[index - 1];
+        },
+        assignCurrent: function (index) {
+            console.log(current.classList);
+            current.classList.toggle('buttons-list__item--current');
+            this.setCurrent(index);
+            current.classList.toggle('buttons-list__item--current');
+        },
+    }
 }
 
 buttonPrevios.addEventListener('click', getPreviosSlide);
 buttonNext.addEventListener('click', getNextSlide);
 
-setCurrentPagination()
+// let test = setCurrentPagination();
+
+// console.log(test);
+// console.log(test.defineCurrent());
+// console.log(test.getCurrent());
+// console.log(test.assignCurrent(4));
+// console.log(test.getCurrent());
+
 
 export { sliderBlock };
