@@ -88,12 +88,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        // text-align: center;
         width: rem(40);
         height: rem(40);
         background-color: $white;
         flex-shrink: 0;
         border-radius: 50%;
-        font-size: rem(20);
+        font-size: rem(25);
         color: $disabled;
 
         @include tablet {
