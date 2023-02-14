@@ -66,22 +66,108 @@
 
 
 .pop-up {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    position: absolute;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    padding-inline: calc((12 / 320) * 100%);
     background-color: rgba($off-black, 0.8);
-    object-fit: cover;
+
+    @include tablet {
+        padding-inline: rem(30);
+
+    }
+
+    &__image-wrapper {
+        @include wrapper;
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 60px;
+        // grid-template-rows: auto 1fr;
+        column-gap: rem(20);
+        // @include show-outline;
+
+        @include tablet {
+            // grid-template-columns: repeat(6, 1fr);
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(12, 1fr);
+        }
+    }
+
+    &__image-block {
+        border-radius: rem(15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+
+    }
 
     &__image {
-        // border: 1px solid $off-black;
-        box-shadow:0 0 20px rgba(244, 244, 249, 0.45);
-        width: 80%;
+        // object-fit: contain;
+        width: 100%;
         border-radius: 30px;
-        // max-height: 100vh;
-        // margin-inline: auto;
+
+        @include tablet {
+            border-radius: 10px;
+        }
     }
+
+    &__image-navigation {
+        width: calc((35 / 320) * 100vw);
+        height: calc((35 / 320) * 100vw);
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        grid-row: 2 / -1;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px auto;
+        align-self: center;
+
+        @include tablet {
+            background-size: 20px auto;
+            width: rem(60);
+            height: rem(60);
+        }
+
+        &:hover {
+            background-color: rgba(#000000, 0.1);
+            cursor: pointer;
+        }
+        &:active {
+            background-color: rgba(#000000, 0.3);
+        }
+    }
+
+    &__image-navigation--previos {
+        justify-self: start;
+        background-image: url('../img/icons/sprite/arrow-left.svg');
+        grid-column: 1 / 2;
+
+        @include tablet {
+            background-image: url('../img/icons/sprite/arrow-left-tablet.svg');
+            justify-self: end;
+        }
+    }
+
+    &__image-navigation--next {
+        justify-self: end;
+        background-image: url('../img/icons/sprite/arrow-right.svg');
+        grid-column: -2 / -1;
+
+        @include tablet {
+            background-image: url('../img/icons/sprite/arrow-right-tablet.svg');
+            justify-self: start;
+        }
+    }
+
 }

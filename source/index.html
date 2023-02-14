@@ -18,8 +18,15 @@
 	<script type="module" src="./js/main.js"></script>
 	<!-- @@include('./html/scripts.html') -->
 	<div class="pop-up">
-        <img class="pop-up__image" src="./img/portfolio/micflags/bio_sea-desktop.jpg" alt="кубик на микрофон">
-    </div>
+		<div class="pop-up__image-wrapper">
+			<picture class="pop-up__image-block">
+				<img class="pop-up__image" src="./img/portfolio/micflags/bio_sea-desktop.jpg" alt="кубик на микрофон">
+			</picture>
+
+			<button type="button" class="pop-up__image-navigation pop-up__image-navigation--previos"></button>
+			<button type="button" class="pop-up__image-navigation pop-up__image-navigation--next"></button>
+		</div>
+	</div>
 </body>
 
 </html>
