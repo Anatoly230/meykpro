@@ -87,16 +87,46 @@
         @include wrapper;
         display: grid;
         grid-template-columns: 60px 1fr 1fr 60px;
-        // grid-template-rows: auto 1fr;
+        grid-template-rows: auto 1fr;
         column-gap: rem(20);
         // @include show-outline;
 
         @include tablet {
-            // grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: rem(90) 1fr rem(90);
+            grid-template-rows: rem(80) 1fr;
         }
 
         @include desktop {
-            grid-template-columns: repeat(12, 1fr);
+            // grid-template-columns: repeat(12, 1fr);
+        }
+    }
+
+    &__close-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        border-radius: rem(20);
+        min-width: rem(40);
+        min-height: rem(40);
+        grid-column: -2 / -1;
+        grid-row: 1 / 2;
+        justify-self: center;
+        align-self: center;
+        font-size: rem(16);
+        color: $grey;
+        cursor: pointer;
+
+        @include tablet {
+            font-size: rem(25);
+        }
+
+        &:hover {
+            color: $off-black;
+            background-color: rgba($off-black, 0.1);
         }
     }
 
@@ -126,7 +156,7 @@
         padding: 0;
         border: none;
         border-radius: 50%;
-        grid-row: 2 / -1;
+        grid-row: 1 / -1;
         background-color: transparent;
         background-repeat: no-repeat;
         background-position: center;
@@ -143,6 +173,7 @@
             background-color: rgba(#000000, 0.1);
             cursor: pointer;
         }
+
         &:active {
             background-color: rgba(#000000, 0.3);
         }
