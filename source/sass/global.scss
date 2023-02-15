@@ -1,4 +1,5 @@
 :root {
+  scroll-behavior: smooth;
   box-sizing: border-box;
   font-size: calc($root-font-size / $initial-font-size) + em;
 }

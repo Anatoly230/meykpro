@@ -15,7 +15,9 @@ import del from 'del';
 import imagemin from 'gulp-imagemin';
 import webp from 'gulp-webp';
 import tozip from 'gulp-zip';
+import stripComment from 'gulp-strip-comments';
 import concat from 'gulp-concat';
+import fileInclude from 'gulp-file-include';
 
 const source = "source";
 const dist = 'build';
@@ -41,7 +43,9 @@ export const styles = () => {
 
 const html = () => {
   return gulp.src('source/*.html')
+    .pipe(fileInclude())
     .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(stripComment())
     .pipe(gulp.dest('build'));
 }
 
@@ -49,10 +53,10 @@ const html = () => {
 
 const scripts = () => {
   return gulp.src('source/js/**/*.js')
-    .pipe(terser())
-    .pipe(rename({
-      suffix: '.min',
-    }))
+    // .pipe(terser())
+    // .pipe(rename({
+    //   suffix: '.min',
+    // }))
     .pipe(gulp.dest('build/js'))
     .pipe(browser.stream());
 }
@@ -179,9 +183,9 @@ const reload = () => {
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(styles));
   gulp.watch('source/js/*.js', gulp.series(scripts));
-  gulp.watch('source/*.html', gulp.series(html, reload));
+  gulp.watch('source/**/*.html', gulp.series(html, reload));
   gulp.watch('source/img/icons/sprite/*.svg', gulp.series(sprite));
-  gulp.watch(['source/img/**/*.svg','!source/img/icons/sprite/*.svg'], gulp.series(svg));
+  gulp.watch(['source/img/**/*.svg', '!source/img/icons/sprite/*.svg'], gulp.series(svg));
 }
 
 // Build

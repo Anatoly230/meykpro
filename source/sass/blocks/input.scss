@@ -1,0 +1,28 @@
+.input {
+    display: flex;
+    flex-direction: column;
+
+    &__name {
+        padding-block-end: rem(5);
+        padding-inline-start: rem(10);
+
+    }
+
+    &__field {
+        padding: rem(12);
+        border-radius: rem(5);
+        border-color: $base-gray;
+        border-width: rem(1);
+        box-shadow: none;
+
+
+        &--message {
+            height: 200px;
+            resize: none;
+
+            @include tablet {
+                height: 100%;
+            }
+        }
+    }
+}

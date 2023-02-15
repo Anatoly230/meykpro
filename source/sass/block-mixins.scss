@@ -4,22 +4,15 @@
   margin: 0 auto;
 }
 
-
 @mixin section-wrapper() {
   width: 100%;
   max-width: $desktop-width;
   margin: 0 auto;
-  padding-left: rem(30);
-  padding-right: rem(30);
-
-  @media (min-width: 321px) {
-    padding-left: calc(30 / 320 * 100%);
-    padding-right: calc(30 / 320 * 100%);
-  }
+  padding-inline: calc(20 / 320 * 100%);
 
   @include tablet {
-    padding-left: rem(50);
-    padding-right: rem(50);
+    padding-inline-start: rem(50);
+    padding-inline-end: rem(50);
   }
 }
 
@@ -27,22 +20,22 @@
   width: 100%;
   max-width: $max-content-width;
   margin: 0 auto;
-  padding-left: rem(30);
-  padding-right: rem(30);
+  padding-inline-start: rem(30);
+  padding-inline-end: rem(30);
 
   @media (min-width: 321px) {
-    padding-left: calc(30 / 320 * 100%);
-    padding-right: calc(30 / 320 * 100%);
+    padding-inline-start: calc(30 / 320 * 100%);
+    padding-inline-end: calc(30 / 320 * 100%);
   }
 
   @include tablet {
-    padding-left: calc(50 / 320 * 100%);
-    padding-right: calc(50 / 320 * 100%);
+    padding-inline-start: calc(40 / 320 * 100%);
+    padding-inline-end: calc(40 / 320 * 100%);
   }
 
   @include desktop {
-    padding-left: rem(224);
-    padding-right: rem(224);
+    padding-inline-start: rem(224);
+    padding-inline-end: rem(224);
   }
 }
 
@@ -73,10 +66,35 @@
   @content;
 }
 
+@mixin toggle-parametrs($color: $black, $height: rem(2)) {
+  width: 100%;
+  height: $height;
+  background-color: $color;
+}
+
+@mixin reset-link-style($color: $black) {
+  text-decoration: none;
+  color: $color;
+}
 
 // for block debug start
 @mixin show-outline($color: red, $weight: 2px) {
   outline: $weight dashed $color;
   outline-offset: -$weight;
 }
+
+
+@mixin solidPer100vw($bgColor: $grey, $elementHeight: 100%) {
+  z-index: -1;
+  display: block;
+  content: '';
+  transform: translateX(calc(100vw / -2));
+  left: 50%;
+  top: 0;
+  position: absolute;
+  background-color: $bgColor;
+  width: 100vw;
+  height: $elementHeight;
+}
+
 // for block debug end
