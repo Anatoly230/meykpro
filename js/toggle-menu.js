@@ -2,18 +2,19 @@
 
 import { isEscape } from './utils.js';
 
-const header = document.querySelector('.header');
-const toggleMenu = header.querySelector('.toggle-menu');
-const buttonsBlock = header.querySelector('.header__buttons-wrapper');
-const menu = header.querySelector('.menu');
+let body = null,
+  header = null,
+  toggleMenu = null,
+  buttonsBlock = null,
+  menu = null;
 
 function headerZIndexUp() {
-  const body = document.querySelector('.page-body')
+  body = document.querySelector('.page-body')
   header.style.zIndex = body.childElementCount + 1;
 }
 
-function testMenu() {
-  if (toggleMenu.classList.contains('toggle-menu--hide')) {
+function revailMenu() {
+  if (toggleMenu.classList.contains('toggle-menu--hide') && toggleMenu !== null) {
     toggleMenu.classList.remove('toggle-menu--hide')
     buttonsBlock.style.justifyContent = 'space-between';
     menu.classList.add('menu--hide');
@@ -41,9 +42,17 @@ function openMenu(e) {
   }
 }
 
-toggleMenu.addEventListener('click', openMenu)
-testMenu();
-headerZIndexUp();
+function isHaveHeader() {
+  header = document.querySelector('.header');
+  if (header) {
+    toggleMenu = header.querySelector('.toggle-menu');
+    buttonsBlock = header.querySelector('.header__buttons-wrapper');
+    menu = header.querySelector('.menu');
+    toggleMenu.addEventListener('click', openMenu)
+    revailMenu();
+    headerZIndexUp();
+  }
+}
 
-
+isHaveHeader();
 export { toggleMenu }

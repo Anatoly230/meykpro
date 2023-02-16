@@ -1,18 +1,16 @@
 import { defineIndex } from "./utils.js";
 import { getParentElement } from "./rendering.js";
 
-const sliderBlock = document.querySelector('.micflag__slider');
-const slider = sliderBlock.querySelector('.slider');
-// const sliders = sliderBlock.querySelectorAll('.slide');
-let sliderCount = slider.children.length;
-// let counter = 0;
-const buttonsList = document.querySelector('.buttons-list');
-const buttonPrevios = buttonsList.children[0],
-    buttonNext = buttonsList.children[buttonsList.children.length - 1];
-let slideButtons = document.querySelectorAll('.buttons-list__slide'),
-    paginationBlock = setPagination(),
-    pagination;
-
+let sliderBlock = null,
+    slider = null,
+    sliderCount = 0,
+    buttonsList = null,
+    buttonPrevios = null,
+    buttonNext = null,
+    slideButtons = null,
+    paginationBlock = null,
+    pagination,
+    durationTime = 18000;
 
 function isCountEqual(count, counter) {
     return count === counter + 1;
@@ -56,16 +54,34 @@ function getSlideButtons() {
 }
 
 function getStartSlider() {
-    if (sliderCount >= 2) {
-        buttonPrevios.after(paginationBlock);
-        pagination = setCurrentPagination();
-        pagination.defineCurrent();
-        getSlideButtons();
-        window.setInterval(getNextSlide, 3000);
-        buttonPrevios.addEventListener('click', getPreviosSlide);
-        buttonNext.addEventListener('click', getNextSlide);
-        paginationBlock.addEventListener('click', onCustomSlide);
+    try {
+        sliderBlock = document.querySelector('.micflag__slider');
+        if (!sliderBlock) {
+            throw new Error('слайдер отсутствует')
+        }
+        if (sliderBlock) {
+            slider = sliderBlock.querySelector('.slider');
+            sliderCount = slider.children.length;
+            if (sliderCount >= 2) {
+                buttonsList = document.querySelector('.buttons-list');
+                buttonPrevios = buttonsList.children[0];
+                buttonNext = buttonsList.children[buttonsList.children.length - 1];
+                slideButtons = document.querySelectorAll('.buttons-list__slide');
+                paginationBlock = setPagination();
+                buttonPrevios.after(paginationBlock);
+                pagination = setCurrentPagination();
+                pagination.defineCurrent();
+                getSlideButtons();
+                window.setInterval(getNextSlide, durationTime);
+                buttonPrevios.addEventListener('click', getPreviosSlide);
+                buttonNext.addEventListener('click', getNextSlide);
+                paginationBlock.addEventListener('click', onCustomSlide);
+            }
+        }
+    } catch (error) {
+        // console.log(error);
     }
+
 }
 
 

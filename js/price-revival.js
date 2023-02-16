@@ -1,8 +1,8 @@
 import { removeAddIfContains, getParentElement } from './rendering.js';
 
-const price = document.querySelector('.price');
-const parametrsSet = price.querySelectorAll('.parametrs')
-const priceImageBtns = price.querySelectorAll('.slide-pic');
+let price = null,
+    parametrsSet = null,
+    priceImageBtns = null;
 
 
 // вся логика открытия и закрытия в объекте возвращающей функции definOPenCloseElement()
@@ -20,7 +20,7 @@ function definOPenCloseElement() {
             } else {
                 element.dataset.about = 'current';
                 revialPrice(element);
-                element.scrollIntoView({block: "center", inline: "center"}); //прокрутка к нужному объекту
+                element.scrollIntoView({ block: "center", inline: "center" }); //прокрутка к нужному объекту
                 if (price.current !== null) {
                     revialPrice(price.current);
                     price.current.dataset.about = '';
@@ -102,14 +102,6 @@ function isMoreBtn(element) {
     return getParentElement(element, 'btn--more');
 }
 
-price.addEventListener('click', function (e) {
-
-    if (isMoreBtn(e.target)) {
-        e.preventDefault();
-        seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'));
-    }
-})
-
 function getImegeSlidBtns() {
     priceImageBtns.forEach(function (item) {
         removeAddIfContains(item, 'slide-pic--hide')
@@ -117,13 +109,33 @@ function getImegeSlidBtns() {
 }
 
 function launchPrice() {
-    parametrsSet.forEach(function (item) {
-        revialPrice(item);
-    })
+    try {
+        price = document.querySelector('.price');
+        if (!price) {
+            throw new Error('Прайс отстутствует')
+        }
+        parametrsSet = price.querySelectorAll('.parametrs');
+        priceImageBtns = price.querySelectorAll('.slide-pic');
+        parametrsSet.forEach(function (item) {
+            revialPrice(item);
+        })
+        price.addEventListener('click', function (e) {
+
+            if (isMoreBtn(e.target)) {
+                e.preventDefault();
+                seniorUnit.setCurrent(getParentElement(e.target, 'parametrs'));
+            }
+        })
+
+
+    } catch (error) {
+        // console.log(error)
+    }
+
 }
 
 
-getImegeSlidBtns();
+// getImegeSlidBtns();
 launchPrice();
 
 export { price };
