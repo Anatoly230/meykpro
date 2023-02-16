@@ -36,7 +36,6 @@
 
 
     &__item {
-        // @include show-outline;
         cursor: pointer;
         overflow: hidden;
         border-radius: 15px;
@@ -89,16 +88,15 @@
         grid-template-columns: 60px 1fr 1fr 60px;
         grid-template-rows: auto 1fr;
         column-gap: rem(20);
-        // @include show-outline;
 
         @include tablet {
             grid-template-columns: rem(90) 1fr rem(90);
             grid-template-rows: rem(80) 1fr;
+
+            width: fit-content;
+
         }
 
-        @include desktop {
-            // grid-template-columns: repeat(12, 1fr);
-        }
     }
 
     &__close-btn {
@@ -128,6 +126,10 @@
             color: $off-black;
             background-color: rgba($off-black, 0.1);
         }
+
+        &:hover {
+            background-color: rgba($off-black, 0.2);
+        }
     }
 
     &__image-block {
@@ -138,15 +140,19 @@
         grid-column: 1 / -1;
         grid-row: 1 / -1;
 
+        @include tablet {
+            width: fit-content;
+        }
+
     }
 
     &__image {
-        // object-fit: contain;
         width: 100%;
         border-radius: 30px;
 
         @include tablet {
             border-radius: 10px;
+            max-height: 80vh;
         }
     }
 
