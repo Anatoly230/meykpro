@@ -138,9 +138,15 @@
         object-fit: cover;
         display: block;
         border-radius: 10px;
-
+        
         @include tablet {
             border-radius: 5px 5px 25px 5px;
+            max-height: rem(280);
+        }
+
+        @include desktop {
+            border-radius: 5px 5px 25px 5px;
+            max-height: rem(400);
         }
     }
 

@@ -142,4 +142,60 @@ function getObjects(callBack, length = 25) {
   }
 }
 
+function binarySearchLn(arr, num) {
+  let start = 0,
+    end = arr.length,
+    center;
+  while (start < end) {
+    center = Math.floor((start + end) / 2);
+    if (arr[center] === num) {
+      return center;
+    }
+
+    if (num < arr[center]) {
+      end = center - 1;
+
+    } else {
+      start = center + 1;
+    }
+  }
+  return -1;
+}
+
+function binarySearchRq(arr, num, start, end) {
+  let center = Math.floor((start + end) / 2);
+  if (arr[center] === num) {
+    return center;
+  }
+  if (start === end) {
+    return -1;
+  }
+  if (num < arr[center]) {
+    return binarySearchRq(arr, num, 0, center - 1);
+  } else {
+    return binarySearchRq(arr, num, center + 1, end);
+  }
+}
+
+function qsort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let pivotIndex = Math.floor(arr.length / 2),
+    pivot = arr[pivotIndex],
+    lower = [],
+    biger = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i === pivotIndex)
+      continue;
+    if (arr[i] < pivot) {
+      lower.push(arr[i]);
+    } else {
+      biger.push(arr[i]);
+    }
+  }
+  return [...qsort(lower), pivot, ...qsort(biger)];
+}
+
+
 export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape, defineIndex };
