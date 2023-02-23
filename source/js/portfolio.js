@@ -32,17 +32,23 @@ function escapeClose(e) {
 }
 
 portfolioBlock.addEventListener('click', function (e) {
-    const parentElement = getParentElement(e.target, 'portfolio__item'),
-        imagePaths = getImegepaths(parentElement),
-        fullImage = createPopUp();
-    fullImage.src = getFullPath(imagePaths.src);
-    fullImage.srcset = getFullPath(imagePaths.srcset);
-    window.addEventListener('keydown', escapeClose)
-    getParentElement(fullImage, 'pop-up').addEventListener('click', function (e) {
-        if (e.target.classList.contains('pop-up')) {
-            e.target.remove();
+    const parentElement = getParentElement(e.target, 'portfolio__item');
+    if (parentElement) {
+
+        const imagePaths = getImegepaths(parentElement),
+            fullImage = createPopUp();
+        if (getFileName(imagePaths.src) === '.webp') {
+            fullImage.type = 'image/webp'
         }
-    })
+        fullImage.src = getFullPath(imagePaths.src);
+        fullImage.srcset = getFullPath(imagePaths.srcset);
+        window.addEventListener('keydown', escapeClose)
+        getParentElement(fullImage, 'pop-up').addEventListener('click', function (e) {
+            if (e.target.classList.contains('pop-up')) {
+                e.target.remove();
+            }
+        })
+    }
 
 })
 

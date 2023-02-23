@@ -2,9 +2,20 @@
 
     &__portfolio {
         @include section-wrapper;
+        padding-block: rem(40);
+        
+        @include tablet {
+            padding-block: rem(60);
+        }
+
+        @include desktop {
+            padding-block: rem(75);
+        }
     }
 
-    &__portfolio-heading {}
+    &__portfolio-heading {
+        margin-block-end: rem(40)
+    }
 
     &__portfolio-wrapper {}
 }
