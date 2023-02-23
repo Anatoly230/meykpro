@@ -3,42 +3,31 @@
         <span class="heading__content">Портфолио</span>
     </h2>
     <ul class="micflag__portfolio-wrapper portfolio">
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/biosea.jpg"
-                    srcset="./img/portfolio/micflags/biosea@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/cryptocot.jpg"
-                    srcset="./img/portfolio/micflags/cryptocot@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/csbs.jpg"
-                    srcset="./img/portfolio/micflags/csbs@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/ntk.jpg"
-                    srcset="./img/portfolio/micflags/ntk@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/restart.jpg"
-                    srcset="./img/portfolio/micflags/restart@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-
+        @@include('./portfolio/porfolio-item.html', {
+            picName: 'biosea', 
+            type:'prisma VL',
+            logo: 'Bio Sea'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+            picName: 'cryptocot', 
+            type:'Standart',
+            logo: 'Cryptocot'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+            picName: 'csbs', 
+            type:'Prisma VR',
+            logo: 'Cryptocot'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+            picName: 'ntk', 
+            type:'Prisma VL',
+            logo: 'НТК'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+            picName: 'restart', 
+            type:'Euro',
+            logo: 'Перезагрузка'
+        })
     </ul>
 
     <template id="portfolo-popUp">
@@ -48,7 +37,7 @@
                 <picture class="pop-up__image-block">
                     <img class="pop-up__image" src="./img/portfolio/micflags/biosea-full.jpg" alt="кубик на микрофон">
                 </picture>
-    
+
                 <button type="button" class="pop-up__image-navigation pop-up__image-navigation--previos"></button>
                 <button type="button" class="pop-up__image-navigation pop-up__image-navigation--next"></button>
             </div>

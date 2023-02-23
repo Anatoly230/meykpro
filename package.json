@@ -39,7 +39,7 @@
     "lint": "npm run editorconfig && npm run stylelint",
     "lintfix": "stylelint \"source/sass/**/*.scss\" --fix --syntax scss --ignore-path .gitignore",
     "build": "gulp build",
-    "start": "node file-s.js"
+    "start": "gulp"
   },
   "browserslist": [
     "last 2 versions",
