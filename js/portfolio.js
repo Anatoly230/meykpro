@@ -47,12 +47,12 @@ function createPopUp() {
 function closePopUp() {
     window.removeEventListener('keydown', escapeClose);
     window.removeEventListener('keydown', onKeyNav);
-    portCurrnet.getPopUp().removeEventListener('click', onNavBtn);
+    portCurrnet.getPopUp().removeEventListener('click' || 'touch', onNavBtn);
+    portCurrnet.getPopUp().removeEventListener('click' || 'touch', onClickingOnVoid);
+    portCurrnet.getPopUp().removeEventListener('click' || 'touch', onClikcCloseBtn);
     portCurrnet.getPopUp().remove();
-    portCurrnet.getPopUp().removeEventListener('click', onClickingOnVoid);
-    portCurrnet.getPopUp().removeEventListener('click', onClikcCloseBtn);
     portCurrnet.reset();
-    portfolioBlock.addEventListener('click', onClickPortfolio);
+    portfolioBlock.addEventListener('click' || 'touch', onClickPortfolio);
 }
 
 function escapeClose(e) {
@@ -118,7 +118,7 @@ function onNavBtn(e) {
 
 function setNavBtns() {
     if (portCurrnet.getPopUp()) {
-        portCurrnet.getPopUp().addEventListener('click', onNavBtn);
+        portCurrnet.getPopUp().addEventListener('click' || 'touch', onNavBtn);
     }
 }
 
@@ -160,17 +160,17 @@ function onClickPortfolio(e) {
         if (sourcePicture && portfolioPicture) {
             fillImageData(sourcePicture, portfolioPicture);
             window.addEventListener('keydown', escapeClose);
-            portCurrnet.getPopUp().addEventListener('click', onClickingOnVoid);
-            portCurrnet.getPopUp().addEventListener('click', onClikcCloseBtn);
+            portCurrnet.getPopUp().addEventListener('click' || 'touch', onClickingOnVoid);
+            portCurrnet.getPopUp().addEventListener('click' || 'touch', onClikcCloseBtn);
             setNavBtns();
             setPortKeyDown();
         }
     }
-    portfolioBlock.removeEventListener('click', onClickPortfolio);
+    portfolioBlock.removeEventListener('click' || 'touch', onClickPortfolio);
 }
 
 
-portfolioBlock.addEventListener('click', onClickPortfolio)
+portfolioBlock.addEventListener('click' || 'touch', onClickPortfolio)
 
 function pathDetected(str) {
     if (str.split(',').length > 1) {
