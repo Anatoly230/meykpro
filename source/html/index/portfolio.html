@@ -3,30 +3,42 @@
         <span class="heading__content">Портфолио</span>
     </h2>
     <ul class="micflag__portfolio-wrapper portfolio">
-        <li class="portfolio__item">
-            <picture class="portfolio__item-pic-contaner">
-                <source  type="image/webp" media="(min-width:1150px)"
-                srcset="./img/portfolio/micflags/biosea.webp 1x, ./img/portfolio/micflags/biosea@2x.webp 2x">
-              <source type="image/jpg" media="(min-width: 768px)"
-                srcset="./img/portfolio/micflags/biosea.jpg 1x, ./img/portfolio/micflags/biosea@2x.jpg 2x">
-              <source  type="image/webp" 
-                srcset="./img/portfolio/micflags/biosea.webp 1x, ./img/portfolio/micflags/biosea@2x.webp 2x">
-                <img class="portfolio__pic" src="./img/portfolio/micflags/biosea.jpg"
-                    srcset="./img/portfolio/micflags/biosea@2x.jpg 2x" width="130" height="112"
-                    alt="кубик на микрофон типа prisma vl bio sea">
-            </picture>
-        </li>
-       
-
+        @@include('./portfolio/porfolio-item.html', {
+        picName: 'biosea',
+        type:'prisma VL',
+        logo: 'Bio Sea'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+        picName: 'cryptocot',
+        type:'Standart',
+        logo: 'Cryptocot'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+        picName: 'csbs',
+        type:'Prisma VR',
+        logo: 'Cryptocot'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+        picName: 'ntk',
+        type:'Prisma VL',
+        logo: 'НТК'
+        })
+        @@include('./portfolio/porfolio-item.html', {
+        picName: 'restart',
+        type:'Euro',
+        logo: 'Перезагрузка'
+        })
     </ul>
+
     <template id="portfolo-popUp">
         <div class="pop-up">
             <div class="pop-up__image-wrapper">
-                <button type="button" class="pop-up__close-btn">х</button>
+                <button type="button" class="pop-up__close-btn" aria-label="Закрыть"></button>
                 <picture class="pop-up__image-block">
-                    <img class="pop-up__image" src="./img/portfolio/micflags/biosea-full.jpg" alt="кубик на микрофон">
+                    <source type="image/webp" srcset="">
+                    <source type="image/jpeg" srcset="">
+                    <img class="pop-up__image" src="" srcset="" width="1042" height="744" alt="">
                 </picture>
-    
                 <button type="button" class="pop-up__image-navigation pop-up__image-navigation--previos"></button>
                 <button type="button" class="pop-up__image-navigation pop-up__image-navigation--next"></button>
             </div>
