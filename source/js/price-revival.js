@@ -23,6 +23,7 @@ function definOPenCloseElement() {
                 element.scrollIntoView({ block: "center", inline: "center" }); //прокрутка к нужному объекту
                 if (price.current !== null) {
                     revialPrice(price.current);
+                    element.scrollIntoView({ block: "center", inline: "center" }); //прокрутка к нужному объекту
                     price.current.dataset.about = '';
                     price.current = element;
                 } else {
