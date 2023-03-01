@@ -55,7 +55,7 @@ function closePopUp() {
     portCurrent.getPopUp().removeEventListener('click', onClikcCloseBtn);
     endSwipe();
     portCurrent.reset();
-    portfolioBlock.addEventListener('click', onClickPortfolio);
+    // portfolioBlock.addEventListener('click', onClickPortfolio);
 }
 
 function escapeClose(e) {
@@ -117,10 +117,6 @@ function switchToPrevios() {
 
 function clickConditions(e) {
     return e.target.classList.contains('pop-up__image-navigation--next');
-}
-
-function touchConditions() {
-
 }
 
 function switchImage(callback, target) {
@@ -193,7 +189,7 @@ function onClickPortfolio(e) {
             setPortKeyDown();
         }
     }
-    portfolioBlock.removeEventListener('click', onClickPortfolio);
+    // portfolioBlock.removeEventListener('click', onClickPortfolio);
 }
 
 function startPrtfolio() {
