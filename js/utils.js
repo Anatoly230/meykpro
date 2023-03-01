@@ -1,1 +1,201 @@
-function isEscape(e){return"Escape"===e.key}function getValueOfArguments(e,r){return"number"==typeof e&&(e<0&&(e=Math.abs(e)),e>r&&([e,r]=[r,e]),{from:e,to:r})}function getRandomNum(e=1e3,r=0){try{let t=getValueOfArguments(e,r);return e=t.from,r=t.to,t=null,Math.floor(Math.random()*(r-e+1))+e}catch(e){return console.log(e),!1}}function getRandomFloat(e=1e3,r=0,t=3){try{let n=getValueOfArguments(e,r);return e=n.from,r=n.to,n=null,Number((Math.random()*(r-e+1)+e).toFixed(t))}catch(e){return console.log(e.stack),!1}}function defineStringLength(e,r){return!(e.length>r)}function getRangeNumbers(e=1,r=25){let t=getValueOfArguments(e,r);e=t.from,r=t.to,t=[];try{for(;e<=r;)t.push(e),e++;return t}catch(e){console.log(e)}}function arrayClone(e){return e.map((function(e){return e}))}function arrayCopy(e,r){r.length=0;for(let t=0;t<e.length;t++)r[t]=e[t];return r}function arrayScatter(e){for(e=arrayClone(e),result=[];e.length>0;)result.push(...e.splice(getRandomNum(0,e.length)));return e=null,result}function detachFromArray(e){if(e.length<1)return e=null,!1;let r=getRandomNum(0,e.length-1);return e.splice(r,1)[0]}function selectFromArray(e){if(e.length<1)return e=null,!1;return e[getRandomNum(0,e.length-1)]}function defineIndex(e){try{let r=1,t=e;for(;t.previousElementSibling;)t=t.previousElementSibling,r++;return r}catch(e){console.log(e)}}function getObjects(e,r=25){try{if(void 0===e)throw new Error("Необходимо добавить функцию конструткор");if("object"==typeof r||Number(r)!=Number(r)||0===Number(r))throw new Error("Ошибка ввода данных, должно быть число не меньше 1");return Array.from({length:r},e)}catch(e){console.log(e)}}function binarySearchLn(e,r){let t,n=0,o=e.length;for(;n<o;){if(t=Math.floor((n+o)/2),e[t]===r)return t;r<e[t]?o=t-1:n=t+1}return-1}function binarySearchRq(e,r,t,n){let o=Math.floor((t+n)/2);return e[o]===r?o:t===n?-1:r<e[o]?binarySearchRq(e,r,0,o-1):binarySearchRq(e,r,o+1,n)}function qsort(e){if(e.length<=1)return e;let r=Math.floor(e.length/2),t=e[r],n=[],o=[];for(let u=0;u<e.length;u++)u!==r&&(e[u]<t?n.push(e[u]):o.push(e[u]));return[...qsort(n),t,...qsort(o)]}export{getRangeNumbers,arrayCopy,detachFromArray,selectFromArray,getRandomNum,getObjects,isEscape,defineIndex};
+
+function isEscape(e) {
+  return e.key === 'Escape';
+}
+
+function getValueOfArguments(from, to) {
+  if (typeof from !== 'number') {
+    return false;
+  }
+  if (from < 0) {
+    from = Math.abs(from);
+  }
+  if (from > to) {
+    [from, to] = [to, from];
+  }
+
+  return {
+    from: from,
+    to: to
+  }
+}
+
+function getRandomNum(from = 1000, to = 0) {
+  try {
+    let range = getValueOfArguments(from, to);
+    from = range.from,
+      to = range.to;
+    range = null;
+    return Math.floor(Math.random() * (to - from + 1)) + from;
+  } catch (err) {
+    console.log(err)
+    return false;
+  }
+}
+
+function getRandomFloat(from = 1000, to = 0, countNum = 3) {
+  try {
+    let range = getValueOfArguments(from, to);
+    from = range.from,
+      to = range.to;
+    range = null;
+    return Number((Math.random() * (to - from + 1) + from).toFixed(countNum));
+  } catch (err) {
+    console.log(err.stack);
+    return false;
+  }
+}
+
+function defineStringLength(str, charCount) {
+  if (str.length > charCount) {
+    return false;
+  }
+  return true;
+}
+
+function getRangeNumbers(from = 1, to = 25) {
+  let range = getValueOfArguments(from, to);
+  from = range.from;
+  to = range.to;
+  range = [];
+  try {
+    while (from <= to) {
+      range.push(from)
+      from++
+    }
+    return range;
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+function arrayClone(arr) {
+  return arr.map(function (item) {
+    return item;
+  })
+}
+
+function arrayCopy(instance, target) {
+  target.length = 0;
+  for (let i = 0; i < instance.length; i++) {
+    target[i] = instance[i];
+  }
+  return target;
+}
+
+function arrayScatter(arr) {
+  arr = arrayClone(arr),
+    result = [];
+  while (arr.length > 0) {
+    result.push(...arr.splice(getRandomNum(0, arr.length)))
+  }
+  arr = null;
+  return result;
+}
+
+function detachFromArray(array) {
+  if (array.length < 1) {
+    array = null;
+    return false;
+  }
+  let index = getRandomNum(0, array.length - 1);
+  return array.splice(index, 1)[0];
+}
+
+function selectFromArray(array) {
+  if (array.length < 1) {
+    array = null;
+    return false;
+  }
+  let index = getRandomNum(0, array.length - 1);
+  return array[index];
+}
+function defineIndex(elmnt) {
+  try {
+    let i = 1,
+      element = elmnt;
+
+    while (element.previousElementSibling) {
+      element = element.previousElementSibling;
+      i++
+    }
+    return i;
+
+  } catch (err) {
+    console.log(err);
+  }
+
+}
+
+function getObjects(callBack, length = 25) {
+  try {
+    if (callBack === undefined) {
+      throw new Error('Необходимо добавить функцию конструткор')
+    }
+    if (typeof length === 'object' || Number(length) !== Number(length) || Number(length) === 0) {
+      throw new Error('Ошибка ввода данных, должно быть число не меньше 1')
+    }
+    return Array.from({ length: length }, callBack);
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+function binarySearchLn(arr, num) {
+  let start = 0,
+    end = arr.length,
+    center;
+  while (start < end) {
+    center = Math.floor((start + end) / 2);
+    if (arr[center] === num) {
+      return center;
+    }
+
+    if (num < arr[center]) {
+      end = center - 1;
+
+    } else {
+      start = center + 1;
+    }
+  }
+  return -1;
+}
+
+function binarySearchRq(arr, num, start, end) {
+  let center = Math.floor((start + end) / 2);
+  if (arr[center] === num) {
+    return center;
+  }
+  if (start === end) {
+    return -1;
+  }
+  if (num < arr[center]) {
+    return binarySearchRq(arr, num, 0, center - 1);
+  } else {
+    return binarySearchRq(arr, num, center + 1, end);
+  }
+}
+
+function qsort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let pivotIndex = Math.floor(arr.length / 2),
+    pivot = arr[pivotIndex],
+    lower = [],
+    biger = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i === pivotIndex)
+      continue;
+    if (arr[i] < pivot) {
+      lower.push(arr[i]);
+    } else {
+      biger.push(arr[i]);
+    }
+  }
+  return [...qsort(lower), pivot, ...qsort(biger)];
+}
+
+
+export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape, defineIndex };

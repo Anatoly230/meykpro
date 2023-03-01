@@ -1,1 +1,91 @@
-const swipeTest=0,sliderTwo=document.querySelector(".slider-two"),slides=Array.from(sliderTwo.querySelectorAll(".slider-two__item"));let isDragging=!1,startPos=0,currentTranslate=0,prevTranslate=0,animationId=0,currentIndex=0;function touchStart(t){return function(e){currentIndex=t,isDragging=!0,startPos=getPositionX(e),animationId=requestAnimationFrame(animation),this.classList.add("grabbing")}}function touchEnd(){isDragging=!1,cancelAnimationFrame(animationId);const t=currentTranslate-prevTranslate;t<-100&&currentIndex<slides.length-1&&(currentIndex+=1),t>100&&currentIndex>0&&(currentIndex-=1),setPositionByindex(),this.classList.remove("grabbing")}function touchMove(t){if(isDragging){let e=getPositionX(t);currentTranslate=prevTranslate+e-startPos}}function getPositionX(t){return t.type.includes("mouse")?t.pageX:t.touches[0].clientX}function animation(){setSliderPosition(),isDragging&&requestAnimationFrame(animation)}function setSliderPosition(){sliderTwo.style.transitionProperty="transform",sliderTwo.style.transitionDuration="1000ms",sliderTwo.style.transform=`translateX(${currentTranslate}px)`}function setPositionByindex(){currentTranslate=currentIndex*-window.innerWidth,prevTranslate=currentIndex,setSliderPosition()}slides.forEach(((t,e)=>{t.querySelector(".slider-two__item-image").addEventListener("dragstart",(t=>t.preventDefault())),t.addEventListener("touchstart",touchStart(e)),t.addEventListener("touchend",touchEnd),t.addEventListener("touchmove",touchMove),t.addEventListener("mousedown",touchStart(e)),t.addEventListener("mouseup",touchEnd),t.addEventListener("mouseleave",touchEnd),t.addEventListener("mousemove",touchMove)})),window.oncontextmenu=function(t){return t.preventDefault(),t.stopPropagation(),!1},console.log("swipe start");export{swipeTest};
+const swipeTest = 0;
+const sliderTwo = document.querySelector('.slider-two'),
+    slides = Array.from(sliderTwo.querySelectorAll('.slider-two__item'));
+let isDragging = false,
+    startPos = 0,
+    currentTranslate = 0,
+    prevTranslate = 0,
+    animationId = 0,
+    currentIndex = 0;
+
+
+slides.forEach((slide, index) => {
+    const slideImage = slide.querySelector('.slider-two__item-image');
+    slideImage.addEventListener('dragstart', (e) => e.preventDefault())
+    // Touch events
+
+    slide.addEventListener('touchstart', touchStart(index))
+    slide.addEventListener('touchend', touchEnd)
+    slide.addEventListener('touchmove', touchMove)
+
+    // Mouse events
+    slide.addEventListener('mousedown', touchStart(index))
+    slide.addEventListener('mouseup', touchEnd)
+    slide.addEventListener('mouseleave', touchEnd)
+    slide.addEventListener('mousemove', touchMove)
+})
+
+window.oncontextmenu = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}
+
+function touchStart(index) {
+
+    return function (e) {
+        currentIndex = index;
+        isDragging = true;
+        startPos = getPositionX(e);
+        animationId = requestAnimationFrame(animation);
+        this.classList.add('grabbing');
+    }
+}
+
+function touchEnd() {
+    isDragging = false;
+    cancelAnimationFrame(animationId);
+    const movedBy = currentTranslate - prevTranslate;
+    if (movedBy < -100 && currentIndex < slides.length - 1) {
+        currentIndex += 1
+    }
+    if (movedBy > 100 &&  currentIndex > 0) {
+        currentIndex -= 1
+    }
+    setPositionByindex();
+    this.classList.remove('grabbing');
+}
+
+function touchMove(e) {
+    if (isDragging) {
+        let currentPosition = getPositionX(e);
+        currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+}
+
+function getPositionX(e) {
+    return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+}
+
+function animation() {
+    setSliderPosition()
+    if (isDragging) {
+        requestAnimationFrame(animation)
+    }
+}
+
+function setSliderPosition() {
+    sliderTwo.style.transitionProperty = 'transform';
+    sliderTwo.style.transitionDuration = '1000ms';
+    sliderTwo.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function setPositionByindex() {
+    currentTranslate = currentIndex * -window.innerWidth;
+    prevTranslate = currentIndex;
+    setSliderPosition();
+}
+
+console.log('swipe start');
+
+// export { swipeTest };

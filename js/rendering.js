@@ -1,1 +1,87 @@
-const changeInfo=[{class:".picture__img",target:"src",source:"url"},{class:".picture__likes",target:"textContent",source:"likes"},{class:".picture__comments",target:"textContent",source:"comments.length"},{class:".picture__comments",target:"dataset.id",source:"id"}];function removeIfContains(t,e){t.classList.contains(e)&&t.classList.remove(e)}function getParentElement(t,e){for(;!t.classList.contains(e);)if(null===(t=t.parentElement))return null;return t}function removeAddIfContains(t,e,n){t.classList.contains(e)&&(t.classList.remove(e),void 0!==n&&t.classList.add(n))}function getOut(t,e){if(Array.isArray(e))return e[0];let n=t;return e.split(".").forEach((function(t){n=n[t]})),n}function assignToElement(t,e,n){let s,c=e.split("."),o=t;for(s=0;s<c.length;s++)s===c.length-1?o[c[s]]=n:o=o[c[s]]}function changeDOM(t,e,n){e.forEach((function(e){n.forEach((function(n){value=getOut(e,n.source),assignToElement(t.querySelector(n.class),n.target,value)}))}))}function addToDOM(t,e,n,s){let c,o,r=document.createDocumentFragment();n.forEach((function(t){c=e.cloneNode(!0),s.forEach((function(e){o=getOut(t,e.source),assignToElement(c.querySelector(e.class),e.target,o)})),r.appendChild(c)})),t.appendChild(r)}export{addToDOM,changeDOM,removeAddIfContains,getParentElement};
+const changeInfo = [
+  { class: '.picture__img', target: 'src', source: 'url' },
+  { class: '.picture__likes', target: 'textContent', source: 'likes' },
+  { class: '.picture__comments', target: 'textContent', source: 'comments.length' },
+  { class: '.picture__comments', target: 'dataset.id', source: 'id' }
+]
+
+
+function removeIfContains(elem, containClass) {
+  if (elem.classList.contains(containClass)) {
+    elem.classList.remove(containClass)
+  }
+}
+
+
+function getParentElement(element, parentClass) {
+  while (!element.classList.contains(parentClass)) {
+      element = element.parentElement;
+      if (element === null) {
+          return null;
+      }
+  }
+  return element;
+}
+
+function removeAddIfContains(elem, containClass, addClass) {
+  if (elem.classList.contains(containClass)) {
+    elem.classList.remove(containClass);
+    if (addClass !== undefined) {
+      elem.classList.add(addClass);
+    }
+  }
+}
+
+
+function getOut(start, path) {
+  if (Array.isArray(path)) {
+    return path[0];
+  }
+  let current = start;
+  path.split('.').forEach(function (item) {
+    current = current[item]
+  })
+  return current;
+}
+
+function assignToElement(start, path, value) {
+  let parse = path.split('.');
+  let current = start;
+  let i;
+  for (i = 0; i < parse.length; i++) {
+    if (i === parse.length - 1) {
+      current[parse[i]] = value;
+    } else {
+      current = current[parse[i]];
+    }
+  }
+}
+
+
+function changeDOM(parent, datas, classesAndValues) {
+  datas.forEach(function (data) {
+    classesAndValues.forEach(function (item) {
+      value = getOut(data, item.source);
+      assignToElement(parent.querySelector(item.class), item.target, value);
+    })
+  })
+}
+
+function addToDOM(parent, sample, datas, classesAndValues) {
+  let elementStorage = document.createDocumentFragment(),
+    element,
+    value;
+  datas.forEach(function (data) {
+    element = sample.cloneNode(true);
+    classesAndValues.forEach(function (item) {
+      value = getOut(data, item.source);
+      assignToElement(element.querySelector(item.class), item.target, value);
+    })
+    elementStorage.appendChild(element);
+  })
+  parent.appendChild(elementStorage)
+};
+
+
+export { addToDOM, changeDOM, removeAddIfContains, getParentElement };
+
