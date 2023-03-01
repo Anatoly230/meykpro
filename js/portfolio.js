@@ -105,7 +105,7 @@ function switchToNext() {
     portCurrent.setCurrent(portCurrent.getCurrent().nextElementSibling ?
         portCurrent.getCurrent().nextElementSibling :
         portCurrent.getCurrent().parentElement.firstElementChild);
-    console.log(portCurrent)
+
     return portCurrent.getCurrent();
 }
 function switchToPrevios() {
