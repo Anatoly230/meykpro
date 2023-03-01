@@ -1,5 +1,7 @@
 import { getParentElement } from "./rendering.js";
 import { isEscape } from "./utils.js";
+import { pathDetected } from "./img-path-gaenerate.js";
+import { startSwipe, endSwipe } from "./touches.js";
 
 const body = document.querySelector('.page-body');
 const portfolioBlock = document.querySelector('.micflag__portfolio'); //добавить класс с блоком портфолио
@@ -35,7 +37,7 @@ function getCurrentPortItem() {
     }
 }
 
-const portCurrnet = getCurrentPortItem();
+const portCurrent = getCurrentPortItem();
 
 
 function createPopUp() {
@@ -47,12 +49,13 @@ function createPopUp() {
 function closePopUp() {
     window.removeEventListener('keydown', escapeClose);
     window.removeEventListener('keydown', onKeyNav);
-    portCurrnet.getPopUp().removeEventListener('click', onNavBtn);
-    portCurrnet.getPopUp().remove();
-    portCurrnet.getPopUp().removeEventListener('click', onClickingOnVoid);
-    portCurrnet.getPopUp().removeEventListener('click', onClikcCloseBtn);
-    portCurrnet.reset();
-    portfolioBlock.addEventListener('click', onClickPortfolio);
+    portCurrent.getPopUp().removeEventListener('click', onNavBtn);
+    portCurrent.getPopUp().remove();
+    portCurrent.getPopUp().removeEventListener('click', onClickingOnVoid);
+    portCurrent.getPopUp().removeEventListener('click', onClikcCloseBtn);
+    endSwipe();
+    portCurrent.reset();
+    // portfolioBlock.addEventListener('click', onClickPortfolio);
 }
 
 function escapeClose(e) {
@@ -98,18 +101,37 @@ function fillImageData(source, target) {
     })
 }
 
+function switchToNext() {
+    portCurrent.setCurrent(portCurrent.getCurrent().nextElementSibling ?
+        portCurrent.getCurrent().nextElementSibling :
+        portCurrent.getCurrent().parentElement.firstElementChild);
+
+    return portCurrent.getCurrent();
+}
+function switchToPrevios() {
+    portCurrent.setCurrent(portCurrent.getCurrent().previousElementSibling ?
+        portCurrent.getCurrent().previousSibling :
+        portCurrent.getCurrent().parentElement.lastElementChild);
+    return portCurrent.getCurrent();
+}
+
+function clickConditions(e) {
+    return e.target.classList.contains('pop-up__image-navigation--next');
+}
+
+function switchImage(callback, target) {
+    let current = null;
+    if (callback) {
+        current = switchToNext()
+    } else {
+        current = switchToPrevios()
+    }
+    fillImageData(current.querySelector('.portfolio__item-pic-contaner'), target)
+}
+
 function onNavBtn(e) {
-    let currentItem = portCurrnet.getCurrent(),
-        target = portCurrnet.getTarget();
     if (e.target.classList.contains('pop-up__image-navigation')) {
-        if (e.target.classList.contains('pop-up__image-navigation--next')) {
-            currentItem = currentItem.nextElementSibling ? currentItem.nextElementSibling : currentItem.parentElement.firstElementChild;
-            portCurrnet.setCurrent(currentItem)
-        } else {
-            currentItem = currentItem.previousElementSibling ? currentItem.previousElementSibling : currentItem.parentElement.lastElementChild;
-            portCurrnet.setCurrent(currentItem)
-        }
-        fillImageData(currentItem.querySelector('.portfolio__item-pic-contaner'), target)
+        switchImage(clickConditions(e), portCurrent.getTarget())
     }
 }
 
@@ -117,94 +139,64 @@ function onNavBtn(e) {
 
 
 function setNavBtns() {
-    if (portCurrnet.getPopUp()) {
-        portCurrnet.getPopUp().addEventListener('click', onNavBtn);
+    if (portCurrent.getPopUp()) {
+        portCurrent.getPopUp().addEventListener('click', onNavBtn);
     }
 }
 
 function setPortKeyDown() {
-    if (portCurrnet.getPopUp()) {
+    if (portCurrent.getPopUp()) {
         window.addEventListener('keydown', onKeyNav)
     }
 }
 
 function onKeyNav(e) {
-    let currentItem = portCurrnet.getCurrent(),
-        target = portCurrnet.getTarget();
+    let currentItem = portCurrent.getCurrent(),
+        target = portCurrent.getTarget();
     if (e.code === 'ArrowDown' || e.code === 'ArrowUp') {
         e.preventDefault()
     }
     if (e.code === 'ArrowRight') {
         e.preventDefault();
         currentItem = currentItem.nextElementSibling ? currentItem.nextElementSibling : currentItem.parentElement.firstElementChild;
-        portCurrnet.setCurrent(currentItem)
+        portCurrent.setCurrent(currentItem)
     } else if (e.code === 'ArrowLeft') {
         e.preventDefault();
         currentItem = currentItem.previousElementSibling ? currentItem.previousElementSibling : currentItem.parentElement.lastElementChild;
-        portCurrnet.setCurrent(currentItem)
+        portCurrent.setCurrent(currentItem)
     }
     fillImageData(currentItem.querySelector('.portfolio__item-pic-contaner'), target)
 }
-
 
 
 function onClickPortfolio(e) {
     const parentElement = getParentElement(e.target, 'portfolio__item');
     if (parentElement) {
         createPopUp();
-        portCurrnet.setPopUp(document.querySelector('.pop-up'));
-        portCurrnet.setCurrent(parentElement);
+        portCurrent.setPopUp(document.querySelector('.pop-up'));
+        portCurrent.setCurrent(parentElement);
         let sourcePicture = parentElement.querySelector('.portfolio__item-pic-contaner'),
-            portfolioPicture = portCurrnet.getPopUp().querySelector('.pop-up__image-block');
-        portCurrnet.setTarget(portfolioPicture);
+            portfolioPicture = portCurrent.getPopUp().querySelector('.pop-up__image-block'),
+            popUp = portCurrent.getPopUp();
+        portCurrent.setTarget(portfolioPicture);
         if (sourcePicture && portfolioPicture) {
             fillImageData(sourcePicture, portfolioPicture);
             window.addEventListener('keydown', escapeClose);
-            portCurrnet.getPopUp().addEventListener('click', onClickingOnVoid);
-            portCurrnet.getPopUp().addEventListener('click', onClikcCloseBtn);
+            popUp.addEventListener('click', onClickingOnVoid);
+            popUp.addEventListener('click', onClikcCloseBtn);
+            startSwipe(portCurrent)
             setNavBtns();
             setPortKeyDown();
         }
     }
-    portfolioBlock.removeEventListener('click', onClickPortfolio);
+    // portfolioBlock.removeEventListener('click', onClickPortfolio);
 }
 
-
-portfolioBlock.addEventListener('click', onClickPortfolio)
-
-function pathDetected(str) {
-    if (str.split(',').length > 1) {
-        return str.split(',').reduce(function (accum, item) {
-            return accum += `, ${getFullPath(item)}`;
-        }, '')
+function startPrtfolio() {
+    if (portfolioBlock) {
+        portfolioBlock.addEventListener('click', onClickPortfolio);
     }
-    return getFullPath(str)
 }
 
-
-function getStringStart(str) {
-    return str.split('').slice(0, str.lastIndexOf('/') + 1).join('')
-}
-
-function getFullPath(surcePath) {
-    return getStringStart(surcePath) + getFileName(surcePath) + '-full' + getStringEnd(surcePath);
-}
-
-function switchChar(str) {
-    if (str.lastIndexOf('@') === -1) {
-        return '.'
-    }
-    return '@';
-}
-
-function getStringEnd(str) {
-    let end = switchChar(str);
-    return str.split('').slice(str.lastIndexOf(end), str.length).join('')
-}
-
-function getFileName(str) {
-    let end = switchChar(str);
-    return str.split('').slice(str.lastIndexOf('/') + 1, str.lastIndexOf(end)).join('');
-}
-
-export { portfolioBlock };
+startPrtfolio();
+export { portfolioBlock, switchToPrevios, switchToNext, fillImageData, switchImage };

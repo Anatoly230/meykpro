@@ -1,0 +1,20 @@
+<template id="pop-up-info">
+    <div class="pop-up-background">
+        <div class="popUp-info">
+            <button class="popUp-info__close" aria-label="закрыть окно">
+                <svg class="popUp-info__close-pic" width="20" height="20">
+                    <use xlink:href="./img/icons/sprite.svg#close"></use>
+                </svg>
+            </button>
+            <form class="popUp-info__form" action="" method="post">
+                <p class="popUp-info__title">
+                    Заказать бесплатную консультацию</p>
+                <p class="popUp-info__description">Оставьте свои контактные данные и&nbsp;наш менеджер перезвонит вам
+                    в&nbsp;течение 10&nbsp;минут</p>
+                <label class="popUp-info__field-label" for="tel" class="">Ваш номер телефона</label>
+                <input class="popUp-info__field" type="tel" name="phone" id="tel">
+                <button class="popUp-info__submit btn" type="submit">Отправть заявку</button>
+            </form>
+        </div>
+    </div>
+</template>
