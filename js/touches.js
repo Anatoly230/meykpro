@@ -1,4 +1,4 @@
-import { fillImageData } from './portfolio.js';
+import { switchToPrevios, switchToNext, fillImageData, switchImage } from './portfolio.js';
 // window.oncontextmenu = function (e) {
 //     e.preventDefault();
 //     e.stopPropagation();
@@ -19,32 +19,27 @@ function touchStart(e) {
     current = ref.getCurrent();
 }
 function touchMove(e) {
-    // console.log('Движение', isDragging)
 }
 
 function touchEnd(e) {
+    // console.log('touchEnd')
     isDragging = false;
     dragEnd = e.changedTouches[0].clientX
-    if (dragStart - dragEnd > 0) {
-        e.preventDefault();
-        current = current.previousElementSibling ?
-            current.previousElementSibling :
-            current.parentElement.lastElementChild;
-        ref.setCurrent(current)
-        fillImageData(current.querySelector('.portfolio__item-pic-contaner'), popUpImg)
-
-    } else if (dragStart - dragEnd < 0) {
-        console.log(dragStart - dragEnd)
-        current = current.nextElementSibling ?
-            current.nextElementSibling :
-            current.parentElement.firstElementChild;
-        ref.setCurrent(current)
-        fillImageData(current.querySelector('.portfolio__item-pic-contaner'), popUpImg)
+    if (dragStart - dragEnd !== 0) {
+        switchImage(dragStart - dragEnd > 0 && dragStart - dragEnd !== 0, popUpImg)
     }
+
+    // if (dragStart - dragEnd > 0) {
+    //     e.preventDefault();
+    //     switchToNext()
+
+    // } else if (dragStart - dragEnd < 0) {
+    //     e.preventDefault()
+    //     switchToPrevios()
+    // }
 
 }
 
-console.log(window.oncontextmenu)
 
 
 
@@ -72,6 +67,4 @@ function endSwipe() {
     resetBase();
 }
 
-console.log(window.oncontextmenu)
-
-export { startSwipe, endSwipe}
+export { startSwipe, endSwipe }
