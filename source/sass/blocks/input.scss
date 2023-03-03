@@ -1,6 +1,15 @@
 .input {
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    &--error {
+        color: red;
+    }
+
+    &--valid {
+        color: green;
+    }
 
     &__name {
         padding-block-end: rem(5);
@@ -23,6 +32,35 @@
             @include tablet {
                 height: 100%;
             }
+
         }
+
+    }
+}
+
+.text-help {
+    z-index: 2;
+    background-color: $pink;
+    padding: rem(10);
+    border-radius: rem(5);
+    color: $white;
+    // justify-self: start;
+    align-self: center;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: -53px;
+    transform: translateX(-10px) translateX(10px) translateX(0);
+    transition-property: transform;
+    transition-duration: 300ms;
+
+    &::before {
+        position: absolute;
+        top: -5px;
+        transform: rotate(45deg);
+        display: block;
+        content: '';
+        width: rem(10);
+        height: rem(10);
+        background-color: $pink;
     }
 }
