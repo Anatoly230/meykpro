@@ -16,11 +16,11 @@ const messges = {
     integer: "Здесь должно быть целое число",
     url: "введите корректный адресс сайта",
     tel: "This field requires a valid telephone number",
-    maxlength: "This fields length must be < ${1}",
-    minlength: "This fields length must be > ${1}",
+    maxlength: "Не меньше ${1} цифр",
+    minlength: "Не больше ${1} цифр",
     min: "Minimum value for this field is ${1}",
     max: "Maximum value for this field is ${1}",
-    pattern: "Please match the requested format",
+    pattern: "необходимо соотвествие формату",
     equals: "The two fields do not match"
 }
 const pristine = new Pristine(form, config),
