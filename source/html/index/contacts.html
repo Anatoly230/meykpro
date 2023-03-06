@@ -1,12 +1,12 @@
 <section class="micflag__contacts contacts" id="contacts">
     <h2 class="contacts__heading heading"><span class="heading__content">Оставить заявку</span></h2>
     <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
-    <form action="action.php" method="POST" class="contacts__form form">
+    <form action="action.php" method="POST" class="contacts__form form" id="main-form">
         <div class="form__group">
             <div class="input">
                 <label class="input__name" for="name" class="input__name">Имя*</label>
                 <input class="input__field" id="name" name="name" 
-                    placeholder="Александр..." type="text" required  >
+                    placeholder="Александр..." type="text" required>
             </div>
             <div class="input">
                 <label class="input__name" for="phone" class="input__name">Телефон*</label>
@@ -17,6 +17,15 @@
                 <label class="input__name" for="email" class="input__name">Почта*</label>
                 <input class="input__field" id="email" name="email" placeholder="custom@gmail.com" type="email"
                     required>
+            </div>
+            <div class="input">
+                <label class="input__name" for="actions" class="input__name">Выбрать действия*</label>
+                <select name="actions" id="actions" form="main-form">
+                    <option value="rend">Взять в аренду</option>
+                    <option value="restavration" selected>Реставрировать</option>
+                    <option value="buy" >Купить</option>
+                </select>
+              
             </div>
         </div>
         <div class="form__group form__group--message">
