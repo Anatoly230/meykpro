@@ -84,7 +84,6 @@ function getStartSlider() {
 
 }
 
-
 function setPagination() {
     let paginationList = document.createElement('div');
     paginationList.classList.add('buttons-list__wrapper')
