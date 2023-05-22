@@ -88,6 +88,12 @@
         opacity: 0.4;
     }
 
+    &:disabled {
+        background-color: #d6d6d6;
+        color: $grey;
+    }
+
+
     &__text--hide {
         display: none;
     }

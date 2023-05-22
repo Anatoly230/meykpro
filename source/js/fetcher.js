@@ -1,29 +1,24 @@
-// const requestURL = 'https://jsonplaceholder.typicode.com/posts';
+import { getTemporaryNotice } from "./alert.js";
 const requestURL = './php/action.php';
 
-let formData = new FormData();
-formData.append('id', '5');
-formData.append('title', 'try');
-formData.append('body', 'Som one');
-formData.append('userId', '5');
-
-
-fetch(requestURL, {
-    method: 'POST',
-    body: formData,
-    headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+export default async function sendData(formElements, url = requestURL) {
+    const formData = new FormData(formElements);
+    let sendResult = false;
+    const response = await fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    if (response.ok) {
+        response
+            .json()
+            .then((json) => {
+                sendResult = json.error === 0;
+            })
+    } else {
+        getTemporaryNotice({
+            title: 'Ошибка отправки данных',
+            description: 'Возможно сетевая ошибка, можете сами позвонить по номеру 8 985 468 76 51'
+        })
     }
-})
-    .then(function (response) {
-        console.log(response.status)
-        return response.json()
-    }).then((json) => console.log(json));
-
-fetch(requestURL)
-    .then(function (response) {
-        console.log(response.status)
-        return response.json()
-    }).then(function (json) { console.log(json) });
-
-export { requestURL };
+    return sendResult;
+}

@@ -1,9 +1,20 @@
 import { isEscape } from "./utils.js";
-const requestBtn = document.querySelector('.header__callback-btn')
-const body = document.querySelector('body')
+import sendData from "./fetcher.js";
+
+
+const requestBtn = document.querySelector('.header__callback-btn');
+const body = document.querySelector('body');
+const popUpForm = null;
+
+
 
 let popUpBody = null,
     popUpCloseBtn = null;
+
+function popUpFormProces(popup){
+const form = popup.querySelector('.popUp-info__form')
+console.log(form.elements);
+}
 
 function onEscapeKeyDown(e) {
     if (isEscape(e)) {
@@ -37,6 +48,7 @@ function closePopUpInfo() {
 function onClickRequestBtn(e) {
     createPopUpInfo()
     popUpBody = body.querySelector('.pop-up-background')
+    popUpFormProces(popUpBody);
     popUpCloseBtn = popUpBody.querySelector('.popUp-info__close')
     popUpCloseBtn.addEventListener('click', closePopUpInfo)
     popUpBody.addEventListener('click', onClickingOnVoid)

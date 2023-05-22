@@ -1,0 +1,34 @@
+.alert {
+    z-index: 100;
+    background-color: $white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 300px;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 3px rgba($color: $disabled, $alpha: 0.7);
+    
+    @include tablet {
+        border-radius: 15px;
+
+    }
+
+    &__title {
+        font-size: 20px;
+        text-align: center;
+        color: $pink;
+        font-weight: 800;
+        // @include show-outline;
+        margin-block-end: 20px;
+    }
+
+    &__description {
+        font-size: 14px;
+        // @include show-outline(green);
+        text-align: center;
+        color: $disabled;
+    }
+}
