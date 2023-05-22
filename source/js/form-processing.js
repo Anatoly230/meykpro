@@ -55,29 +55,38 @@ function validatePhoneFormat(value) {
     return false;
 }
 
-// function sendData(form) {
-//     const formData = new FormData(form)
-//     let response = await fetch('../php/action.php', {
-//         method: 'POST',
-//         body: formData,
-//     })
-//     if(response.ok){
-//         let result = await response.json()
-//         form.reset()
-//         alert('письмо отправлено')
-//     }else{
-//         alert('ошибка')
-//     }
-// }
+async function sendData(formElements) {
+    const formData = new FormData(formElements);
+
+    let response = await fetch('./php/action.php', {
+        method: 'POST',
+        body: formData
+    })
+    if (response.ok) {
+
+        response.json()
+            .then((json) => {
+                console.log(json)
+            })
+        console.log('письмо отправлено')
+        // здесь будет вызов попап с информированием об успешной отправки письма
+    } else {
+        console.log('ошибка')
+    }
+}
+
 
 pristine.addValidator(some, validateNickname, 'От 2 до 50 символов', true)
-pristine.addValidator(some, validateCyrylic, 'Имя должно быть написано кирилицей', true)
+// pristine.addValidator(some, validateCyrylic, 'Имя должно быть написано кирилицей', true)
 pristine.addValidator(phone, validatePhoneFormat, 'Например: 8 900 77 77 00', true)
 
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     let isValid = pristine.validate();
+    if (isValid) {
+        sendData(this)
+    }
 
 })
 
