@@ -79,9 +79,11 @@
     &__close-pic {
         padding: 0;
         fill: $white;
-
+        width: rem(35);
+        height: auto;
+        
         @include tablet {
-            width: rem(25);
+            width: rem(40);
             height: auto;
             fill: rgba(#000000, 0.4);
         }
@@ -101,7 +103,7 @@
         // background-position: center;
         position: absolute;
         border-radius: 50%;
-        top: -40px;
+        top: -60px;
         right: -10px;
         transition-property: transform;
         transition-duration: 400ms;

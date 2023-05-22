@@ -1,17 +1,18 @@
 <section class="micflag__contacts contacts" id="contacts">
     <h2 class="contacts__heading heading"><span class="heading__content">Оставить заявку</span></h2>
     <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
-    <form action="action.php" method="POST" class="contacts__form form">
+    <form action="./php/action.php" method="POST" class="contacts__form form">
         <div class="form__group">
             <div class="input">
                 <label class="input__name" for="name" class="input__name">Имя*</label>
-                <input class="input__field" id="name" name="name" 
-                    placeholder="Александр..." type="text" required  >
+                <input class="input__field" id="name" name="name" minlength="2" maxlength="50"
+                    placeholder="Александр..." type="text" required>
             </div>
             <div class="input">
                 <label class="input__name" for="phone" class="input__name">Телефон*</label>
-                <input class="input__field" id="phone" pattern="/^\+?[7|7|8]?\(?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/gm" name="phone" title="Введите Ваше Имя"
-                    placeholder="+7 900 000 00 00" type="tel" required>
+                <input class="input__field" id="phone"
+                    pattern="/^\+?[7|7|8]?\s?\(?\d{3}\)?[\s|-]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/gm" name="phone"
+                    title="Введите Ваш номер телефона" placeholder="+7 900 000 00 00" type="tel" required>
             </div>
             <div class="input">
                 <label class="input__name" for="email" class="input__name">Почта*</label>
