@@ -1,5 +1,7 @@
 import { isEscape } from "./utils.js";
 import sendData from "./fetcher.js";
+import { config, validatePhoneFormat } from "./pristine-configs.js";
+import { getTemporaryNotice, callMessage } from "./alert.js";
 
 
 const requestBtn = document.querySelector('.header__callback-btn');
@@ -11,9 +13,35 @@ const popUpForm = null;
 let popUpBody = null,
     popUpCloseBtn = null;
 
-function popUpFormProces(popup){
-const form = popup.querySelector('.popUp-info__form')
-console.log(form.elements);
+function popUpFormProces(popup) {
+    const form = popup.querySelector('.popUp-info__form')
+    const fastOrder = new Pristine(form, config, false);
+    fastOrder.addValidator(form.querySelector('#tel'), validatePhoneFormat, 'Например: 8 900 77 77 00', true);
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        // const isValid = regularOrder.validate() && sendData(this, './php/fast-order.php');
+        const isValid = fastOrder.validate();
+
+        if (typeof isValid === 'boolean' && isValid) {
+            this.elements[1].disabled = true;
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    this.reset();
+                    getTemporaryNotice(callMessage)
+                    closePopUpInfo();
+                }, 1000);
+                resolve('name')
+            })
+
+            //сообщение об успешной отправки формы
+        } else {
+
+            //сообщение об ошибке отправки данных
+        }
+    })
+
+
 }
 
 function onEscapeKeyDown(e) {
