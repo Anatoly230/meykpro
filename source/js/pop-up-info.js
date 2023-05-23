@@ -28,7 +28,7 @@ function popUpFormProces(popup) {
             let promise = new Promise((resolve, reject) => {
                 setTimeout(() => {
                     this.reset();
-                    getTemporaryNotice(callMessage)
+                    getTemporaryNotice(callMessage, 4000)
                     closePopUpInfo();
                 }, 1000);
                 resolve('name')

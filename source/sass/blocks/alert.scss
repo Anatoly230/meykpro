@@ -1,3 +1,11 @@
+.alert-wrapper{
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
 .alert {
     z-index: 100;
     background-color: $white;
@@ -12,7 +20,7 @@
     box-shadow: 0px 0px 3px rgba($color: $disabled, $alpha: 0.7);
     
     @include tablet {
-        border-radius: 15px;
+        border-radius: 10px;
 
     }
 
@@ -21,14 +29,20 @@
         text-align: center;
         color: $pink;
         font-weight: 800;
-        // @include show-outline;
         margin-block-end: 20px;
+
+        @include tablet{
+            font-size: 25px;
+        }
     }
 
     &__description {
         font-size: 14px;
-        // @include show-outline(green);
         text-align: center;
         color: $disabled;
+
+        @include tablet{
+            font-size: 18px;
+        }
     }
 }

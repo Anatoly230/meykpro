@@ -12,9 +12,11 @@ export const callMessage = {
 
 
 const createAlertTemplate = (message = initialMessage) =>
-    `<div class="alert">
+    `<div class="alert-wrapper">
+    <div class="alert">
 <p class="alert__title">${message.title}</p>
 <p class="alert__description">${message.description}</p>
+</div>
 </div>`;
 
 class AlertMessage {
