@@ -38,7 +38,7 @@ export function validateCyrylic(value) {
 }
 
 export function validatePhoneFormat(value) {
-    const regExp = /^\+?[7|7|8]?\(?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/gm;
+    const regExp = /^\+?[7|7|8]?\s?\(?\d{3}\)?\s?\d{3}\s?\d{2}\s?\d{2}$/gm;
     if (regExp.test(value)) {
         return true;
     }
