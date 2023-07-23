@@ -2,6 +2,7 @@ import { isEscape } from "./utils.js";
 import sendData from "./fetcher.js";
 import { config, validatePhoneFormat } from "./pristine-configs.js";
 import { getTemporaryNotice, callMessage } from "./alert.js";
+import addPhoneMask from "./utils/tel-mask.js";
 
 
 const requestBtn = document.querySelector('.header__callback-btn');
@@ -14,12 +15,14 @@ let popUpBody = null,
     popUpCloseBtn = null;
 
 function popUpFormProces(popup) {
-    const form = popup.querySelector('.popUp-info__form')
+    const form = popup.querySelector('.popUp-info__form');
+    addPhoneMask(form.querySelector('[type=tel]'));
     const fastOrder = new Pristine(form, config, false);
     fastOrder.addValidator(form.querySelector('#tel'), validatePhoneFormat, 'Например: 8 900 77 77 00', true);
 
     form.addEventListener('submit', function (e) {
         e.preventDefault()
+        console.log(form.querySelector('[type=tel]').value);
         // const isValid = regularOrder.validate() && sendData(this, './php/fast-order.php');
         const isValid = fastOrder.validate();
 
