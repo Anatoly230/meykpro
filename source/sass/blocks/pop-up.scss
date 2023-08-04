@@ -46,10 +46,16 @@
         min-width: rem(40);
         min-height: rem(40);
         border: none;
+<<<<<<< HEAD
         background-color: rgba($color: $white, $alpha: .5);
         background-image: url('../img/icons/sprite/close.svg');
         background-repeat: no-repeat;
+=======
+        background-color: transparent;
+          background-image: url('../img/icons/sprite/close.svg');
+>>>>>>> 13b12696958e2a4c64d1dcdc29aae02ee013eddb
         background-position: center;
+        background-repeat: no-repeat;
         background-size: 35%;
         cursor: pointer;
 
