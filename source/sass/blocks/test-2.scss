@@ -1,29 +1,37 @@
 // common settings start
 
-$arrow-pick: 20px;
+$arrow-pick: 30px;
 $frame-gap: calc($arrow-pick + 20px);
 $frame-padding: 30px;
 $grid-gap: 30px;
 $arrow-length: calc($grid-gap + $frame-padding / 4);
 $arrow-height: calc($frame-gap / 2 + 5px);
-$frame-color: violet;
-// $frame-color: #6b7d6b;
-$frame-stroke-width: 3px;
+// $frame-color: violet;
+$frame-color: #6b7d6b;
+$frame-stroke-width: 2px;
 $arrow-pick-indent: calc($frame-stroke-width / 2);
 $arrow-indent: calc($arrow-length - $frame-stroke-width);
 
 .work-stages {
-    padding: $frame-padding;
-    display: grid;
-    gap: $grid-gap;
-    grid-template-columns: 1fr;
-
-
-    @include tablet {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 300px) );
-        justify-content: center;
-
+    &__heading {
+        @include heading-wrapper;
     }
+
+    &__list {
+        @include section-wrapper;
+        padding: 30px;
+        display: grid;
+        gap: $grid-gap;
+        grid-template-columns: 1fr;
+
+        @include tablet {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+            justify-content: center;
+        }
+    }
+
+    &__item {}
+
 }
 
 .work-stage {
@@ -39,7 +47,7 @@ $arrow-indent: calc($arrow-length - $frame-stroke-width);
         grid-column: 1/-1;
         grid-row: 1/-1;
         display: grid;
-        padding: 20px;
+        padding: $frame-padding;
 
     }
 
@@ -47,7 +55,9 @@ $arrow-indent: calc($arrow-length - $frame-stroke-width);
 
     &__heading {}
 
-    &__description {}
+    &__description {
+        display: none;
+    }
 
     &--tb-borders::after,
     &--tb-borders::before {
@@ -80,6 +90,10 @@ $arrow-indent: calc($arrow-length - $frame-stroke-width);
         transform: translateY(-50%);
         border: $frame-stroke-width solid $frame-color;
         border-block-color: transparent;
+
+        @include tablet {
+            border-color: transparent;
+        }
     }
 
     &__arrow-body::before {
@@ -114,5 +128,23 @@ $arrow-indent: calc($arrow-length - $frame-stroke-width);
         }
     }
 
+    &:last-of-type &__arrow-body::before {
+        display: none;
+    }
 
+    &:last-of-type &__arrow::after {
+        display: none;
+    }
+
+    &:last-of-type &__middle-border::before {
+        @include tablet {
+            border-inline-end-color: $frame-color;
+        }
+    }
+
+    &:first-of-type .work-stage__middle-border::before {
+        @include tablet {
+            border-inline-start-color: $frame-color;
+        }
+    }
 }
