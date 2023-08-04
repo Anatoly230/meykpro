@@ -11,7 +11,9 @@
         @include pseudo-el;
         width: rem(70);
         height: rem(70);
-        background-color: $poster-cl;
+        background-color: none;
+        // background-color: $poster-cl;
+        border: 1px solid $poster-cl;
         border-radius: 0 50%;
     }
 
