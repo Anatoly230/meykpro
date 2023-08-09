@@ -51,13 +51,13 @@ const html = () => {
 }
 
 // html pug
-const htmlPug = ()=>{
-  return gulp.src('./source/pugHtml/new.pug')
-  .pipe(pug({
-    doctype: 'html',
-    pretty: true
-  }))
-  .pipe(gulp.dest('./source/html/pugResult/index.html'))
+const htmlPug = () => {
+  return gulp.src('./source/pugTest/*.pug')
+    .pipe(pug({
+      doctype: 'html',
+      pretty: true
+    }))
+    .pipe(gulp.dest('./source/html/pugTestResult/'))
 }
 
 // Scripts
@@ -195,6 +195,7 @@ const reload = () => {
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(styles));
   gulp.watch('source/js/*.js', gulp.series(scripts));
+  gulp.watch('source/pugTest/**/*.pug', gulp.series(htmlPug, html, reload));
   gulp.watch('source/**/*.html', gulp.series(html, reload));
   gulp.watch('source/img/icons/sprite/*.svg', gulp.series(sprite));
   gulp.watch(['source/img/**/*.svg', '!source/img/icons/sprite/*.svg'], gulp.series(svg));
@@ -208,6 +209,7 @@ export const build = gulp.series(
   optimizeImages,
   gulp.parallel(
     styles,
+    htmlPug,
     html,
     scripts,
     svg,
@@ -225,6 +227,7 @@ export default gulp.series(
   gulp.parallel(
     styles,
     html,
+    htmlPug,
     scripts,
     svg,
     sprite,
