@@ -35,15 +35,15 @@ $arrow-indent: calc($arrow-length - $frame-stroke-width);
         content: counter(item);
         counter-increment: item;
 
-        &::after {
-            @include pseudo-el;
-            content: "30";
-            width: rem(15);
-            height: rem(15);
-            font-size: 20px;
-            background-color: red;
+        // &::after {
+        //     @include pseudo-el;
+        //     content: "30";
+        //     width: rem(15);
+        //     height: rem(15);
+        //     font-size: 20px;
+        //     background-color: red;
 
-        }
+        // }
 
     }
 

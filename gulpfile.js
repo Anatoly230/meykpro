@@ -20,8 +20,12 @@ import stripComment from 'gulp-strip-comments';
 import concat from 'gulp-concat';
 import fileInclude from 'gulp-file-include';
 
-const source = "source";
-const dist = 'build';
+const source = "source",
+  dist = 'build',
+  pugInfo = {
+    source: ['./source/pug/*.pug', '!./source/pug/_*.pug'],
+    dist: './source/html/pugResult/'
+  }
 
 // Styles
 
@@ -52,12 +56,12 @@ const html = () => {
 
 // html pug
 const htmlPug = () => {
-  return gulp.src('./source/pugTest/*.pug')
+  return gulp.src(pugInfo.source)
     .pipe(pug({
       doctype: 'html',
       pretty: true
     }))
-    .pipe(gulp.dest('./source/html/pugTestResult/'))
+    .pipe(gulp.dest(pugInfo.dist))
 }
 
 // Scripts
@@ -195,7 +199,7 @@ const reload = () => {
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(styles));
   gulp.watch('source/js/*.js', gulp.series(scripts));
-  gulp.watch('source/pugTest/**/*.pug', gulp.series(htmlPug, html, reload));
+  gulp.watch('source/pug/**/*.pug', gulp.series(htmlPug, html, reload));
   gulp.watch('source/**/*.html', gulp.series(html, reload));
   gulp.watch('source/img/icons/sprite/*.svg', gulp.series(sprite));
   gulp.watch(['source/img/**/*.svg', '!source/img/icons/sprite/*.svg'], gulp.series(svg));
