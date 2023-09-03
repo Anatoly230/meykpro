@@ -1,0 +1,43 @@
+//- 
+  генерация комплекта изображений с тегом picture
+  
+  для задания класса тегу picture, нужно на вызываемй mixin  странице объявить класс pictureClass
+  этот класс присвоется
+
+//-
+  при использовании миксина необходимо объявить эти переменные
+  - const basePath = './img/slider/micflag/' 
+  - const pictureClass = 'slide'
+  - const imageClass = 'slide'
+
+- 
+  function concatStr(path,arr, j, i){
+    const imgName = arr.names[i];
+    return arr.screens.reduce((accum,screen, index)=>{
+    if(index > 0){
+    accum+=`, ${path}${imgName}@${screen}.${arr.type[j]} ${screen}`
+    return accum;
+    }
+    accum+=`${path}${imgName}.${arr.type[j]} ${screen}`
+    return accum;
+    },'')
+  }
+
+mixin imageGenerate(images)
+  each image, index in images
+    if index + 1 === images.length
+      img(class= imageClass?`${imageClass}__pic`:false 
+      src= `${basePath+image.name}.${image.type}` 
+      srcset= image.screens != 1 ?`${basePath+image.name}@${image.screens}.${image.type} ${image.screens}`:false
+      width= image.width
+      height= image.height
+      alt= image.alt)            
+    else
+      picture(class= pictureClass? `${pictureClass}__pic-contaner`: false)
+        each device, i in image.devices         
+          each tp , j in image.type
+            source(type= `image/${tp}` media=`(min-width: ${device}px)`
+            srcset=`${concatStr(basePath,image, j, i)}`)
+
+
+

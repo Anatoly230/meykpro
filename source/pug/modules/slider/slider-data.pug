@@ -6,16 +6,15 @@
       price: '3100',
       imageSet: [
         {
-        device:'1150',
-        srcset:['standart-desktop.png 1x','standart-desktop@2x.png 2x']
+        type:['png'],
+        screens:['1x', '2x'],
+        devices:['1150', '768'],
+        names:['standart-desktop','standart-tablet'],
         },
         {
-        device:'768',
-        srcset:['standart-tablet.png 1x','standart-tablet@2x.png 2x']
-        },
-        {
-        src:'standart.png',
-        srcset:'standart@2x.png 2x',
+        screens: '2x',
+        type: 'png',
+        name:'standart',
         width: '197',
         height: '161',
         alt: 'кубик на микрофон типа Standart',
@@ -27,16 +26,15 @@
       price: '3400',
       imageSet: [
         {
-        device:'1150',
-        srcset:['euro-desktop.png 1x','euro-desktop@2x.png 2x']
+        type:['png'],
+        screens:['1x', '2x'],
+        devices:['1150', '768'],
+        names:['euro-desktop','euro-tablet'],
         },
         {
-        device:'768',
-        srcset:['euro-tablet.png 1x','euro-tablet@2x.png 2x']
-        },
-        {
-        src:'euro.png',
-        srcset:'euro@2x.png 2x',
+        screens: '2x',
+        type: 'png',
+        name:'euro',
         width: '197',
         height: '161',
         alt: 'кубик на микрофон типа euro',
