@@ -1,8 +1,18 @@
+extends _layuot
 
-html(lang='ru')
+block variables
+    include ./modules/head/head-data
+    - pageClass = 'page-body'
+    
+block metaHead
+    title=  headData.index.title ? headData.index.title : 'не заполнен объект headData'
+    meta(name='description' content= headData.index.description ? headData.index.description : 'не заполнен объект headData')
+    meta(name='keywords' content= headData.index.keywords ? headData.index.keywords :'не заполнен объект headData')
+    script(src=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js ')
+    link(href=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css ' rel='stylesheet')
 
-    body
-        p.
-            Хотите научиться чему-то новому на сайте HTML Academy ? Если да, нажмите кнопку
-            #[button(type="button") Хочу учиться]
-            И наш менеджер свяжется с вами
+block content
+    h1.visually-hidden Кубики на микрофон
+    include ./modules/slider/slider
+    //- include ./modules/about/about
+    //- include ./modules/price/price

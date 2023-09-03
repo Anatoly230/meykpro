@@ -1,0 +1,27 @@
+include ../mixins
+include ./slider-data
+
+- const basePath = './img/slider/micflag/' 
+- const pictureClass = 'slide__pic-contaner'
+
+mixin slideGen(sliders)
+  ul.micflag__slider-content.slider
+    each slide in sliders
+      li.slider__item.slide
+        .slide__wrapper
+          h3.slide__heading!= slide.heading
+          +imageGenerate(slide.imageSet)
+          p.slide__text!= slide.text
+          p.slide__price-wrapper
+            span.slide__price!= `${slide.price} &#8381;`
+            a.slide__price-buy-btn.btn.btn--buy(href='#contacts') Заказать
+
+
+section.micflag__slider
+  h2.visually-hidden Модели кубиков на микрофон
+  +slideGen(micFlags)
+  .slider__buttons.buttons-list
+    button.buttons-list__item.buttons-list__slide.buttons-list__slide--hide(aria-label='переключатель слайда'
+    data-slide='right') &#8249;
+    button.buttons-list__item.buttons-list__slide.buttons-list__slide--hide(aria-label='переключатель слайда'
+    data-slide='right') &#8250;

@@ -1,0 +1,12 @@
+block variables
+
+doctype html
+html.page(lang='ru')
+    head
+        include ./modules/head/_head
+        block metaHead
+    body.page__body.page-body
+        include ./modules/header
+        main.page-body__content    
+            block content
+        include ./modules/footer

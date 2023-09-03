@@ -1,0 +1,46 @@
+-
+  const micFlags = [
+    {
+      heading: 'Кубик на микрофон &laquo;Standart&raquo;',
+      text: 'Самая распространенная и&nbsp;универсальная модель насадок на&nbsp;микрофон. Размерная линейка 65, 70, 80мм. Рекомендуемое отверстие под стержень микрофона 45мм.',
+      price: '3100',
+      imageSet: [
+        {
+        device:'1150',
+        type:'png'
+        srcset:['standart-desktop.png 1x','standart-desktop@2x.png 2x']
+        },
+        {
+        device:'768',
+        srcset:['standart-tablet.png 1x','standart-tablet@2x.png 2x']
+        },
+        {
+        src:'standart.png',
+        srcset:'standart@2x.png 2x',
+        width: '197',
+        height: '161',
+        alt: 'кубик на микрофон типа Standart',
+        }]
+    },
+    {
+      heading: 'Кубик на микрофон &laquo;Euro&raquo;',
+      text: 'Модель прекрасно подходит если логотип широкий или невысокая ножка микрофона.Размер стороны 80&times;50мм.Рекомендуемое отверстие под стержень микрофона 45мм.',
+      price: '3400',
+      imageSet: [
+        {
+        device:'1150',
+        srcset:['euro-desktop.png 1x','euro-desktop@2x.png 2x']
+        },
+        {
+        device:'768',
+        srcset:['euro-tablet.png 1x','euro-tablet@2x.png 2x']
+        },
+        {
+        src:'euro.png',
+        srcset:'euro@2x.png 2x',
+        width: '197',
+        height: '161',
+        alt: 'кубик на микрофон типа euro',
+        }]
+    },
+  ] 
