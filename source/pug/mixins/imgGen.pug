@@ -1,6 +1,6 @@
 //- 
   генерация комплекта изображений с тегом picture
-  
+
   для задания класса тегу picture, нужно на вызываемй mixin  странице объявить класс pictureClass
   этот класс присвоется
 
@@ -23,21 +23,25 @@
     },'')
   }
 
+mixin singelImg(image)
+  img(class= image.imageClass?`${image.imageClass}__pic`:false 
+  src= `${image.path+image.name}.${image.type}` 
+  srcset= image.screens != 1 ?`${image.path+image.name}@${image.screens}.${image.type} ${image.screens}`:false
+  width= image.width
+  height= image.height
+  alt= image.alt
+  data-type= image.data? image.data: false)       
+
 mixin imageGenerate(images)
-  each image, index in images
-    if index + 1 === images.length
-      img(class= imageClass?`${imageClass}__pic`:false 
-      src= `${basePath+image.name}.${image.type}` 
-      srcset= image.screens != 1 ?`${basePath+image.name}@${image.screens}.${image.type} ${image.screens}`:false
-      width= image.width
-      height= image.height
-      alt= image.alt)            
+    if images.length > 1
+      picture(class= images[0].pictureClass? `${images[0].pictureClass}__pic-contaner`: false)
+        each image, index in images
+          if index + 1 === images.length
+            +singelImg(image)
+          else
+            each device, i in image.devices         
+              each tp , j in image.type
+                source(type= `image/${tp}` media=`(min-width: ${device}px)`
+                srcset=`${concatStr(image.path,image, j, i)}`)
     else
-      picture(class= pictureClass? `${pictureClass}__pic-contaner`: false)
-        each device, i in image.devices         
-          each tp , j in image.type
-            source(type= `image/${tp}` media=`(min-width: ${device}px)`
-            srcset=`${concatStr(basePath,image, j, i)}`)
-
-
-
+      +singelImg(images[0])
