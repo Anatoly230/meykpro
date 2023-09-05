@@ -1,5 +1,18 @@
 include ../../mixins/imgGen
 include ./price-data
+-
+    function statusIdentifier(some){
+        const template = '.item-status'; 
+        if(typeof some === 'string'){
+            return `${template} ${template}--${some}`
+        }
+        let resultStr = template;
+        if(Array.isArray(some)){
+            return some.reduce((accum, item)=>{
+                return `${accum} ${template}--${item}`
+            }, resultStr)
+        }
+    }
 
 mixin getParametrs(data)
     dl.parametrs__wrapper
@@ -29,16 +42,18 @@ mixin getHeading(data)
     h3.parametrs__heading.
         #[span.visually-hidden= data.subHeading]
         &laquo;#{data.heading}&raquo;
+mixin getPriceItem(data)
+    li.price__list-item.parametrs(data-about='')
+        .parametrs__heading-wrapper
+            +getHeading(data)
+            p.parametrs__price до #{data.cost} &nbsp;&#8381;
+        .parametrs__pic-wrapper(class= data.status? statusIdentifier(data.status): false)
+            +imageGenerate(data.images)
+            button.parametrs__pic-btn.slide-pic.slide-pic--hide(type='button' aria-label='Предыдущая фотогорафия') &lt;
+            button.parametrs__pic-btn.parametrs__pic-btn--right.slide-pic.slide-pic--hide(type='button' aria-label='Следующая фотогорафия') &gt;
+        +getParametrs(data.parametrs)
+        +getToggles
 //- 
     mixins end
 each price in prices
-    li.price__list-item.parametrs(data-about='')
-        .parametrs__heading-wrapper
-            +getHeading(price)
-            p.parametrs__price цена кубика &nbsp;&#8381;
-        .parametrs__pic-wrapper(class= price.status?`.item-status .item-status--${price.status}`: false)
-            +imageGenerate(price.images)
-            button.parametrs__pic-btn.slide-pic.slide-pic--hide(type='button' aria-label='Предыдущая фотогорафия') &lt;
-            button.parametrs__pic-btn.parametrs__pic-btn--right.slide-pic.slide-pic--hide(type='button' aria-label='Следующая фотогорафия') &gt;
-        +getParametrs(price.parametrs)
-        +getToggles
+    +getPriceItem(price)

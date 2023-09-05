@@ -30,8 +30,7 @@ mixin singelImg(image)
   width= image.width
   height= image.height
   alt= image.alt
-  data-type= image.data? image.data: false)       
-
+  data-type= image.data? image.data: false)     
 mixin imageGenerate(images)
     if images.length > 1
       picture(class= images[0].pictureClass? `${images[0].pictureClass}__pic-contaner`: false)
