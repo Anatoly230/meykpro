@@ -29,8 +29,8 @@ mixin singelImg(image)
   srcset= image.screens != 1 ?`${image.path+image.name}@${image.screens}.${image.type} ${image.screens}`:false
   width= image.width
   height= image.height
-  alt= image.alt
-  data-type= image.data? image.data: false)     
+  alt= `${image.alt} ${image.dataType? image.dataType: ''} ${image.name}`
+  data-type= image.dataType? image.dataType: false)     
 mixin imageGenerate(images)
     if images.length > 1
       picture(class= images[0].pictureClass? `${images[0].pictureClass}__pic-contaner`: false)
@@ -40,7 +40,7 @@ mixin imageGenerate(images)
           else
             each device, i in image.devices         
               each tp , j in image.type
-                source(type= `image/${tp}` media=`(min-width: ${device}px)`
+                source(type= `image/${tp}` media= device?`(min-width: ${device}px)`:false
                 srcset=`${concatStr(image.path,image, j, i)}`)
     else
       +singelImg(images[0])

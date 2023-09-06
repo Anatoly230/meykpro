@@ -1,0 +1,14 @@
+include ../../mixins/section-title
+include ../../mixins/imgGen
+include ./galery-data
+
+mixin galery(data)
+    ul.micflag__portfolio-wrapper.portfolio
+        li.portfolio__item
+            +imageGenerate(data)
+        
+
+
+section.micflag__portfolio
+    +sectionTitle('micflag__portfolio-heading', 'Сделано')
+    +galery(images)
