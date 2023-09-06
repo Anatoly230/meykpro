@@ -1,0 +1,53 @@
+-
+  function detachFromArray(array) {
+    if (array.length < 1) {
+      array = null;
+      return false;
+    }
+    let index = getRandomNum(0, array.length - 1);
+    return array.splice(index, 1);
+    }
+
+    function getRandomNum(from = 1000, to = 0) {
+        try {
+        let range = getValueOfArguments(from, to);
+        from = range.from,
+        to = range.to;
+        range = null;
+        return Math.floor(Math.random() * (to - from + 1)) + from;
+        } catch (err) {
+        console.log(err)
+        return false;
+        }
+    }
+
+    function getValueOfArguments(from, to) {
+        if (typeof from !== "number") {
+        return false;
+        }
+        if (from < 0) {
+        from = Math.abs(from);
+        }
+        if (from > to) {
+        [from, to] = [to, from];
+        }
+
+        return {
+        from: from,
+        to: to
+        }
+    }
+
+    function shuffle(array) {
+        let currentIndex = array.length,  randomIndex;
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }

@@ -2,6 +2,7 @@ extends _layuot
 
 block variables
     include ./modules/head/head-data
+    include ./utils
     - pageClass = 'page-body'
     
 block metaHead
@@ -13,7 +14,7 @@ block metaHead
 
 block content
     h1.visually-hidden Кубики на микрофон
-    include ./modules/slider/slider
+    //- include ./modules/slider/slider
     //- include ./modules/about/about
-    include ./modules/price/price
+    //- include ./modules/price/price
     include ./modules/galery/galery
