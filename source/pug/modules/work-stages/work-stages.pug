@@ -1,0 +1,14 @@
+-
+    const ws = {
+     top: ['work-stage--tb-borders','work-stages__item'],
+     wrpr: ['work-stage__middle-border'],
+     mlink: ['work-stage__arrow-body','work-stage__arrow']   
+    }
+
+li.work-stage(class= ws.top)
+    .work-stage__wraper(class=ws.wrpr)
+        img.work-stage__img(alt=`иллюстрация {} этапа работ`
+        src="./img/illustrations/@@fileName")
+        h4.work-stage__heading @@title
+        p.work-stage__description @@description
+        a.work-stage__more-link(class= ws.mLink) Поддробнее

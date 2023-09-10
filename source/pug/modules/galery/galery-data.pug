@@ -8,25 +8,105 @@ include ./custom/images
 -
   const galeryPath = './img/portfolio/micflags/'
   const galeryAlt = 'кубик на микрофон типа'
--
   const allImages = [
-    standImages,
+    standImages ,
     prsmVlImages,
     prsmVaImages,
     prsmImages,
     euImages,
     customImages,
   ]
--
+
+  const galerySettings = {
+    devices: [false],
+    pictureTypes: ['webp', 'jpeg'],
+    imageType: 'jpeg',
+    screens: ['1x', '2x'],
+    path: galeryPath,
+    picClass: 'portfolio',
+    width: '130',
+    height: '112',
+    alt: galeryAlt,
+  }
+  
   function imagesShuffle(arr){ 
     return shuffle(arr.flat())
   }
--
-  const images = imagesShuffle(allImages)
 
-//-
-  изменяемые парматры
-  dataType
-  imgName
-  pictureName
-  imagesPath
+  function expandImage(obj){
+    return obj.names.map((item)=>{
+      return {
+        type: obj.type,
+        name: item
+      }
+    })
+  }
+
+  function expandArray(arr){
+    return imagesShuffle(arr.map((item)=>{
+      return expandImage(item)
+      }))
+  }
+
+  const result = expandArray(allImages)
+
+ class ImageGenerate {
+    constructor(obj) {
+        this.reset(obj)
+  }
+    reset(obj){
+      this.devices = obj.devices;
+      this.screens = obj.screens;
+      this.path = obj.path;
+      this.width = obj.width;
+      this.height = obj.height;
+      this.pictureTypes = obj.pictureTypes;
+      this.imgType = obj.imageType;
+      this.alt = obj.alt;
+      this.picClass = obj.picClass;
+    }
+    #setPicture(data, price = false) {
+      let names = [data.name];
+      if (price) {
+        names = [`${names}-full`, names]
+      }
+      return {
+        devices: this.devices,
+        type: this.pictureTypes,
+        screens: this.screens,
+        names: names,
+        path: this.path,
+        pictureClass: this.picClass,
+      }
+    }
+    #setImage(data) {
+      return {
+        path: this.path,
+        imageClass: this.picClass,
+        screens: this.screens.length > 1 ? `${this.screens.length}` : '1',
+        type: this.imgType,
+        name: data.name,
+        width: this.width,
+        height: this.height,
+        alt: this.alt,
+        dataType: data.type,
+      }
+    }
+    getImage(data, picture = false) {
+      return [
+        this.#setPicture(data, picture),
+        this.#setImage(data)
+      ]
+    }
+
+    getImages(datas, picture = false){
+      return datas.map((item)=>{
+      return imageFabric.getImage(item, picture)
+    })  
+
+    }
+  }
+
+  const imageFabric = new ImageGenerate(galerySettings)
+
+  const stImagesInfo = imageFabric.getImages(result) 

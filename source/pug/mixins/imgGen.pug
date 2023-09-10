@@ -26,7 +26,7 @@
 mixin singelImg(image)
   img(class= image.imageClass?`${image.imageClass}__pic`:false 
   src= `${image.path+image.name}.${image.type}` 
-  srcset= image.screens != 1 ?`${image.path+image.name}@${image.screens}.${image.type} ${image.screens}`:false
+  srcset= image.screens != 1 ?`${image.path+image.name}@${image.screens}x.${image.type} ${image.screens}x`:false
   width= image.width
   height= image.height
   alt= `${image.alt} ${image.dataType? image.dataType: ''} ${image.name}`

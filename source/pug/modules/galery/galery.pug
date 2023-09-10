@@ -2,12 +2,26 @@ include ../../mixins/section-title
 include ../../mixins/imgGen
 include ./galery-data
 
+mixin galeryPopup()
+    template#portfolo-popUp
+        .pop-up
+            .pop-up__image-wrapper
+                button.pop-up__close-btn(type= 'button' aria-label= 'Закрыть')
+                picture.pop-up__image-block
+                    source(type= 'image/webp' srcset='')
+                    source(type= 'image/jpeg' srcset='')
+                    img.pop-up__image(src= '' srcset='' width='1042' height='744' alt= '')
+                button.pop-up__image-navigation.pop-up__image-navigation--previos(aria-label= 'предыдущее фото')
+                button.pop-up__image-navigation.pop-up__image-navigation--next(aria-label= 'следующее фото')
+
 mixin galery(datas)
     ul.micflag__portfolio-wrapper.portfolio
         each data in datas
             li.portfolio__item
                 +imageGenerate(data)
+    
 
 section.micflag__portfolio
     +sectionTitle('micflag__portfolio-heading', 'Сделано')
-    +galery(images)
+    +galery(stImagesInfo)
+    +galeryPopup
