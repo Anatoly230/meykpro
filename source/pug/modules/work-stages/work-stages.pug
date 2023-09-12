@@ -1,3 +1,5 @@
+include ./work-stages-data
+include ../../mixins/section-title
 -
     const ws = {
      top: ['work-stage--tb-borders','work-stages__item'],
@@ -5,10 +7,18 @@
      mlink: ['work-stage__arrow-body','work-stage__arrow']   
     }
 
-li.work-stage(class= ws.top)
-    .work-stage__wraper(class=ws.wrpr)
-        img.work-stage__img(alt=`иллюстрация {} этапа работ`
-        src="./img/illustrations/@@fileName")
-        h4.work-stage__heading @@title
-        p.work-stage__description @@description
-        a.work-stage__more-link(class= ws.mLink) Поддробнее
+mixin workStage(datas)
+    each data in datas
+        li.work-stage(class= ws.top)
+            .work-stage__wraper(class=ws.wrpr)
+                img.work-stage__img(alt=`иллюстрация {} этапа работ`
+                src="./img/illustrations/@@fileName")
+                h4.work-stage__heading= data.heading
+                p.work-stage__description= data.description
+                a.work-stage__more-link(class= ws.mLink href= data.link) Поддробнее
+
+section.work-stages.work-stages
+    +sectionTitle('work-stages__heading', 'Этапы работ')
+    ul.work-stages__list
+        each stage in stages
+            +workStage(stage)
