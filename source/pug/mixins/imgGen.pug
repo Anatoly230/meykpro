@@ -1,0 +1,46 @@
+//- 
+  генерация комплекта изображений с тегом picture
+
+  для задания класса тегу picture, нужно на вызываемй mixin  странице объявить класс pictureClass
+  этот класс присвоется
+
+//-
+  при использовании миксина необходимо объявить эти переменные
+  - const basePath = './img/slider/micflag/' 
+  - const pictureClass = 'slide'
+  - const imageClass = 'slide'
+
+- 
+  function concatStr(path,arr, j, i){
+    const imgName = arr.names[i];
+    return arr.screens.reduce((accum,screen, index)=>{
+    if(index > 0){
+    accum+=`, ${path}${imgName}@${screen}.${arr.type[j]} ${screen}`
+    return accum;
+    }
+    accum+=`${path}${imgName}.${arr.type[j]} ${screen}`
+    return accum;
+    },'')
+  }
+
+mixin singelImg(image)
+  img(class= image.imageClass?`${image.imageClass}__pic`:false 
+  src= `${image.path+image.name}.${image.type}` 
+  srcset= image.screens != 1 ?`${image.path+image.name}@${image.screens}x.${image.type} ${image.screens}x`:false
+  width= image.width
+  height= image.height
+  alt= `${image.alt} ${image.dataType? image.dataType: ''} ${image.name}`
+  data-type= image.dataType? image.dataType: false)     
+mixin imageGenerate(images)
+    if images.length > 1
+      picture(class= images[0].pictureClass? `${images[0].pictureClass}__pic-contaner`: false)
+        each image, index in images
+          if index + 1 === images.length
+            +singelImg(image)
+          else
+            each device, i in image.devices         
+              each tp , j in image.type
+                source(type= `image/${tp}` media= device?`(min-width: ${device}px)`:false
+                srcset=`${concatStr(image.path,image, j, i)}`)
+    else
+      +singelImg(images[0])

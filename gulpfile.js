@@ -15,12 +15,17 @@ import del from 'del';
 import imagemin from 'gulp-imagemin';
 import webp from 'gulp-webp';
 import tozip from 'gulp-zip';
+import pug from 'gulp-pug';
 import stripComment from 'gulp-strip-comments';
 import concat from 'gulp-concat';
 import fileInclude from 'gulp-file-include';
 
-const source = "source";
-const dist = 'build';
+const source = "source",
+  dist = 'build',
+  pugInfo = {
+    source: ['./source/pug/*.pug', '!./source/pug/_*.pug'],
+    dist: './source/html/pugResult/'
+  }
 
 // Styles
 
@@ -47,6 +52,16 @@ const html = () => {
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(stripComment())
     .pipe(gulp.dest('build'));
+}
+
+// html pug
+const htmlPug = () => {
+  return gulp.src(pugInfo.source)
+    .pipe(pug({
+      doctype: 'html',
+      pretty: true
+    }))
+    .pipe(gulp.dest(pugInfo.dist))
 }
 
 // Scripts
@@ -143,7 +158,8 @@ const copy = (done) => {
   gulp.src([
     'source/fonts/*.{woff2,woff}',
     'source/*.ico',
-    'source/manifest.webmanifest'
+    'source/manifest.webmanifest',
+    'source/php/*.php',
   ], {
     base: 'source'
   })
@@ -183,6 +199,7 @@ const reload = () => {
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(styles));
   gulp.watch('source/js/*.js', gulp.series(scripts));
+  gulp.watch('source/pug/**/*.pug', gulp.series(htmlPug, html, reload));
   gulp.watch('source/**/*.html', gulp.series(html, reload));
   gulp.watch('source/img/icons/sprite/*.svg', gulp.series(sprite));
   gulp.watch(['source/img/**/*.svg', '!source/img/icons/sprite/*.svg'], gulp.series(svg));
@@ -196,6 +213,7 @@ export const build = gulp.series(
   optimizeImages,
   gulp.parallel(
     styles,
+    htmlPug,
     html,
     scripts,
     svg,
@@ -213,6 +231,7 @@ export default gulp.series(
   gulp.parallel(
     styles,
     html,
+    htmlPug,
     scripts,
     svg,
     sprite,

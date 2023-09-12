@@ -1,7 +1,7 @@
 <section class="micflag__contacts contacts" id="contacts">
     <h2 class="contacts__heading heading"><span class="heading__content">Оставить заявку</span></h2>
     <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
-    <form action="action.php" method="POST" class="contacts__form form">
+    <form action="./php/action.php" method="POST" class="contacts__form form">
         <div class="form__group">
             <div class="input">
                 <label class="input__name" for="name" class="input__name">Имя*</label>
@@ -10,13 +10,23 @@
             </div>
             <div class="input">
                 <label class="input__name" for="phone" class="input__name">Телефон*</label>
-                <input class="input__field" id="phone" pattern="/^\+?[7|7|8]?\(?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/gm" name="phone" title="Введите Ваше Имя"
-                    placeholder="+7 900 000 00 00" type="tel" required>
+                <input class="input__field" id="phone"
+                    pattern="/^\+?[7|7|8]?\s?\(?\d{3}\)?[\s|-]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/gm" name="phone"
+                    title="Введите Ваш номер телефона" placeholder="+7 900 000 00 00" type="tel" required>
             </div>
             <div class="input">
                 <label class="input__name" for="email" class="input__name">Почта*</label>
                 <input class="input__field" id="email" name="email" placeholder="custom@gmail.com" type="email"
                     required>
+            </div>
+            <div class="input">
+                <label class="input__name" for="actions" class="input__name">Выбрать действия*</label>
+                <select name="actions" id="actions" form="main-form">
+                    <option value="rend">Взять в аренду</option>
+                    <option value="restavration" selected>Реставрировать</option>
+                    <option value="buy" >Купить</option>
+                </select>
+              
             </div>
         </div>
         <div class="form__group form__group--message">
@@ -34,3 +44,5 @@
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6387687ad754f9796c6f7a9550b0d755eeea9515528b740c62898012840d4687&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
     </div>
 </section>
+
+<!-- src="https://api-maps.yandex.ru/3.0/?apikey=<e29582c8-d1f0-4f99-a8a0-f7f4a8d5bb45>&lang=ru_RU"> -->

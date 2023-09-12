@@ -126,7 +126,7 @@ function switchImage(callback, target) {
     } else {
         current = switchToPrevios()
     }
-    fillImageData(current.querySelector('.portfolio__item-pic-contaner'), target)
+    fillImageData(current.querySelector('.portfolio__pic-contaner'), target)
 }
 
 function onNavBtn(e) {
@@ -165,7 +165,7 @@ function onKeyNav(e) {
         currentItem = currentItem.previousElementSibling ? currentItem.previousElementSibling : currentItem.parentElement.lastElementChild;
         portCurrent.setCurrent(currentItem)
     }
-    fillImageData(currentItem.querySelector('.portfolio__item-pic-contaner'), target)
+    fillImageData(currentItem.querySelector('.portfolio__pic-contaner'), target)
 }
 
 
@@ -175,7 +175,7 @@ function onClickPortfolio(e) {
         createPopUp();
         portCurrent.setPopUp(document.querySelector('.pop-up'));
         portCurrent.setCurrent(parentElement);
-        let sourcePicture = parentElement.querySelector('.portfolio__item-pic-contaner'),
+        let sourcePicture = parentElement.querySelector('.portfolio__pic-contaner'),
             portfolioPicture = portCurrent.getPopUp().querySelector('.pop-up__image-block'),
             popUp = portCurrent.getPopUp();
         portCurrent.setTarget(portfolioPicture);

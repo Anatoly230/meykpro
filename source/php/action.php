@@ -1,10 +1,10 @@
 <?php
-if ($_POST['phone'] != "" and $_POST['email'] == "") {
+if ($_POST['phone'] != "" and $_POST['email'] != "") {
 	// Для каждого поля формы пишем такой код:
 	// $N = $_POST[N];
 	// где N - имя поля, указанное в элементе формы: <input name="N"> 
 	$name = $_POST['name'];
-	$mail = $_POST['mail'];
+	$mail = $_POST['email'];
 	$number = $_POST['phone'];
 	$message = $_POST['message'];
 	$file = $_POST['file'];
@@ -30,6 +30,6 @@ if ($_POST['phone'] != "" and $_POST['email'] == "") {
     }
     echo json_encode($json);
 } else {
-    echo json_encode($json['error'] = '1');
+    echo json_encode($json['error'] = $_POST['phone']);
 }
 ?>

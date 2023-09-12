@@ -51,37 +51,19 @@
         }
     }
 
-    &__field-label {
-        text-align: center;
-        padding-block-end: rem(10);
 
-        @include tablet {
-            text-align: initial;
-            padding-block-end: rem(15);
-        }
+    &__submit {
+        margin-block-start: rem(50);
     }
-
-    &__field {
-        padding: rem(5);
-        margin-block-end: rem(25);
-        border-radius: rem(5);
-        border-color: $grey;
-        border-width: 1px;
-
-        @include tablet {
-            padding: rem(10);
-            margin-block-end: rem(35);
-        }
-    }
-
-    &__submit {}
 
     &__close-pic {
         padding: 0;
         fill: $white;
-
+        width: rem(35);
+        height: auto;
+        
         @include tablet {
-            width: rem(25);
+            width: rem(40);
             height: auto;
             fill: rgba(#000000, 0.4);
         }
@@ -96,12 +78,9 @@
         border: none;
         color: $white;
         background: transparent;
-        // background-image: url('../img/icons/sprite/close.svg');
-        // background-repeat: no-repeat;
-        // background-position: center;
         position: absolute;
         border-radius: 50%;
-        top: -40px;
+        top: -60px;
         right: -10px;
         transition-property: transform;
         transition-duration: 400ms;

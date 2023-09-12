@@ -1,51 +1,47 @@
-
+import sendData from "./fetcher.js";
+import { getTemporaryNotice } from "./alert.js";
+import { config, validateNickname, validatePhoneFormat} from "./pristine-configs.js";
+import addPhoneMask from "./utils/tel-mask.js";
 
 const form = document.querySelector('.contacts__form');
-const config = {
-    classTo: 'input',
-    errorClass: 'input--error',
-    successClass: 'input--valid',
-    errorTextParent: 'input',
-    errorTextTag: 'span',
-    errorTextClass: 'text-help',
-};
-const messges = {
-    required: "Это поле обязательное",
-    email: "Введите корректный адресс",
-    number: "Здесь необходимо число",
-    integer: "Здесь должно быть целое число",
-    url: "введите корректный адресс сайта",
-    tel: "This field requires a valid telephone number",
-    maxlength: "Не меньше ${1} цифр",
-    minlength: "Не больше ${1} цифр",
-    min: "Minimum value for this field is ${1}",
-    max: "Maximum value for this field is ${1}",
-    pattern: "необходимо соотвествие формату",
-    equals: "The two fields do not match"
-}
-const pristine = new Pristine(form, config),
-    some = form.querySelector('#name');
 
-Pristine.addMessages('ru', messges);
-Pristine.setLocale('ru');
+const regularOrder = new Pristine(form, config, false),
+    name = form.querySelector('#name'),
+    phone = form.querySelector('#phone');
+    addPhoneMask(phone);
+    
+regularOrder.addValidator(name, validateNickname, 'От 2 до 50 символов', true)
+// regularOrder.addValidator(name, validateCyrylic, 'Имя должно быть написано кирилицей', true)
+regularOrder.addValidator(phone, validatePhoneFormat, 'Например: 8 900 77 77 00', true)
 
-
-
-
-
-
-function validateNickname(value) {
-    return value.length >= 2 && value.length <= 50;
-}
-
-console.log(form)
-console.log(some)
-
-pristine.addValidator(some, validateNickname, 'От 2 до 50 символов')
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
-    pristine.validate()
+    // const isValid = regularOrder.validate() && sendData(this);
+    const isValid = regularOrder.validate();
+
+    if (typeof isValid === 'boolean' && isValid) {
+        this.elements.submit.disabled = true;
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                this.reset();
+                getTemporaryNotice()
+            }, 1000);
+            resolve('name')
+        })
+        promise.then((res) => {
+            setTimeout(() => {
+                this.elements.submit.disabled = false;
+            }, 2000)
+        })
+
+        //сообщение об успешной отправки формы
+    } else {
+
+        //сообщение об ошибке отправки данных
+    }
 })
+
 
 export { form };

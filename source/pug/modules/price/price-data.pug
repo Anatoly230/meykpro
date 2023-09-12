@@ -1,0 +1,50 @@
+include ./data/standart
+include ./data/euro
+include ./data/prisma
+include ./data/prisma-vl
+include ./data/prisma-va
+-
+  const prices = [
+    {
+      subHeading: 'Кубик на микрофон типа',
+      heading: 'Standart',
+      cost: '3100',
+      parametrs: standartParametrs,
+      images: standartImages,
+      status: 'hit',
+    },
+    {
+      subHeading: 'Кубик на микрофон типа',
+      heading: 'Euro',
+      cost: '3400',
+      parametrs: euroParametrs,
+      images: euroImages,
+      status: 'hit',
+    },
+    {
+      subHeading: 'Кубик на микрофон типа',
+      heading: 'Prisma',
+      cost: '4300',
+      parametrs: prismaParametrs,
+      images: prismaImages,
+      status: false,
+    },
+    {
+      subHeading: 'Кубик на микрофон типа',
+      heading: 'Prisma VL',
+      cost: '6000',
+      parametrs: prismaVlParametrs,
+      images: prismaVlImages,
+      status: 'hit',
+    },
+    {
+      subHeading: 'Кубик на микрофон типа',
+      heading: 'Prisma VA',
+      cost: '12000',
+      parametrs: prismaVaParametrs,
+      images: prismaVaImages,
+      status: ['hit', 'exclusive'],
+    },
+  ] 
+
+-

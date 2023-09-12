@@ -1,0 +1,13 @@
+include about-data
+
+mixin listGenerate(data)
+    each part in data
+         li.simple-grid__item.bragging
+            p.bragging__title!= part.title
+                p.bragging__desc= part.description
+
+section.about.micflag__about
+    h2.about__heading.heading
+        span.heading__content Почему именно у&nbsp;нас?
+    ul.about__list.simple-grid
+        +listGenerate(aboutData)
