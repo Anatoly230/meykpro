@@ -6,16 +6,17 @@ include ../../mixins/section-title
      wrpr: ['work-stage__middle-border'],
      mlink: ['work-stage__arrow-body','work-stage__arrow']   
     }
+    const wsPath = './img/illustrations/'
+    let index = 1;
 
-mixin workStage(datas)
-    each data in datas
-        li.work-stage(class= ws.top)
-            .work-stage__wraper(class=ws.wrpr)
-                img.work-stage__img(alt=`иллюстрация {} этапа работ`
-                src="./img/illustrations/@@fileName")
-                h4.work-stage__heading= data.heading
-                p.work-stage__description= data.description
-                a.work-stage__more-link(class= ws.mLink href= data.link) Поддробнее
+mixin workStage(data)
+    li.work-stage(class= ws.top)
+        .work-stage__wraper(class=ws.wrpr)
+            img.work-stage__img(alt=`иллюстрация ${index++} этапа работ`
+            src= `${wsPath}${data.picNme}`)
+            h4.work-stage__heading= data.heading
+            p.work-stage__description= data.description
+            a.work-stage__more-link(class= ws.mLink href= data.link) Поддробнее
 
 section.work-stages.work-stages
     +sectionTitle('work-stages__heading', 'Этапы работ')

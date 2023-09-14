@@ -1,0 +1,38 @@
+include ./contacts-data
+include ../../mixins/section-title
+
+-
+    contactsAtr = {
+        class: 'micflag__contacts',
+        id: 'contacts'
+        }
+
+    contactScript = {
+        type: 'text/javascript',
+        charset: 'utf-8',
+        async: true,
+        src: 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6387687ad754f9796c6f7a9550b0d755eeea9515528b740c62898012840d4687&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true'
+    }
+
+
+mixin input(data)
+    .input
+        label.input__name(id= data.id? data.id: false)= data.name
+        if data.tag
+            #{data.tag}.input__field(for= data.id? data.id: false)&attributes(data.attr)
+        else
+            input.input__field(for= data.id? data.id: false)&attributes(data.attr)
+
+section.contacts()&attributes(contactsAtr)
+    +sectionTitle(contacts, 'Оставить заявку')
+    p.contacts__desc * или проконсультироваться по интересующему вас вопросу
+    form.form.contacts__form(action='./php/action.php' method='POST')
+        .form__group
+            each field in formData.fields
+                +input(field)
+            .form__group.form__group--message
+                .input.form__group-message
+                    +input(formData.textArea)
+            p.contacts__info * - звёздочкой помечены обязательные поля
+            .contacts__map.map
+                script()&attributes(contactScript)

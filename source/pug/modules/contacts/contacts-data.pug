@@ -1,0 +1,48 @@
+-
+  const formData = {
+    textArea:{
+        tag: 'textarea',
+        name: 'Имя*',
+        id: 'message',
+        attr: {
+            class: ['input__field--message'],
+            type: 'Сообщение',
+            name: 'name',
+            required: false,
+            placeholder: 'Александр...'
+            }  
+        },
+        fields: [
+        {
+            name: 'Имя*',
+            id: 'name',
+            attr: {
+            type: 'text',
+            name: 'name',
+            required: true,
+            placeholder: 'Александр...'
+            }
+        },
+        {
+            name: 'Телефон*',
+            id: 'phone',
+            attr: {
+            type: 'tel',
+            name: 'phone',
+            required: true,
+            placeholder: '+7 900 000 00 00',
+            pattern: '/^\+?[7|7|8]?\s?\(?\d{3}\)?[\s|-]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/gm'
+            }
+        },
+        {
+            name: 'Почта*',
+            id: 'email',
+            attr: {
+            type: 'tel',
+            name: 'email',
+            required: true,
+            placeholder: 'custom@gmail.com',
+            }
+        },
+        ]
+  }
