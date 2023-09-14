@@ -1,0 +1,91 @@
+$heading-paddings : rem(30);
+
+
+@mixin heading-wrapper($content-width: $max-content-width) {
+    width: 100%;
+    margin: 0 auto;
+
+    @include desktop {
+        max-width: calc($content-width + $heading-paddings * 2);
+    }
+}
+
+
+.heading {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include desktop {
+        justify-content: start;
+    }
+
+    &__content {
+        text-align: center;
+        padding-inline: $heading-paddings;
+        background-color: $white;
+
+        @include desktop {
+            text-align: initial;
+        }
+    }
+
+    &::before {
+        z-index: -1;
+        @include pseudo-el;
+        position: absolute;
+        height: 2px;
+        width: 100vw;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50%;
+        transform: translateX(-50%);
+        // background-color: $disabled;
+        background-color:  #b6d0e7;
+    }
+}
+
+// .heading {
+//     @include show-outline;
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-align: center;
+//     padding: 0;
+//     font-size: 30px;
+//     font-weight: 100;
+
+//     &__content {
+//         font-weight: 800;
+//         flex-shrink: 2;
+//         flex-grow: 0;
+//         max-width: 280px;
+//         margin-inline: 40px;
+
+//         @include tablet {
+//             max-width: 400px;
+//             margin-inline: 40px;
+//         }
+
+//         @include desktop {
+//             max-width: 400px;
+//         }
+//     }
+
+//     &::before,
+//     &::after {
+//         @include pseudo-el;
+//         width: 10px;
+//         height: 2px;
+//         background-color: $disabled;
+//         flex-grow: 1;
+
+//         @include desktop {
+//             position: absolute;
+//             left: 0;
+//             width: 300px;
+//         }
+//     }
+// }

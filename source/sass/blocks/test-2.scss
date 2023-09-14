@@ -1,0 +1,188 @@
+// common settings start
+
+$arrow-pick: 30px;
+$frame-gap: calc($arrow-pick + 20px);
+$frame-padding: 30px;
+$grid-gap: 30px;
+$arrow-length: calc($grid-gap + $frame-padding / 4);
+$arrow-height: calc($frame-gap / 2 + 5px);
+// $frame-color: violet;
+$frame-color: #6b7d6b;
+$frame-stroke-width: 2px;
+$arrow-pick-indent: calc($frame-stroke-width / 2);
+$arrow-indent: calc($arrow-length - $frame-stroke-width);
+
+.work-stages {
+    &__heading {
+        @include heading-wrapper;
+    }
+
+    &__list {
+        @include section-wrapper;
+        counter-reset: num;
+        padding: 30px;
+        display: grid;
+        gap: $grid-gap;
+        grid-template-columns: 1fr;
+
+        @include tablet {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        content: counter(item);
+        counter-increment: item;
+
+        // &::after {
+        //     @include pseudo-el;
+        //     content: "30";
+        //     width: rem(15);
+        //     height: rem(15);
+        //     font-size: 20px;
+        //     background-color: red;
+
+        // }
+
+    }
+
+}
+
+.work-stage {
+    // @include show-outline;
+    position: relative;
+    display: grid;
+    gap: 0px;
+    grid-template-rows: 1fr $frame-gap 1fr;
+    grid-template-columns: 1fr;
+
+
+    &__wraper {
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        display: grid;
+        padding: $frame-padding;
+        justify-content: center;
+        align-content: center;
+        font-family: "Oswald", "Arial", sans-serif;
+
+    }
+
+    &__img {
+        align-self: center;
+        justify-self: center;
+    }
+
+    &__heading {
+
+        text-align: center;
+        font-size: rem(24);
+
+        @include tablet {
+            font-size: rem(28);
+        }
+    }
+
+    &__description {
+        display: none;
+    }
+
+    &__more-link {
+        text-align: center;
+        font-style: italic;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &--tb-borders::after,
+    &--tb-borders::before {
+        @include pseudo-el;
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        width: 100%;
+        border: $frame-stroke-width solid $frame-color;
+    }
+
+    &--tb-borders::before {
+        border-start-end-radius: 30px;
+        border-start-start-radius: 30px;
+        border-block-end-color: transparent;
+    }
+
+    &--tb-borders::after {
+        grid-row: -1/-2;
+        border-end-end-radius: 30px;
+        border-end-start-radius: 30px;
+        border-block-start-color: transparent;
+    }
+
+    &__middle-border::before {
+        @include pseudo-el;
+        position: absolute;
+        height: calc($frame-gap + 20px);
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border: $frame-stroke-width solid $frame-color;
+        border-block-color: transparent;
+
+        @include tablet {
+            border-color: transparent;
+        }
+    }
+
+    &__arrow-body::before {
+        @include tablet {
+            @include pseudo-el;
+            position: absolute;
+            top: 50%;
+            right: -$arrow-indent;
+            transform: translateY(-50%) translateY(calc($arrow-height / 2));
+            width: $arrow-length;
+            height: $arrow-height;
+            border-radius: 10px 0px 0px 0px;
+            border: $frame-stroke-width solid $frame-color;
+            border-block-end: transparent;
+            border-inline-end: transparent;
+        }
+    }
+
+    &__arrow::after {
+        @include tablet {
+            @include pseudo-el;
+            position: absolute;
+            top: 50%;
+            right: -$arrow-indent;
+            transform-origin: center;
+            transform: translateY(-50%) translateY(1px) translateX(-$arrow-pick-indent) rotate(45deg);
+            width: $arrow-pick;
+            height: $arrow-pick;
+            border: $frame-stroke-width solid $frame-color;
+            border-block-end: transparent;
+            border-inline-start: transparent;
+        }
+    }
+
+    &:last-of-type &__arrow-body::before {
+        display: none;
+    }
+
+    &:last-of-type &__arrow::after {
+        display: none;
+    }
+
+    &:last-of-type &__middle-border::before {
+        @include tablet {
+            border-inline-end-color: $frame-color;
+        }
+    }
+
+    &:first-of-type .work-stage__middle-border::before {
+        @include tablet {
+            border-inline-start-color: $frame-color;
+        }
+    }
+}

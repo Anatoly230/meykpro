@@ -1,0 +1,9 @@
+block variables
+
+doctype html
+html.page(lang='ru-RU')
+    head
+        include ./head/_head
+        block metaHead
+    body.page__body(class= pageClass)
+        block bodyContent

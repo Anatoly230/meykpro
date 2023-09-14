@@ -1,0 +1,106 @@
+<section class="micflag__portfolio ">
+    @@include('../section-title.html', {
+    sectionClass: 'micflag__portfolio-heading',
+    sectionTitle: 'Сделано'
+    })
+    <ul class="micflag__portfolio-wrapper portfolio">
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'biosea',
+        type:'prisma VL',
+        logo: 'Bio Sea'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'cryptocot',
+        type:'Standart',
+        logo: 'Cryptocot'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'csbs',
+        type:'Prisma VR',
+        logo: 'csbs'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'ntk',
+        type:'Prisma VL',
+        logo: 'НТК'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'restart',
+        type:'Euro',
+        logo: 'Перезагрузка'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'drayv',
+        type:'Prisma',
+        logo: 'Драйв'
+        })
+
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'euplus',
+        type:'Euro glass',
+        logo: 'Европпа плюс'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'glamour',
+        type:'Prisma VA',
+        logo: 'Гламур'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'popcacke',
+        type:'Prisma Custom',
+        logo: 'Popcacke'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'wt',
+        type:'Standart',
+        logo: 'WT'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'sok',
+        type:'Euro',
+        logo: 'Петрищин строй'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'uje_za_20',
+        type:'custom',
+        logo: 'Уже за 20'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'europe_plus',
+        type:'Standart',
+        logo: 'Европпа плюс'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'goszakaz',
+        type:'Prisma VA',
+        logo: 'Госзаказ'
+        })
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'tv_bricks',
+        type:'Standart',
+        logo: 'tv bricks'
+        })
+
+        @@include('./portfolio/portfolio-item.html', {
+        picName: 'zinerit',
+        type:'Euro',
+        logo: 'Зинерит'
+        })
+
+    </ul>
+
+    <template id="portfolo-popUp">
+        <div class="pop-up">
+            <div class="pop-up__image-wrapper">
+                <button type="button" class="pop-up__close-btn" aria-label="Закрыть"></button>
+                <picture class="pop-up__image-block">
+                    <source type="image/webp" srcset="">
+                    <source type="image/jpeg" srcset="">
+                    <img class="pop-up__image" src="" srcset="" width="1042" height="744" alt="">
+                </picture>
+                <button type="button" class="pop-up__image-navigation pop-up__image-navigation--previos"></button>
+                <button type="button" class="pop-up__image-navigation pop-up__image-navigation--next"></button>
+            </div>
+        </div>
+    </template>
+</section>

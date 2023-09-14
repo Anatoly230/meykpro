@@ -1,0 +1,55 @@
+.micflag {
+    // z-index: -1;
+    background-color: #fff;
+
+    &__about {}
+
+    &__why-us {}
+
+    &__price {}
+    &__work-stages{}
+
+    &__contacts {}
+
+    &__slider {
+        width: 100vw;
+        overflow: hidden;
+        // background: linear-gradient(to bottom right, $white, #D5D8DF);
+
+        background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
+        padding-block: rem(40);
+
+        @include tablet {
+            padding-block-start: rem(50);
+            padding-block-end: rem(70);
+        }
+
+        @include desktop {
+            padding-block-start: rem(80);
+            padding-block-end: rem(100);
+        }
+    }
+
+    &__slider-content {
+
+    }
+
+    &__portfolio {
+        @include section-wrapper;
+        padding-block: rem(40);
+
+        @include tablet {
+            padding-block: rem(60);
+        }
+
+        @include desktop {
+            padding-block: rem(75);
+        }
+    }
+
+    &__portfolio-heading {
+        margin-block-end: rem(40)
+    }
+
+    &__portfolio-wrapper {}
+}

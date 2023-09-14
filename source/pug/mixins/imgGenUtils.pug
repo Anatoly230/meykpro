@@ -1,0 +1,134 @@
+-
+  function imagesShuffle(arr){ 
+    return shuffle(arr.flat())
+  }
+
+  function expandImage(obj){
+    return obj.names.map((item)=>{
+      return {
+        type: obj.type,
+        name: item
+      }
+    })
+  }
+
+  function expandArray(arr){
+    return imagesShuffle(arr.map((item)=>{
+      return expandImage(item)
+      }))
+  }
+
+
+  class ImageGenerate {
+    constructor(obj) {
+        this.reset(obj)
+  }
+    reset(obj){
+        this.devices = obj.devices;
+        this.screens = obj.screens;
+        this.path = obj.path;
+        this.width = obj.width;
+        this.height = obj.height;
+        this.pictureTypes = obj.pictureTypes;
+        this.imgType = obj.imageType;
+        this.alt = obj.alt;
+        this.picClass = obj.picClass;
+    }
+    #setPicture(data, price = false) {
+        let names = [data.name];
+        if (price) {
+        names = [`${names}-full`, names]
+        }
+        return {
+        devices: this.devices,
+        type: this.pictureTypes,
+        screens: this.screens,
+        names: names,
+        path: this.path,
+        pictureClass: this.picClass,
+        }
+    }
+    #setImage(data) {
+        return {
+        path: this.path,
+        imageClass: this.picClass,
+        screens: this.screens.length > 1 ? `${this.screens.length}` : '1',
+        type: this.imgType,
+        name: data.name,
+        width: this.width,
+        height: this.height,
+        alt: this.alt,
+        dataType: data.type,
+        }
+    }
+    getImage(data, picture = false) {
+        return [
+        this.#setPicture(data, picture),
+        this.#setImage(data)
+        ]
+    }
+
+    getImages(datas, picture = false){
+        return datas.map((item)=>{
+        return imageFabric.getImage(item, picture)
+    })  
+
+    }
+  }
+
+//-
+  как пользоваться
+
+    include imgGen
+    include imgGenutil
+
+  -
+    const sectionPath = 'путь к изображениям'
+    const sectionAlt = 'алеьтернативное название изображения'
+
+  далее формируется файл настройки
+
+  const sectionSettings = {
+  devices: [false], количество устроуств в массиве, начиная с большего разрешение, напр. ['1150', '768', '320'] 
+  pictureTypes: ['webp', 'jpeg'], типы изображений - это используется в теге  picture
+  imageType: 'jpeg', тип изображения для тега  img  
+  screens: ['1x', '2x'], используемые дисплеи
+  path: sectionPath,   путь прописывается в переменной sectionPath
+  picClass: 'portfolio', класс радительского блока, дочерними которого они являются
+  width: '130', размеры тега  img  поумолчанию
+  height: '112', размеры тега  img  поумолчанию
+  alt: sectionAlt, описание изображения для альтернативного отображения
+  }
+
+  запуск
+
+  const imageFabric = new ImageGenerate(sectionSettings)
+
+  функция expandImage(obj)
+
+  принимает объект со свойством type который прописывается в data-type и в  ald  тега img
+    и свойством name у которого в массиве прописаны названия изображений, без расширений    
+  выглядит обект так
+  {
+    type: 'Type',
+    names: ['name1', 'name2', 'name3']
+  }
+
+  выдаёт массив с объектами
+
+
+    [
+        {
+            type: 'Type',
+            name: 'name1'
+        },
+        {
+            type: 'Type',
+            name: 'name2'
+        },
+        {
+            type: 'Type',
+            name: 'name3'
+        },
+    ]
+ 

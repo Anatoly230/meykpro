@@ -1,0 +1,78 @@
+<li class="price__list-item parametrs" data-about="">
+    <div class="parametrs__heading-wrapper">
+        <h3 class="parametrs__heading">
+            <span class="visually-hidden">Кубик на микрофон типа</span>
+            &laquo;@@type&raquo;
+        </h3>
+        <p class="parametrs__price">@@price&nbsp;&#8381;</p>
+    </div>
+    <div class="parametrs__pic-wrapper item-status item-status@@hit item-status@@exclusive">
+        <picture class="">
+            <source type="image/webp" media="(min-width: 768px)"
+                srcset="./img/portfolio/micflags/@@picName-full.webp 1x, ./img/portfolio/micflags/@@picName-full@2x.webp 2x">
+            <source type="image/jpeg" media="(min-width: 768px)"
+                srcset="./img/portfolio/micflags/@@picName-full.jpeg 1x, ./img/portfolio/micflags/@@picName-full@2x.jpeg 2x">
+            <source type="image/webp" media="(min-width: 320px)"
+                srcset="./img/portfolio/micflags/@@picName.webp 1x, ./img/portfolio/micflags/@@picName@2x.webp 2x">
+            <source type="image/jpeg" media="(min-width: 320px)"
+                srcset="./img/portfolio/micflags/@@picName.jpeg 1x, ./img/portfolio/micflags/@@picName@2x.jpeg 2x">
+            <img class="parametrs__pic" src="./img/portfolio/micflags/@@picName.jpeg" data-type="@@type"
+                srcset="./img/portfolio/micflags/@@picName@2x.jpeg 2x" width="240" height="240"
+                alt="кубик на микрофон типа @@type @@logo">
+        </picture>
+        <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button"
+            aria-label="Предыдущая фотогорафия">&lt;</button>
+        <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button"
+            aria-label="Следующая фотогорафия">&gt;</button>
+    </div>
+    <dl class="parametrs__wrapper">
+        <div class="parametr" data-about="show">
+            <dt class="parametr__name" data-about="hide">Размер стороны</dt>
+            <dd class="parametr__value">@@dimensions</dd>
+        </div>
+        <div class="parametr">
+            <dt class="parametr__name">Диаметр отверстия</dt>
+            <dd class="parametr__value">45&nbsp;мм.</dd>
+        </div>
+        <div class="parametr" data-about="show">
+            <dt class="parametr__name" data-about="hide">Срок изготовления</dt>
+            <dd class="parametr__value">@@readiness</dd>
+        </div>
+        <div class="parametr">
+            <dt class="parametr__name">Доставка</dt>
+            <dd class="parametr__value">от&nbsp;600р.</dd>
+        </div>
+        <div class="parametr">
+            <dt class="parametr__name">Материал</dt>
+            <dd class="parametr__value">@@material</dd>
+        </div>
+        <div class="parametr">
+            <dt class="parametr__name">Вес</dt>
+            <dd class="parametr__value">@@weight</dd>
+        </div>
+        <div class="parametr">
+            <dt class="parametr__name">Уплотнитель</dt>
+            <dd class="parametr__value">Порролон</dd>
+        </div>
+    </dl>
+
+    <div class="parametrs__toggle-wrapper">
+        <a href="" class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" aria-label="сметреть подробности">
+            <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+            </svg>
+            <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+            <span class="btn__text" data-about="collapse">Свернуть
+                <span class="visually-hidden">
+                    подробности
+                </span>
+            </span>
+        </a>
+        <a href="#contacts" class="parametrs__toggle btn btn--buy" aria-label="Совершить заказ">
+            <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+            </svg>
+            <span class="btn__text">Заказать</span>
+        </a>
+    </div>
+</li>

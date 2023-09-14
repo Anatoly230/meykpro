@@ -1,0 +1,47 @@
+.parametr {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-block: rem(15);
+    border-block-end: 1px dashed $base-gray;
+
+    @include tablet {
+        padding-block: rem(10);
+    }
+
+    @include desktop {
+        padding-block: rem(18);
+    }
+
+    &:first-of-type {
+        padding-block-start: 0;
+    }
+
+    &:last-of-type {
+        border-block-end: none;
+    }
+
+    &--js-hide {
+        @include desktop {
+            display: none;
+        }
+    }
+
+    &--js-show {
+        @include desktop {
+            display: initial;
+            padding: 0;
+            border: none;
+        }
+    }
+
+    &__name {
+        margin-inline-end: rem(30);
+    }
+
+    &__name--js-hide {
+        @include desktop {
+            display: none;
+        }
+    }
+}

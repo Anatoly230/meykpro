@@ -1,0 +1,21 @@
+extends _layuot
+
+block variables
+    include ./modules/head/head-data
+    include ./utils
+    - pageClass = 'page-body'
+    
+block metaHead
+    title=  headData.index.title ? headData.index.title : 'не заполнен объект headData'
+    meta(name='description' content= headData.index.description ? headData.index.description : 'не заполнен объект headData')
+    meta(name='keywords' content= headData.index.keywords ? headData.index.keywords :'не заполнен объект headData')
+    script(src=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js ')
+    link(href=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css ' rel='stylesheet')
+
+block content
+    h1.visually-hidden Кубики на микрофон
+    //- include ./modules/slider/slider
+    //- include ./modules/about/about
+    //- include ./modules/price/price
+    //- include ./modules/galery/galery
+    include ./modules/work-stages/work-stages
