@@ -1,0 +1,17 @@
+extends _layuot
+
+block variables
+    include ./modules/head/head-data
+    include ./utils
+    - pageClass = 'page-body'
+
+block metaHead
+    title test
+    meta(name='description' content= headData.index.description ? headData.index.description : 'не заполнен объект headData')
+    meta(name='keywords' content= headData.index.keywords ? headData.index.keywords :'не заполнен объект headData')
+    script(src=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js ')
+    link(href=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css ' rel='stylesheet')
+block content
+    h1.visually-hidden Проверка доступности
+    include ./modules/avail/checkers2
+    script(src='./js/checkers2.js')

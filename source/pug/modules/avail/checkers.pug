@@ -1,0 +1,18 @@
+
+.checkers
+    h2.checkers__title Что для вас главное в машине?
+    ul.radio-group.checkers__item
+        li.radio-group__item
+            span.radio-button   (tabindex='0') Скорость
+        li.radio-group__item
+            span.radio-button(tabindex='-1') Надёжность
+        li.radio-group__item
+            span.radio-button(tabindex='-1') Износостойкость
+
+legend
+    label(for='speed') Скорость
+    input(type='radio' name='car' id='speed' value='speed')
+    label(for='safety') Надёжность
+    input(type='radio' name='car' id='safety' value='safety')
+    label(for='durability') Износостойкость
+    input(type='radio' name='car' id='durability' value='durability')
