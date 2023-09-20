@@ -40,11 +40,11 @@
         background-color: #fff;
         border: 2px solid violet;
     }
-    &:hover::before {
-        border: 2px solid green;
-    }
     &:focus-visible::before {
         border-color:red;
+    }
+    &:hover::before {
+        border: 2px solid green;
     }
     &:active::before {
         border-color:brown;
@@ -53,16 +53,16 @@
 
 .checked{
     &::after {
-        left: 10px;
+        left: 11px;
         width: 10px;
         height: 10px;
         background-color: violet;
     }
-    &:hover::after {
-        background-color: green;
-    }
     &:focus-visible::after {
         background-color: red;
+    }
+    &:hover::after {
+        background-color: green;
     }
     &:active::after {
         background-color: brown;
@@ -73,5 +73,11 @@
     &:focus-visible{
         outline: 3px solid red;
         border-radius: 5px;
+    }
+    &:hover {
+        outline-color: green;
+    }
+    &:active {
+        outline-color:brown;
     }
 }
