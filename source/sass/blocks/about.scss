@@ -1,13 +1,13 @@
 .about {
-    padding-block: rem(20);
+  padding-block: rem(20);
 
-    &__heading {
-        @include heading-wrapper;
-        margin: 0 auto;
-        margin-block-end: rem(30);
-    }
+  &__heading {
+    @include heading-wrapper;
+    margin: 0 auto;
+    margin-block-end: rem(30);
+  }
 
-    &__list {
-        @include section-wrapper;
-    }
+  &__list {
+    @include section-wrapper;
+  }
 }

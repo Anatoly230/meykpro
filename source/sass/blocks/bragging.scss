@@ -1,58 +1,58 @@
 .bragging {
-    color: $off-black;
-    padding-block: rem(20);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: rem(30);
+  color: $off-black;
+  padding-block: rem(20);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: rem(30);
+
+  &::before {
+    @include pseudo-el;
+    width: rem(70);
+    height: rem(70);
+    background-color: none;
+    // background-color: $poster-cl;
+    border: 1px solid $poster-cl;
+    border-radius: 0 50%;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    max-width: rem(360);
+    font-size: rem(18);
+    grid-area: title;
+  }
+
+  &__desc {
+    color: $grey;
+    text-indent: 1rem;
+    max-width: rem(512);
+    grid-area: desc;
+  }
+
+  &--image-left {
+    @include desktop {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      grid-template-rows: repeat(2, min-content);
+      row-gap: 15px;
+      column-gap: 30px;
+      justify-content: center;
+      grid-template-areas:
+        "pic title"
+        "pic desc";
+      align-items: start;
+    }
 
     &::before {
-        @include pseudo-el;
-        width: rem(70);
-        height: rem(70);
-        background-color: none;
-        // background-color: $poster-cl;
-        border: 1px solid $poster-cl;
-        border-radius: 0 50%;
+      @include desktop {
+        align-self: start;
+        grid-area: pic;
+        width: 80px;
+        height: 80px;
+      }
     }
-
-    &__title {
-        text-align: center;
-        font-weight: 700;
-        max-width: rem(360);
-        font-size: rem(18);
-        grid-area: title;
-    }
-
-    &__desc {
-        color: $grey;
-        text-indent: 1rem;
-        max-width: rem(512);
-        grid-area: desc;
-    }
-
-    &--image-left {
-        @include desktop {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            grid-template-rows: repeat(2, min-content);
-            row-gap: 15px;
-            column-gap: 30px;
-            justify-content: center;
-            grid-template-areas:
-                "pic title"
-                "pic desc";
-            align-items: start;
-        }
-
-        &::before {
-            @include desktop {
-                align-self: start;
-                grid-area: pic;
-                width: 80px;
-                height: 80px;
-            }
-        }
-    }
+  }
 }

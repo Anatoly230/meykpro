@@ -1,29 +1,131 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html class="page" lang="ru">
-@@include('./html/head.html')
-
-<body class="page__body page-body">
-
-	@@include('./html/header.html')
-	<main class="page-body__content micflag">
-		<h1 class="visually-hidden">Кубики на микрофон</h1>
-		@@include('./html/index/slider.html')
-		@@include('./html/index/about.html')
-		@@include('./html/index/why-us.html')
-		@@include('./html/index/portfolio.html')
-		@@include('./html/index/price.html')
-		@@include('./html/index/work-stages.html')
-		@@include('./html/index/contacts.html')
-	</main>
-	@@include('./html/footer.html')
-	@@include('./html/popUp-info.html')
-
-
-	<script src="./js/test.js"></script>
-	<script src="./js/pristine.js"></script>
-	<script type="module" src="./js/main.js"></script>
-	<!-- @@include('./html/scripts.html') -->
-
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="preload" href="fonts/opensans.woff2" as="font">
+    <link rel="preload" href="fonts/opensansbold.woff2" as="font">
+    <link rel="stylesheet" type="text/css" href="./css/style.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/icons/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/icons/favicons/apple.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>МейкПро изготовление кубика на микрофон срочно, мы делаем кубик на микрофон и наши возможности ограничены лишь Вашей фантазией, репортёрские, эфирные и для разного рода мероприятий купить кубики на микрофон, логотип на микрофон, насадка на микрофон с логотипом</title>
+    <meta name="description" content="срочно изготовление кубиков на микрофон, кубик на микрофон, кубики на микрофон, кубик на микрофон срочно, насадка на микрофон с логотипом, репортёрский кубик на микрофон, эфирный кубик на микрофон, логотип на мкрофон, кубик с подсветкой, кубик призма, доставка кубика на микрофон, реклама для телевидения, брэндированный кубик на микрофон, кубик на микрофон с логотипом, кубик для интервью, сувенирное изделие кубик на микрофон, кубик на микрофон заказать, кубик на микрофон москва, заказать кубик на микрофон, купить кубик на микрофон, купить кубики на микрофон">
+    <meta name="keywords" content="кубик на микрофон, кубики на микрофон, призма,  срочно, насадка на микрофон, кубики, телевидение,телеканал, youtube канал, интервью, мероприятие, event, доставка, москва, медведково, свао">
+    <script src=" https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css " rel="stylesheet">
+  </head>
+  <body class="page__body page-body"> 
+    <header class="header page-body__haeader">
+      <nav class="header__nav">
+        <div class="header__menu-wrapper">
+          <ul class="header__menu menu">
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#about">О&nbsp;нас</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#portfolio">Портфолио</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#price">Прайс</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#whyUs">Почему у&nbsp;нас</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#services">Наши услуги</a></li>
+          </ul>
+          <div class="header__buttons-wrapper">
+            <buttuon class="header__toggle-menu toggle-menu toggle-menu--hide" type="button" aria-label="кнопка меню"></buttuon><a class="header__callback-btn" href="#">Заказать звонок</a>
+          </div>
+        </div>
+        <div class="header__adding-info-wrapper"><a class="header__logo logo logo--active">
+            <picture>
+              <source media="(min-width: 768px)" srcset="./img/icons/logo-tablet.svg"><img class="logo__pic" alt="логотип компании" width="46" height="46" src="./img/icons/logo-mobile.svg">
+            </picture></a>
+          <div class="header__info-wrapper">
+            <p class="header__info header__info--continuously">
+              <svg class="header__info-pic" width="17" height="17" aria-hidden="true">
+              <use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
+              </svg>
+              <span class="header__info-text">Принимаем заказы круглосуточно и&nbsp;без выходных.</span>
+            </p>
+            <p class="header__info">
+              <svg class="header__info-pic  header__info-pic--location" width="25" height="25"
+              aria-hidden="true">
+              <use xlink:href="./img/icons/sprite.svg#location"></use>
+              </svg>
+              <span class="header__info-text">г. Москва, Полярная 31&nbsp;Б с17</span>
+              <span class="header__info-text header__info-text--mob">Мск</span>
+            </p>
+          </div>
+          <div class="header__contacts-wrapper"><a class="header__contact header__contact--mail" href="mailto:zakaz@meykpro.ru">
+              <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+              <use xlink:href="./img/icons/sprite.svg#mail"></use>
+              </svg>
+              <span class="header__contact-text">zakaz@meykpro.ru</span></a><a class="header__contact" href="tel:+79854687651">
+              <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+              <use xlink:href="./img/icons/sprite.svg#phone"></use>
+              </svg>
+              <span class="header__contact-text">8 (985) 468 76&nbsp;51</span></a></div>
+        </div>
+      </nav>
+      <ul class="header__benefits benefits">
+        <li class="benefits__item">Cрок изготовления от&nbsp;30&nbsp;минут</li>
+        <li class="benefits__item">Собственное производство</li>
+        <li class="benefits__item">
+          Доставка
+          <span class="benefits__item-region">Мск, МО, РФ, СНГ</span>
+        </li>
+      </ul>
+    </header>
+    <main class="page-body__content">   
+      <h1 class="visually-hidden">Кубики на микрофон</h1>
+      <section class="contacts micflag__contacts" id="contacts">
+              <h2 class="heading contacts__heading"><span class="heading__content">Оставить заявку</span></h2>
+        <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
+        <form class="form contacts__form" action="./php/action.php" method="POST">
+          <div class="form__group">
+                  <div class="input">
+                    <label class="input__name" id="name">Имя*</label>
+                    <input class="input__field" for="name" type="text" name="name" required placeholder="Александр...">
+                  </div>
+                  <div class="input">
+                    <label class="input__name" id="phone">Телефон*</label>
+                    <input class="input__field" for="phone" type="tel" name="phone" required placeholder="+7 900 000 00 00" pattern="/^+?[7|7|8]?s?(?d{3})?[s|-]?d{3}[s|-]?d{2}[s|-]?d{2}$/gm">
+                  </div>
+                  <div class="input">
+                    <label class="input__name" id="email">Почта*</label>
+                    <input class="input__field" for="email" type="tel" name="email" required placeholder="custom@gmail.com">
+                  </div>
+          </div>
+          <div class="form__group form__group--message">
+                  <div class="input form__group-message">
+                    <label class="input__name" id="message">Сообщение</label>
+                    <textarea class="input__field input__field--message" for="message" name="message" placeholder="Александр..."></textarea>
+                  </div>
+            <button class="form__submit btn" id="submit" type="submit">Отправить</button>
+          </div>
+        </form>
+        <p class="contacts__info">* - звёздочкой помечены обязательные поля</p>
+        <div class="contacts__map map">
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6387687ad754f9796c6f7a9550b0d755eeea9515528b740c62898012840d4687&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </section>
+    </main>
+    <footer class="page-body__footer footer">
+      <div class="footer__wrapper">
+        <div class="footer__contacts-info"><a class="footer__logo logo logo--active">
+            <picture>
+              <source media="(min-width: 768px)" srcset="./img/icons/logo-tablet-wb.svg"><img class="logo__pic logo__pic--wb" alt="логотип компании" width="46" height="46" src="./img/icons/logo-mobile-wb.svg">
+            </picture></a>
+          <ul class="footer__contacts">
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="mailto:zakaz@meykpro.ru">zakaz@meykpro.ru</a></li>
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="tel:+79854687651">8 (985) 468 76&nbsp;51</a></li>
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="#">г. Москва, Полярная 31&nbsp;Б с17</a></li>
+          </ul>
+        </div>
+        <p class="footer__copyrights">
+          &copy;&nbsp;2013-2023 &laquo;МейкПро&raquo;.
+          <span class="visually-hidden">Все права защищены</span> 
+        </p>
+      </div>
+    </footer>
+    <script src="./js/pristine.js"></script>
+    <script src="./js/test.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>

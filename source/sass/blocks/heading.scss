@@ -2,48 +2,49 @@ $heading-paddings : rem(30);
 
 
 @mixin heading-wrapper($content-width: $max-content-width) {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 
-    @include desktop {
-        max-width: calc($content-width + $heading-paddings * 2);
-    }
+  @include desktop {
+    max-width: calc($content-width + $heading-paddings * 2);
+  }
 }
 
 
 .heading {
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @include desktop {
+    justify-content: start;
+  }
+
+  &__content {
+    text-align: center;
+    padding-inline: $heading-paddings;
+    background-color: $white;
 
     @include desktop {
-        justify-content: start;
+      text-align: initial;
     }
+  }
 
-    &__content {
-        text-align: center;
-        padding-inline: $heading-paddings;
-        background-color: $white;
+  &::before {
+    z-index: -1;
 
-        @include desktop {
-            text-align: initial;
-        }
-    }
-
-    &::before {
-        z-index: -1;
-        @include pseudo-el;
-        position: absolute;
-        height: 2px;
-        width: 100vw;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 50%;
-        transform: translateX(-50%);
-        // background-color: $disabled;
-        background-color:  #b6d0e7;
-    }
+    @include pseudo-el;
+    position: absolute;
+    height: 2px;
+    width: 100vw;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    // background-color: $disabled;
+    background-color: #b6d0e7;
+  }
 }
 
 // .heading {

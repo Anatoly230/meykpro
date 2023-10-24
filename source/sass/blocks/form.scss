@@ -1,44 +1,44 @@
 $row-count: 3;
 
 .form {
+  display: grid;
+  row-gap: rem(20);
+
+  @include tablet {
+    column-gap: rem(20);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    column-gap: rem(35);
+  }
+
+  &__group {
     display: grid;
-    row-gap: rem(20);
+    row-gap: rem(15);
+
+    &--message {
+      row-gap: rem(25);
+
+      @include tablet {
+        row-gap: rem(15);
+        grid-template-rows: repeat($row-count, 1fr);
+      }
+    }
+  }
+
+  &__group-message {
+    @include tablet {
+      grid-row: 1 / -2;
+    }
+  }
+
+  &__submit {
+    align-self: end;
 
     @include tablet {
-        column-gap: rem(20);
-        grid-template-columns: repeat(2, 1fr);
+      grid-row: -2 / -1;
+      justify-self: end;
     }
-
-    @include desktop {
-        column-gap: rem(35);
-    }
-
-    &__group {
-        display: grid;
-        row-gap: rem(15);
-
-        &--message {
-            row-gap: rem(25);
-
-            @include tablet {
-                row-gap: rem(15);
-                grid-template-rows: repeat($row-count, 1fr);
-            }
-        }
-    }
-
-    &__group-message {
-        @include tablet {
-            grid-row: 1 / -2;
-        }
-    }
-
-    &__submit {
-        align-self: end;
-
-        @include tablet {
-            grid-row: -2 / -1;
-            justify-self: end;
-        }
-    }
+  }
 }

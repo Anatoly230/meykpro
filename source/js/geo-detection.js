@@ -19,3 +19,4 @@ if (navigator.geolocation) {
   function geolocFail(){
       alert("Ваш браузер не поддерживает гео-локацию");
   };
+  

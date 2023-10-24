@@ -60,6 +60,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+
     @include reset-link-style($white);
     padding-inline: rem(28);
     padding-block: rem(12);
@@ -75,9 +76,7 @@
 }
 
 
-
 .header {
-
   &__adding-info-wrapper {
 
     padding-inline: rem(30);
@@ -105,7 +104,6 @@
     @include tablet {
       grid-column: 1 / 2;
     }
-
   }
 
   &__info-wrapper {
@@ -144,7 +142,7 @@
   &__info--continuously::after {
     @include tablet {
       margin-block: rem(12);
-      content: '';
+      content: "";
       display: block;
       position: relative;
       width: 70%;
@@ -179,12 +177,10 @@
 
     @include tablet {
       display: initial;
-
     }
   }
 
   &__info-text--mob {
-
     @include tablet {
       display: none;
     }
@@ -204,11 +200,9 @@
       row-gap: rem(15);
       justify-items: start;
     }
-
   }
 
   &__contact {
-
     @include tablet {
       @include reset-link-style;
       display: grid;
@@ -254,7 +248,6 @@
   }
 
   &__contact--mail {
-
     @include tablet {
       align-self: end;
     }

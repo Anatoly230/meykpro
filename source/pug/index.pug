@@ -3,6 +3,7 @@ extends _layuot
 block variables
     include ./modules/head/head-data
     include ./utils
+    include ./mixins/section-title
     - pageClass = 'page-body'
     
 block metaHead
@@ -20,3 +21,7 @@ block content
     //- include ./modules/galery/galery
     //- include ./modules/work-stages/work-stages
     include ./modules/contacts/contacts
+block scripts
+    script(src='./js/pristine.js')
+    script(src='./js/test.js')
+    script(type='module' src='./js/main.js')

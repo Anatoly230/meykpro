@@ -7,7 +7,6 @@ mixin listGenerate(data)
                 p.bragging__desc= part.description
 
 section.about.micflag__about
-    h2.about__heading.heading
-        span.heading__content Почему именно у&nbsp;нас?
+    +sectionTitle('about', 'Почему именно у&nbsp;нас?')
     ul.about__list.simple-grid
         +listGenerate(aboutData)
