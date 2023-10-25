@@ -24,7 +24,7 @@ const source = "source",
   dist = 'build',
   pugInfo = {
     source: ['./source/pug/*.pug', '!./source/pug/_*.pug'],
-    dist: './source/html/pugResult/'
+    dist: './source/'
   }
 
 // Styles

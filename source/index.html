@@ -1,29 +1,634 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html class="page" lang="ru">
-@@include('./html/head.html')
-
-<body class="page__body page-body">
-
-	@@include('./html/header.html')
-	<main class="page-body__content micflag">
-		<h1 class="visually-hidden">Кубики на микрофон</h1>
-		@@include('./html/index/slider.html')
-		@@include('./html/index/about.html')
-		@@include('./html/index/why-us.html')
-		@@include('./html/index/portfolio.html')
-		@@include('./html/index/price.html')
-		@@include('./html/index/work-stages.html')
-		@@include('./html/index/contacts.html')
-	</main>
-	@@include('./html/footer.html')
-	@@include('./html/popUp-info.html')
-
-
-	<script src="./js/test.js"></script>
-	<script src="./js/pristine.js"></script>
-	<script type="module" src="./js/main.js"></script>
-	<!-- @@include('./html/scripts.html') -->
-
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="preload" href="fonts/opensans.woff2" as="font">
+    <link rel="preload" href="fonts/opensansbold.woff2" as="font">
+    <link rel="stylesheet" type="text/css" href="./css/style.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/icons/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/icons/favicons/apple.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>МейкПро изготовление кубика на микрофон срочно, мы делаем кубик на микрофон и наши возможности ограничены лишь Вашей фантазией, репортёрские, эфирные и для разного рода мероприятий купить кубики на микрофон, логотип на микрофон, насадка на микрофон с логотипом</title>
+    <meta name="description" content="срочно изготовление кубиков на микрофон, кубик на микрофон, кубики на микрофон, кубик на микрофон срочно, насадка на микрофон с логотипом, репортёрский кубик на микрофон, эфирный кубик на микрофон, логотип на мкрофон, кубик с подсветкой, кубик призма, доставка кубика на микрофон, реклама для телевидения, брэндированный кубик на микрофон, кубик на микрофон с логотипом, кубик для интервью, сувенирное изделие кубик на микрофон, кубик на микрофон заказать, кубик на микрофон москва, заказать кубик на микрофон, купить кубик на микрофон, купить кубики на микрофон">
+    <meta name="keywords" content="кубик на микрофон, кубики на микрофон, призма,  срочно, насадка на микрофон, кубики, телевидение,телеканал, youtube канал, интервью, мероприятие, event, доставка, москва, медведково, свао">
+    <script src=" https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css " rel="stylesheet">
+  </head>
+  <body class="page__body page-body">
+    <header class="header page-body__haeader">
+      <nav class="header__nav">
+        <div class="header__menu-wrapper">
+          <ul class="header__menu menu">
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#about">О&nbsp;нас</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#portfolio">Портфолио</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#price">Прайс</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#whyUs">Почему у&nbsp;нас</a></li>
+            <li class="menu__item"><a class="menu__item-link js-anchor" href="#services">Наши услуги</a></li>
+          </ul>
+          <div class="header__buttons-wrapper">
+            <buttuon class="header__toggle-menu toggle-menu toggle-menu--hide" type="button" aria-label="кнопка меню"></buttuon><a class="header__callback-btn" href="#">Заказать звонок</a>
+          </div>
+          <div class="header__adding-info-wrapper"><a class="header__logo logo logo--active">
+              <picture>
+                <source media="(min-width: 768px)" srcset="./img/icons/logo-tablet.svg"><img class="header__info header__info--continuously">
+              </picture></a>
+            <div class="header__info-wrapper">
+              <p class="header__info header__info--continuously">
+                <svg class="header__info-pic" width="17" height="17" aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
+                </svg>
+                <span class="header__info-text">Принимаем заказы круглосуточно и&nbsp;без выходных.</span>
+              </p>
+              <p class="header__info">
+                <svg class="header__info-pic  header__info-pic--location" width="25" height="25"
+                aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#location"></use>
+                </svg>
+                <span class="header__info-text">г. Москва, Полярная 31&nbsp;Б с17</span>
+                <span class="header__info-text header__info-text--mob">Мск</span>
+              </p>
+            </div>
+            <div class="header__contacts-wrapper"><a class="header__contact header__contact--mail" href="mailto:zakaz@meykpro.ru">
+                <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#mail"></use>
+                </svg>
+                <span class="header__contact-text">zakaz@meykpro.ru</span></a><a class="header__contact" href="tel:+79854687651">
+                <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+                <use xlink:href="./img/icons/sprite.svg#phone"></use>
+                </svg>
+                <span class="header__contact-text">8 (985) 468 76&nbsp;51</span></a></div>
+          </div>
+        </div>
+      </nav>
+      <ul class="header__benefits benefits">
+        <li class="benefits__item">Cрок изготовления от&nbsp;30&nbsp;минут</li>
+        <li class="benefits__item">Собственное производство</li>
+        <li class="benefits__item">
+          Доставка
+          <span class="benefits__item-region">Мск, МО, РФ, СНГ</span>
+        </li>
+      </ul>
+    </header>
+    <main class="page-body__content">   
+      <h1 class="visually-hidden">Кубики на микрофон</h1>
+      <section class="micflag__slider">
+        <h2 class="visually-hidden">Модели кубиков на микрофон</h2>
+              <ul class="micflag__slider-content slider">
+                <li class="slider__item slide">
+                  <div class="slide__wrapper">
+                    <h3 class="slide__heading">Кубик на микрофон &laquo;Standart&raquo;</h3>
+                          <picture class="slide__pic-contaner">
+                            <source type="image/png" media="(min-width: 1150px)" srcset="./img/slider/micflag/standart-desktop.png 1x, ./img/slider/micflag/standart-desktop@2x.png 2x">
+                            <source type="image/png" media="(min-width: 768px)" srcset="./img/slider/micflag/standart-tablet.png 1x, ./img/slider/micflag/standart-tablet@2x.png 2x"><img class="slide__pic" src="./img/slider/micflag/standart.png" srcset="./img/slider/micflag/standart@2xx.png 2xx" width="197" height="161" alt="кубик на микрофон типа  standart">
+                          </picture>
+                    <p class="slide__text">Самая распространенная и&nbsp;универсальная модель насадок на&nbsp;микрофон. Размерная линейка 65, 70, 80мм. Рекомендуемое отверстие под стержень микрофона 45мм.</p>
+                    <p class="slide__price-wrapper"><span class="slide__price">3100 &#8381;</span><a class="slide__price-buy-btn btn btn--buy" href="#contacts">Заказать</a></p>
+                  </div>
+                </li>
+                <li class="slider__item slide">
+                  <div class="slide__wrapper">
+                    <h3 class="slide__heading">Кубик на микрофон &laquo;Euro&raquo;</h3>
+                          <picture class="slide__pic-contaner">
+                            <source type="image/png" media="(min-width: 1150px)" srcset="./img/slider/micflag/euro-desktop.png 1x, ./img/slider/micflag/euro-desktop@2x.png 2x">
+                            <source type="image/png" media="(min-width: 768px)" srcset="./img/slider/micflag/euro-tablet.png 1x, ./img/slider/micflag/euro-tablet@2x.png 2x"><img class="slide__pic" src="./img/slider/micflag/euro.png" srcset="./img/slider/micflag/euro@2xx.png 2xx" width="197" height="161" alt="кубик на микрофон типа  euro">
+                          </picture>
+                    <p class="slide__text">Модель прекрасно подходит если логотип широкий или невысокая ножка микрофона.Размер стороны 80&times;50мм.Рекомендуемое отверстие под стержень микрофона 45мм.</p>
+                    <p class="slide__price-wrapper"><span class="slide__price">3400 &#8381;</span><a class="slide__price-buy-btn btn btn--buy" href="#contacts">Заказать</a></p>
+                  </div>
+                </li>
+              </ul>
+        <div class="slider__buttons buttons-list">
+          <button class="buttons-list__item buttons-list__slide buttons-list__slide--hide" aria-label="переключатель слайда" data-slide="right">&#8249;</button>
+          <button class="buttons-list__item buttons-list__slide buttons-list__slide--hide" aria-label="переключатель слайда" data-slide="right">&#8250;</button>
+        </div>
+      </section>
+      <section class="about micflag__about">
+        <h2 class="about__heading heading"><span class="heading__content">Почему именно у&nbsp;нас?</span></h2>
+        <ul class="about__list simple-grid">
+                <li class="simple-grid__item bragging">
+                  <p class="bragging__title">Мы&nbsp;на&nbsp;рынке с&nbsp;2013 года
+                    <p class="bragging__desc">Наш опыт в&amp;nbsp;изготовлении кубиков (насадка на&amp;nbsp;микрофон) составляет 
+        более пяти лет, мы&amp;nbsp;постоянно совершенствуем свой профессионализм 
+        и&amp;nbsp;улучшаем технологии производства.</p>
+                  </p>
+                </li>
+                <li class="simple-grid__item bragging">
+                  <p class="bragging__title">Только компетентные специалисты
+                    <p class="bragging__desc">Наша команда состоит только из&amp;nbsp;высококвалифицированных сотрудников
+                    знающих своё дело каждый в&amp;nbsp;своей области. Это менеджеры, дизайнеры, макетчики
+                    и&amp;nbsp;технологи.</p>
+                  </p>
+                </li>
+                <li class="simple-grid__item bragging">
+                  <p class="bragging__title">Всегда в&nbsp;курсе
+                    <p class="bragging__desc">Наша компания регулярно отслеживает актуальные формы и&amp;nbsp;линии
+                    репортерских насадок на&amp;nbsp;микрофон, современные колористические решения, износостойкие
+                    материалы для изготовления кубиков.</p>
+                  </p>
+                </li>
+                <li class="simple-grid__item bragging">
+                  <p class="bragging__title">Наши клиенты
+                    <p class="bragging__desc">Сбербанк, Академия СТАРС, МОСКОВСКАЯ ОПЕРЕТТА, OBI, MEGACARD, телеканалы Москва24, Пятница,
+                    Перец, НТВ и&amp;nbsp;т.&amp;nbsp;д.</p>
+                  </p>
+                </li>
+        </ul>
+      </section>
+            <li class="price__list-item parametrs" data-about="">
+              <div class="parametrs__heading-wrapper">
+                      <h3 class="parametrs__heading"><span class="visually-hidden">Кубик на микрофон типа</span>
+                        &laquo;Standart&raquo;
+                      </h3>
+                <p class="parametrs__price">до 3100 &nbsp;&#8381;</p>
+              </div>
+              <div class="parametrs__pic-wrapper .item-status .item-status--hit">
+                      <picture>
+                        <source type="image/webp" media="(min-width: 768px)" srcset="./img/portfolio/micflags/wink-full.webp 1x, ./img/portfolio/micflags/wink-full@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 768px)" srcset="./img/portfolio/micflags/wink-full.jpeg 1x, ./img/portfolio/micflags/wink-full@2x.jpeg 2x">
+                        <source type="image/webp" media="(min-width: 320px)" srcset="./img/portfolio/micflags/wink.webp 1x, ./img/portfolio/micflags/wink@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 320px)" srcset="./img/portfolio/micflags/wink.jpeg 1x, ./img/portfolio/micflags/wink@2x.jpeg 2x"><img class="parametrs__pic" src="./img/portfolio/micflags/wink.png" srcset="./img/portfolio/micflags/wink@2xx.png 2xx" width="240" height="240" alt="кубик на микрофон типа Standart wink" data-type="Standart">
+                      </picture>
+                <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button" aria-label="Предыдущая фотогорафия">&lt;</button>
+                <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button" aria-label="Следующая фотогорафия">&gt;</button>
+              </div>
+                    <dl class="parametrs__wrapper">
+                      <div class="parametr" data-about="hide">
+                        <dt class="parametr__name">Размер стороны</dt>
+                        <dd class="parametr__value">65x65x65</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Диаметр отверстия</dt>
+                        <dd class="parametr__value">45&amp;nbsp;мм.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Срок изготовления</dt>
+                        <dd class="parametr__value">1-3&amp;nbsp;дня</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Доставка</dt>
+                        <dd class="parametr__value">от&amp;nbsp;600р.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Материал</dt>
+                        <dd class="parametr__value">ПВХ5мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Вес</dt>
+                        <dd class="parametr__value">60гр.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Уплотнитель</dt>
+                        <dd class="parametr__value">Порролон</dd>
+                      </div>
+                    </dl>
+                    <div class="parametrs__toggle-wrapper"><a class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" href="" aria-label="сметреть подробности">
+                        <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+                        </svg>
+                        <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+                        <span class="btn__text" data-about="collapse">Свернуть <span class="visually-hidden">подробности</span></span></a><a class="parametrs__toggle btn btn--buy" href="#contacts" aria-label="Совершить заказ">
+                        <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+                        </svg>
+                        <span class="btn__text">Заказать</span></a></div>
+            </li>
+            <li class="price__list-item parametrs" data-about="">
+              <div class="parametrs__heading-wrapper">
+                      <h3 class="parametrs__heading"><span class="visually-hidden">Кубик на микрофон типа</span>
+                        &laquo;Euro&raquo;
+                      </h3>
+                <p class="parametrs__price">до 3400 &nbsp;&#8381;</p>
+              </div>
+              <div class="parametrs__pic-wrapper .item-status .item-status--hit">
+                      <picture>
+                        <source type="image/webp" media="(min-width: 768px)" srcset="./img/portfolio/micflags/sok-full.webp 1x, ./img/portfolio/micflags/sok-full@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 768px)" srcset="./img/portfolio/micflags/sok-full.jpeg 1x, ./img/portfolio/micflags/sok-full@2x.jpeg 2x">
+                        <source type="image/webp" media="(min-width: 320px)" srcset="./img/portfolio/micflags/sok.webp 1x, ./img/portfolio/micflags/sok@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 320px)" srcset="./img/portfolio/micflags/sok.jpeg 1x, ./img/portfolio/micflags/sok@2x.jpeg 2x"><img class="parametrs__pic" src="./img/portfolio/micflags/sok.jpeg" srcset="./img/portfolio/micflags/sok@2xx.jpeg 2xx" width="240" height="240" alt="кубик на микрофон типа Euro sok" data-type="Euro">
+                      </picture>
+                <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button" aria-label="Предыдущая фотогорафия">&lt;</button>
+                <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button" aria-label="Следующая фотогорафия">&gt;</button>
+              </div>
+                    <dl class="parametrs__wrapper">
+                      <div class="parametr" data-about="hide">
+                        <dt class="parametr__name">Размер стороны</dt>
+                        <dd class="parametr__value">80x50x80</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Диаметр отверстия</dt>
+                        <dd class="parametr__value">45&amp;nbsp;мм.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Срок изготовления</dt>
+                        <dd class="parametr__value">1-3&amp;nbsp;дня</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Доставка</dt>
+                        <dd class="parametr__value">от&amp;nbsp;600р.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Материал</dt>
+                        <dd class="parametr__value">ПВХ5мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Вес</dt>
+                        <dd class="parametr__value">60гр.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Уплотнитель</dt>
+                        <dd class="parametr__value">Порролон</dd>
+                      </div>
+                    </dl>
+                    <div class="parametrs__toggle-wrapper"><a class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" href="" aria-label="сметреть подробности">
+                        <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+                        </svg>
+                        <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+                        <span class="btn__text" data-about="collapse">Свернуть <span class="visually-hidden">подробности</span></span></a><a class="parametrs__toggle btn btn--buy" href="#contacts" aria-label="Совершить заказ">
+                        <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+                        </svg>
+                        <span class="btn__text">Заказать</span></a></div>
+            </li>
+            <li class="price__list-item parametrs" data-about="">
+              <div class="parametrs__heading-wrapper">
+                      <h3 class="parametrs__heading"><span class="visually-hidden">Кубик на микрофон типа</span>
+                        &laquo;Prisma&raquo;
+                      </h3>
+                <p class="parametrs__price">до 4300 &nbsp;&#8381;</p>
+              </div>
+              <div class="parametrs__pic-wrapper">
+                      <picture>
+                        <source type="image/webp" media="(min-width: 768px)" srcset="./img/portfolio/micflags/drayv-full.webp 1x, ./img/portfolio/micflags/drayv-full@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 768px)" srcset="./img/portfolio/micflags/drayv-full.jpeg 1x, ./img/portfolio/micflags/drayv-full@2x.jpeg 2x">
+                        <source type="image/webp" media="(min-width: 320px)" srcset="./img/portfolio/micflags/drayv.webp 1x, ./img/portfolio/micflags/drayv@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 320px)" srcset="./img/portfolio/micflags/drayv.jpeg 1x, ./img/portfolio/micflags/drayv@2x.jpeg 2x"><img class="parametrs__pic" src="./img/portfolio/micflags/drayv.jpeg" srcset="./img/portfolio/micflags/drayv@2xx.jpeg 2xx" width="240" height="240" alt="кубик на микрофон типа Prisma drayv" data-type="Prisma">
+                      </picture>
+                <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button" aria-label="Предыдущая фотогорафия">&lt;</button>
+                <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button" aria-label="Следующая фотогорафия">&gt;</button>
+              </div>
+                    <dl class="parametrs__wrapper">
+                      <div class="parametr" data-about="hide">
+                        <dt class="parametr__name">Размер стороны</dt>
+                        <dd class="parametr__value">120x40мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Диаметр отверстия</dt>
+                        <dd class="parametr__value">45&amp;nbsp;мм.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Срок изготовления</dt>
+                        <dd class="parametr__value">1-3&amp;nbsp;дня</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Доставка</dt>
+                        <dd class="parametr__value">от&amp;nbsp;600р.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Материал</dt>
+                        <dd class="parametr__value">ПВХ5мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Вес</dt>
+                        <dd class="parametr__value">60гр.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Уплотнитель</dt>
+                        <dd class="parametr__value">Порролон</dd>
+                      </div>
+                    </dl>
+                    <div class="parametrs__toggle-wrapper"><a class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" href="" aria-label="сметреть подробности">
+                        <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+                        </svg>
+                        <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+                        <span class="btn__text" data-about="collapse">Свернуть <span class="visually-hidden">подробности</span></span></a><a class="parametrs__toggle btn btn--buy" href="#contacts" aria-label="Совершить заказ">
+                        <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+                        </svg>
+                        <span class="btn__text">Заказать</span></a></div>
+            </li>
+            <li class="price__list-item parametrs" data-about="">
+              <div class="parametrs__heading-wrapper">
+                      <h3 class="parametrs__heading"><span class="visually-hidden">Кубик на микрофон типа</span>
+                        &laquo;Prisma VL&raquo;
+                      </h3>
+                <p class="parametrs__price">до 6000 &nbsp;&#8381;</p>
+              </div>
+              <div class="parametrs__pic-wrapper .item-status .item-status--hit">
+                      <picture>
+                        <source type="image/webp" media="(min-width: 768px)" srcset="./img/portfolio/micflags/ntk-full.webp 1x, ./img/portfolio/micflags/ntk-full@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 768px)" srcset="./img/portfolio/micflags/ntk-full.jpeg 1x, ./img/portfolio/micflags/ntk-full@2x.jpeg 2x">
+                        <source type="image/webp" media="(min-width: 320px)" srcset="./img/portfolio/micflags/ntk.webp 1x, ./img/portfolio/micflags/ntk@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 320px)" srcset="./img/portfolio/micflags/ntk.jpeg 1x, ./img/portfolio/micflags/ntk@2x.jpeg 2x"><img class="parametrs__pic" src="./img/portfolio/micflags/ntk.jpeg" srcset="./img/portfolio/micflags/ntk@2xx.jpeg 2xx" width="240" height="240" alt="кубик на микрофон типа Prisma VL ntk" data-type="Prisma VL">
+                      </picture>
+                <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button" aria-label="Предыдущая фотогорафия">&lt;</button>
+                <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button" aria-label="Следующая фотогорафия">&gt;</button>
+              </div>
+                    <dl class="parametrs__wrapper">
+                      <div class="parametr" data-about="hide">
+                        <dt class="parametr__name">Размер стороны</dt>
+                        <dd class="parametr__value">95x60мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Диаметр отверстия</dt>
+                        <dd class="parametr__value">45&amp;nbsp;мм.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Срок изготовления</dt>
+                        <dd class="parametr__value">2-5&amp;nbsp;дней</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Доставка</dt>
+                        <dd class="parametr__value">от&amp;nbsp;600р.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Материал</dt>
+                        <dd class="parametr__value">ПВХ5мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Вес</dt>
+                        <dd class="parametr__value">60гр.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Уплотнитель</dt>
+                        <dd class="parametr__value">Порролон</dd>
+                      </div>
+                    </dl>
+                    <div class="parametrs__toggle-wrapper"><a class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" href="" aria-label="сметреть подробности">
+                        <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+                        </svg>
+                        <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+                        <span class="btn__text" data-about="collapse">Свернуть <span class="visually-hidden">подробности</span></span></a><a class="parametrs__toggle btn btn--buy" href="#contacts" aria-label="Совершить заказ">
+                        <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+                        </svg>
+                        <span class="btn__text">Заказать</span></a></div>
+            </li>
+            <li class="price__list-item parametrs" data-about="">
+              <div class="parametrs__heading-wrapper">
+                      <h3 class="parametrs__heading"><span class="visually-hidden">Кубик на микрофон типа</span>
+                        &laquo;Prisma VA&raquo;
+                      </h3>
+                <p class="parametrs__price">до 12000 &nbsp;&#8381;</p>
+              </div>
+              <div class="parametrs__pic-wrapper .item-status .item-status--hit .item-status--exclusive">
+                      <picture>
+                        <source type="image/webp" media="(min-width: 768px)" srcset="./img/portfolio/micflags/glamour-full.webp 1x, ./img/portfolio/micflags/glamour-full@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 768px)" srcset="./img/portfolio/micflags/glamour-full.jpeg 1x, ./img/portfolio/micflags/glamour-full@2x.jpeg 2x">
+                        <source type="image/webp" media="(min-width: 320px)" srcset="./img/portfolio/micflags/glamour.webp 1x, ./img/portfolio/micflags/glamour@2x.webp 2x">
+                        <source type="image/jpeg" media="(min-width: 320px)" srcset="./img/portfolio/micflags/glamour.jpeg 1x, ./img/portfolio/micflags/glamour@2x.jpeg 2x"><img class="parametrs__pic" src="./img/portfolio/micflags/glamour.jpeg" srcset="./img/portfolio/micflags/glamour@2xx.jpeg 2xx" width="240" height="240" alt="кубик на микрофон типа Prisma VA glamour" data-type="Prisma VA">
+                      </picture>
+                <button class="parametrs__pic-btn slide-pic slide-pic--hide" type="button" aria-label="Предыдущая фотогорафия">&lt;</button>
+                <button class="parametrs__pic-btn parametrs__pic-btn--right slide-pic slide-pic--hide" type="button" aria-label="Следующая фотогорафия">&gt;</button>
+              </div>
+                    <dl class="parametrs__wrapper">
+                      <div class="parametr" data-about="hide">
+                        <dt class="parametr__name">Размер стороны</dt>
+                        <dd class="parametr__value">95x60мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Диаметр отверстия</dt>
+                        <dd class="parametr__value">45&amp;nbsp;мм.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Срок изготовления</dt>
+                        <dd class="parametr__value">2-5&amp;nbsp;дней</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Доставка</dt>
+                        <dd class="parametr__value">от&amp;nbsp;600р.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Материал</dt>
+                        <dd class="parametr__value">ПВХ 5мм/оргстекло 3мм</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Вес</dt>
+                        <dd class="parametr__value">60гр.</dd>
+                      </div>
+                      <div class="parametr">
+                        <dt class="parametr__name">Уплотнитель</dt>
+                        <dd class="parametr__value">Порролон</dd>
+                      </div>
+                    </dl>
+                    <div class="parametrs__toggle-wrapper"><a class="parametrs__toggle btn btn--more btn--js-collapse btn--hide" href="" aria-label="сметреть подробности">
+                        <svg class="btn__icon" width="17" height="17" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#more-icon"></use>
+                        </svg>
+                        <span class="btn__text btn__text--hide" data-about="more">Подробнее</span>
+                        <span class="btn__text" data-about="collapse">Свернуть <span class="visually-hidden">подробности</span></span></a><a class="parametrs__toggle btn btn--buy" href="#contacts" aria-label="Совершить заказ">
+                        <svg class="btn__icon" width="20" height="20" aria-hidden="true">
+                        <use xlink:href="./img/icons/sprite.svg#cart-icon"></use>
+                        </svg>
+                        <span class="btn__text">Заказать</span></a></div>
+            </li>
+      <section class="micflag__portfolio">
+              <h2 class="heading micflag__portfolio-heading"><span class="heading__content">Сделано</span></h2>
+              <ul class="micflag__portfolio-wrapper portfolio">
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/tv_bricks.webp 1x, ./img/portfolio/micflags/tv_bricks@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/tv_bricks.jpeg 1x, ./img/portfolio/micflags/tv_bricks@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/tv_bricks.jpeg" srcset="./img/portfolio/micflags/tv_bricks@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Standart tv_bricks" data-type="Standart">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/cryptocot.webp 1x, ./img/portfolio/micflags/cryptocot@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/cryptocot.jpeg 1x, ./img/portfolio/micflags/cryptocot@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/cryptocot.jpeg" srcset="./img/portfolio/micflags/cryptocot@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Standart cryptocot" data-type="Standart">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/wt.webp 1x, ./img/portfolio/micflags/wt@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/wt.jpeg 1x, ./img/portfolio/micflags/wt@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/wt.jpeg" srcset="./img/portfolio/micflags/wt@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Standart wt" data-type="Standart">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/euplus.webp 1x, ./img/portfolio/micflags/euplus@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/euplus.jpeg 1x, ./img/portfolio/micflags/euplus@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/euplus.jpeg" srcset="./img/portfolio/micflags/euplus@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа custom euplus" data-type="custom">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/csbs.webp 1x, ./img/portfolio/micflags/csbs@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/csbs.jpeg 1x, ./img/portfolio/micflags/csbs@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/csbs.jpeg" srcset="./img/portfolio/micflags/csbs@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа custom csbs" data-type="custom">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/goszakaz.webp 1x, ./img/portfolio/micflags/goszakaz@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/goszakaz.jpeg 1x, ./img/portfolio/micflags/goszakaz@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/goszakaz.jpeg" srcset="./img/portfolio/micflags/goszakaz@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Prisma VA goszakaz" data-type="Prisma VA">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/ntk.webp 1x, ./img/portfolio/micflags/ntk@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/ntk.jpeg 1x, ./img/portfolio/micflags/ntk@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/ntk.jpeg" srcset="./img/portfolio/micflags/ntk@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Prisma VL ntk" data-type="Prisma VL">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/europe_plus.webp 1x, ./img/portfolio/micflags/europe_plus@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/europe_plus.jpeg 1x, ./img/portfolio/micflags/europe_plus@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/europe_plus.jpeg" srcset="./img/portfolio/micflags/europe_plus@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Standart europe_plus" data-type="Standart">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/zinerit.webp 1x, ./img/portfolio/micflags/zinerit@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/zinerit.jpeg 1x, ./img/portfolio/micflags/zinerit@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/zinerit.jpeg" srcset="./img/portfolio/micflags/zinerit@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа euro zinerit" data-type="euro">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/uje_za_20.webp 1x, ./img/portfolio/micflags/uje_za_20@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/uje_za_20.jpeg 1x, ./img/portfolio/micflags/uje_za_20@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/uje_za_20.jpeg" srcset="./img/portfolio/micflags/uje_za_20@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа custom uje_za_20" data-type="custom">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/drayv.webp 1x, ./img/portfolio/micflags/drayv@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/drayv.jpeg 1x, ./img/portfolio/micflags/drayv@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/drayv.jpeg" srcset="./img/portfolio/micflags/drayv@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Prisma drayv" data-type="Prisma">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/biosea.webp 1x, ./img/portfolio/micflags/biosea@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/biosea.jpeg 1x, ./img/portfolio/micflags/biosea@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/biosea.jpeg" srcset="./img/portfolio/micflags/biosea@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Prisma VL biosea" data-type="Prisma VL">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/restart.webp 1x, ./img/portfolio/micflags/restart@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/restart.jpeg 1x, ./img/portfolio/micflags/restart@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/restart.jpeg" srcset="./img/portfolio/micflags/restart@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа euro restart" data-type="euro">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/popcacke.webp 1x, ./img/portfolio/micflags/popcacke@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/popcacke.jpeg 1x, ./img/portfolio/micflags/popcacke@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/popcacke.jpeg" srcset="./img/portfolio/micflags/popcacke@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа custom popcacke" data-type="custom">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/sok.webp 1x, ./img/portfolio/micflags/sok@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/sok.jpeg 1x, ./img/portfolio/micflags/sok@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/sok.jpeg" srcset="./img/portfolio/micflags/sok@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа euro sok" data-type="euro">
+                        </picture>
+                </li>
+                <li class="portfolio__item">
+                        <picture class="portfolio__pic-contaner">
+                          <source type="image/webp" srcset="./img/portfolio/micflags/glamour.webp 1x, ./img/portfolio/micflags/glamour@2x.webp 2x">
+                          <source type="image/jpeg" srcset="./img/portfolio/micflags/glamour.jpeg 1x, ./img/portfolio/micflags/glamour@2x.jpeg 2x"><img class="portfolio__pic" src="./img/portfolio/micflags/glamour.jpeg" srcset="./img/portfolio/micflags/glamour@2x.jpeg 2x" width="130" height="112" alt="кубик на микрофон типа Prisma VA glamour" data-type="Prisma VA">
+                        </picture>
+                </li>
+              </ul>
+              <template id="portfolo-popUp">
+                <div class="pop-up">
+                  <div class="pop-up__image-wrapper">
+                    <button class="pop-up__close-btn" type="button" aria-label="Закрыть"></button>
+                    <picture class="pop-up__image-block">
+                      <source type="image/webp" srcset="">
+                      <source type="image/jpeg" srcset=""><img class="pop-up__image" src="" srcset="" width="1042" height="744" alt="">
+                    </picture>
+                    <button class="pop-up__image-navigation pop-up__image-navigation--previos" aria-label="предыдущее фото"></button>
+                    <button class="pop-up__image-navigation pop-up__image-navigation--next" aria-label="следующее фото"></button>
+                  </div>
+                </div>
+              </template>
+      </section>
+      <section class="work-stages work-stages">
+              <h2 class="heading work-stages__heading"><span class="heading__content">Этапы работ</span></h2>
+        <ul class="work-stages__list">
+                <li class="work-stage work-stage--tb-borders work-stages__item">
+                  <div class="work-stage__wraper work-stage__middle-border"><img class="work-stage__img" alt="иллюстрация 1 этапа работ" src="./img/illustrations/require.jpg">
+                    <h4 class="work-stage__heading">Ваш запрос</h4>
+                    <p class="work-stage__description">Мы получаем от вас запрос, на изготовлению или консультацию, обрабатываем его в течение 5-10 минут, и даём вам обратную связь почтой или телефонным звонком, вас всё устраивает, прекрасно</p><a class="work-stage__more-link" href="#">Поддробнее</a>
+                  </div>
+                </li>
+                <li class="work-stage work-stage--tb-borders work-stages__item">
+                  <div class="work-stage__wraper work-stage__middle-border"><img class="work-stage__img" alt="иллюстрация 2 этапа работ" src="./img/illustrations/3d.jpg">
+                    <h4 class="work-stage__heading">Визуализация 3D</h4>
+                    <p class="work-stage__description">Для визуализации необходим ваш логотип. На данном этапе ваш дизайнер может запросить технические требования к файлу, чего мы любезно предоставялем в письменном виде и формате файла, где достаточно вложить ваш логотип, и прислать этот файл обратно нам. Мы делаем визуализацию, и можем предложить на выбор дополнительный вариант модели кубика на микрофон.</p><a class="work-stage__more-link" href="#">Поддробнее</a>
+                  </div>
+                </li>
+                <li class="work-stage work-stage--tb-borders work-stages__item">
+                  <div class="work-stage__wraper work-stage__middle-border"><img class="work-stage__img" alt="иллюстрация 3 этапа работ" src="./img/illustrations/alignment.jpg">
+                    <h4 class="work-stage__heading">Согласование</h4>
+                    <p class="work-stage__description">На данном этапе согласуется форма и внешний вид изделия, сроки выполнения работ, способ оплаты, доставка или самовывоз</p><a class="work-stage__more-link" href="#">Поддробнее</a>
+                  </div>
+                </li>
+                <li class="work-stage work-stage--tb-borders work-stages__item">
+                  <div class="work-stage__wraper work-stage__middle-border"><img class="work-stage__img" alt="иллюстрация 4 этапа работ" src="./img/illustrations/manufacturing.jpg">
+                    <h4 class="work-stage__heading">Производство</h4>
+                    <p class="work-stage__description">Подготавливается необходимая документация, прикрепляется к готовым изделиям. Далее в случае самовывоза клиент забирает свой заказ самостоятельно, в случае доставки заказ передаётся курьеру по городу если доставка по москве, либо транспортной компании, если доставка в регион</p><a class="work-stage__more-link" href="#">Поддробнее</a>
+                  </div>
+                </li>
+                <li class="work-stage work-stage--tb-borders work-stages__item">
+                  <div class="work-stage__wraper work-stage__middle-border"><img class="work-stage__img" alt="иллюстрация 5 этапа работ" src="./img/illustrations/feedback.jpg">
+                    <h4 class="work-stage__heading">Обратная связь</h4>
+                    <p class="work-stage__description">Не смущайтесь нашей назойливости, мы просто интересуемся всё ли впорядке с заказом, довольны лы вы сотрудничеством с нашей компанией</p><a class="work-stage__more-link" href="#">Поддробнее</a>
+                  </div>
+                </li>
+        </ul>
+      </section>
+      <section class="contacts micflag__contacts" id="contacts">
+              <h2 class="heading"><span class="heading__content">Оставить заявку</span></h2>
+        <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
+        <form class="form contacts__form" action="./php/action.php" method="POST">
+          <div class="form__group">
+                  <div class="input">
+                    <label class="input__name" id="name">Имя*</label>
+                    <input class="input__field" for="name" type="text" name="name" required placeholder="Александр...">
+                  </div>
+                  <div class="input">
+                    <label class="input__name" id="phone">Телефон*</label>
+                    <input class="input__field" for="phone" type="tel" name="phone" required placeholder="+7 900 000 00 00" pattern="/^+?[7|7|8]?s?(?d{3})?[s|-]?d{3}[s|-]?d{2}[s|-]?d{2}$/gm">
+                  </div>
+                  <div class="input">
+                    <label class="input__name" id="email">Почта*</label>
+                    <input class="input__field" for="email" type="tel" name="email" required placeholder="custom@gmail.com">
+                  </div>
+            <div class="form__group form__group--message">
+              <div class="input form__group-message">
+                      <div class="input">
+                        <label class="input__name" id="message">Имя*</label>
+                        <textarea class="input__field input__field--message" for="message" type="Сообщение" name="name" placeholder="Александр..."></textarea>
+                      </div>
+              </div>
+            </div>
+            <p class="contacts__info">* - звёздочкой помечены обязательные поля</p>
+            <div class="contacts__map map">
+              <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6387687ad754f9796c6f7a9550b0d755eeea9515528b740c62898012840d4687&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="page-body__footer footer">
+      <div class="footer__wrapper">
+        <div class="footer__contacts-info"><a class="footer__logo logo logo--active">
+            <picture>
+              <source media="(min-width: 768px)" srcset="./img/icons/logo-tablet-wb.svg"><img class="logo__pic logo__pic--wb" alt="логотип компании" width="46" height="46" src="./img/icons/logo-mobile-wb.svg">
+            </picture></a>
+          <ul class="footer__contacts">
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="mailto:zakaz@meykpro.ru">zakaz@meykpro.ru</a></li>
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="tel:+79854687651">8 (985) 468 76&nbsp;51</a></li>
+            <li class="footer__contacts-item"><a class="footer__contacts-link" href="#">г. Москва, Полярная 31&nbsp;Б с17</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copyrights">
+        &copy;&nbsp;2013-2023 &laquo;МейкПро&raquo;.
+        <span class="visually-hidden">Все права защищены</span> 
+      </p>
+    </footer>
+    <script src="./js/test.js"></script>
+    <script src="./js/pristine.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
