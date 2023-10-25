@@ -15,24 +15,33 @@ include ../../mixins/section-title
     }
 
 
+//- mixin input(data)
+//-     .input
+//-         label.input__name(id= data.id? data.id: false)= data.name
+//-         if data.tag
+//-             #{data.tag}(for= data.id? data.id: false)&attributes(data.attr)
+//-         else
+//-             input.input__field(for= data.id? data.id: false)&attributes(data.attr)
 mixin input(data)
-    .input
-        label.input__name(id= data.id? data.id: false)= data.name
-        if data.tag
-            #{data.tag}.input__field(for= data.id? data.id: false)&attributes(data.attr)
-        else
+    if data.tag
+        .input.form__group-message
+            label.input__name(id= data.id? data.id: false)= data.name
+            #{data.tag}(for= data.id? data.id: false)&attributes(data.attr)
+    else
+        .input
+            label.input__name(id= data.id? data.id: false)= data.name
             input.input__field(for= data.id? data.id: false)&attributes(data.attr)
 
 section.contacts()&attributes(contactsAtr)
-    +sectionTitle(contacts, 'Оставить заявку')
+    +sectionTitle('contacts', 'Оставить заявку')
     p.contacts__desc * или проконсультироваться по интересующему вас вопросу
     form.form.contacts__form(action='./php/action.php' method='POST')
         .form__group
             each field in formData.fields
                 +input(field)
-            .form__group.form__group--message
-                .input.form__group-message
-                    +input(formData.textArea)
-            p.contacts__info * - звёздочкой помечены обязательные поля
-            .contacts__map.map
-                script()&attributes(contactScript)
+        .form__group.form__group--message
+            +input(formData.textArea)
+            button.form__submit.btn(id='submit' type='submit') Отправить
+    p.contacts__info * - звёздочкой помечены обязательные поля
+    .contacts__map.map
+        script()&attributes(contactScript)

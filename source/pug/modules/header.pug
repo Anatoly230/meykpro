@@ -15,36 +15,37 @@ header.header.page-body__haeader
       .header__buttons-wrapper
         buttuon.header__toggle-menu.toggle-menu.toggle-menu--hide(type='button' aria-label='кнопка меню')
         a.header__callback-btn(href='#') Заказать звонок
-      .header__adding-info-wrapper
-        a.header__logo.logo.logo--active
-          picture
-            source(media='(min-width: 768px)' srcset='./img/icons/logo-tablet.svg')
-            img.header__info.header__info--continuously
+    .header__adding-info-wrapper
+      a.header__logo.logo.logo--active
+        picture
+          source(media='(min-width: 768px)' srcset='./img/icons/logo-tablet.svg')
+          img.logo__pic(alt='логотип компании' width='46' height='46'
+                        src='./img/icons/logo-mobile.svg')
 
-        .header__info-wrapper
-          p.header__info.header__info--continuously.
-            <svg class="header__info-pic" width="17" height="17" aria-hidden="true">
-            <use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
-            </svg>
-            #[span.header__info-text Принимаем заказы круглосуточно и&nbsp;без выходных.]
-          p.header__info.
-            <svg class="header__info-pic  header__info-pic--location" width="25" height="25"
-            aria-hidden="true">
-            <use xlink:href="./img/icons/sprite.svg#location"></use>
-            </svg>
-            #[span.header__info-text г. Москва, Полярная 31&nbsp;Б с17]
-            #[span.header__info-text.header__info-text--mob Мск]
-        .header__contacts-wrapper
-          a.header__contact.header__contact--mail(href='mailto:zakaz@meykpro.ru').
-            <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
-            <use xlink:href="./img/icons/sprite.svg#mail"></use>
-            </svg>
-            #[span.header__contact-text zakaz@meykpro.ru]
-          a.header__contact(href='tel:+79854687651').
-            <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
-            <use xlink:href="./img/icons/sprite.svg#phone"></use>
-            </svg>
-            #[span.header__contact-text 8 (985) 468 76&nbsp;51]
+      .header__info-wrapper
+        p.header__info.header__info--continuously.
+          <svg class="header__info-pic" width="17" height="17" aria-hidden="true">
+          <use xlink:href="./img/icons/sprite.svg#work-hourses"></use>
+          </svg>
+          #[span.header__info-text Принимаем заказы круглосуточно и&nbsp;без выходных.]
+        p.header__info.
+          <svg class="header__info-pic  header__info-pic--location" width="25" height="25"
+          aria-hidden="true">
+          <use xlink:href="./img/icons/sprite.svg#location"></use>
+          </svg>
+          #[span.header__info-text г. Москва, Полярная 31&nbsp;Б с17]
+          #[span.header__info-text.header__info-text--mob Мск]
+      .header__contacts-wrapper
+        a.header__contact.header__contact--mail(href='mailto:zakaz@meykpro.ru').
+          <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+          <use xlink:href="./img/icons/sprite.svg#mail"></use>
+          </svg>
+          #[span.header__contact-text zakaz@meykpro.ru]
+        a.header__contact(href='tel:+79854687651').
+          <svg class="header__contacts-pic" width="17" height="17" aria-hidden="true">
+          <use xlink:href="./img/icons/sprite.svg#phone"></use>
+          </svg>
+          #[span.header__contact-text 8 (985) 468 76&nbsp;51]
   ul.header__benefits.benefits
     li.benefits__item Cрок изготовления от&nbsp;30&nbsp;минут
     li.benefits__item Собственное производство

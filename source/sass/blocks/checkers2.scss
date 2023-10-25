@@ -1,77 +1,90 @@
 .chose-block {
-
-    &__title {}
+  &__title {}
 }
 
 .checkers {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 
-    &__item {
-        margin-block-end: 10px;
-    }
+  &__item {
+    margin-block-end: 10px;
+  }
 }
 
 .checker {
-    position: relative;
-    
-    
-    &__button {}
+  position: relative;
+
+
+  &__button {}
 }
 
 .radio-button {
-    width: fit-content;
-    padding-inline-start: 30px;
+  width: fit-content;
+  padding-inline-start: 30px;
 
-    &::before,
-    &::after {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        display: block;
-        content: '';
-        border-radius: 50%;
-    }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    content: "";
+    border-radius: 50%;
+  }
 
-    &::before {
-        left: 5px;
-        width: 22px;
-        height: 22px;
-        background-color: #fff;
-        border: 2px solid violet;
-    }
-    &:hover::before {
-        border: 2px solid green;
-    }
-    &:focus-visible::before {
-        border-color:red;
-    }
-    &:active::before {
-        border-color:brown;
-    }
+  &::before {
+    left: 5px;
+    width: 22px;
+    height: 22px;
+    background-color: #ffffff;
+    border: 2px solid violet;
+  }
+
+  &:focus-visible::before {
+    border-color: red;
+  }
+
+  &:hover::before {
+    border: 2px solid green;
+  }
+
+  &:active::before {
+    border-color: brown;
+  }
 }
 
-.checked{
-    &::after {
-        left: 10px;
-        width: 10px;
-        height: 10px;
-        background-color: violet;
-    }
-    &:hover::after {
-        background-color: green;
-    }
-    &:focus-visible::after {
-        background-color: red;
-    }
-    &:active::after {
-        background-color: brown;
-    }
+.checked {
+  &::after {
+    left: 11px;
+    width: 10px;
+    height: 10px;
+    background-color: violet;
+  }
+
+  &:focus-visible::after {
+    background-color: red;
+  }
+
+  &:hover::after {
+    background-color: green;
+  }
+
+  &:active::after {
+    background-color: brown;
+  }
 }
 
-.radio-button{
-    &:focus-visible{
-        outline: 3px solid red;
-        border-radius: 5px;
-    }
+.radio-button {
+  &:focus-visible {
+    outline: 3px solid red;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    outline-color: green;
+  }
+
+  &:active {
+    outline-color: brown;
+  }
 }

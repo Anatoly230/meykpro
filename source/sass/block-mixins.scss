@@ -87,7 +87,7 @@
 @mixin solidPer100vw($bgColor: $grey, $elementHeight: 100%) {
   z-index: -1;
   display: block;
-  content: '';
+  content: "";
   transform: translateX(calc(100vw / -2));
   left: 50%;
   top: 0;

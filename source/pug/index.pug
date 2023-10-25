@@ -1,10 +1,11 @@
 extends _layuot
 
 block variables
-  include ./modules/head/head-data
-  include ./utils
-  - pageClass = 'page-body'
-
+    include ./modules/head/head-data
+    include ./utils
+    include ./mixins/section-title
+    - pageClass = 'page-body'
+    
 block metaHead
   title=  headData.index.title ? headData.index.title : 'не заполнен объект headData'
   meta(name='description' content= headData.index.description ? headData.index.description : 'не заполнен объект headData')
@@ -13,14 +14,14 @@ block metaHead
   link(href=' https://cdn.jsdelivr.net/npm/swiper@9.0.5/swiper-bundle.min.css ' rel='stylesheet')
 
 block content
-  h1.visually-hidden Кубики на микрофон
-  include ./modules/slider/slider
-  include ./modules/about/about
-  include ./modules/price/price
-  include ./modules/galery/galery
-  include ./modules/work-stages/work-stages
-  include ./modules/contacts/contacts
+    h1.visually-hidden Кубики на микрофон
+    //- include ./modules/slider/slider
+    //- include ./modules/about/about
+    //- include ./modules/price/price
+    //- include ./modules/galery/galery
+    //- include ./modules/work-stages/work-stages
+    include ./modules/contacts/contacts
 block scripts
-    script(src='./js/test.js')
     script(src='./js/pristine.js')
+    script(src='./js/test.js')
     script(type='module' src='./js/main.js')

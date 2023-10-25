@@ -1,26 +1,26 @@
 .slide-pic {
-    font-weight: bold;
-    color: $off-black;
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 0  2px $disabled;
-    background-color: #fff;
-  
-    @include desktop {
-      background-color: rgba($white, 0);
-      box-shadow: none;
-      color: $disabled;
-      font-size: 40px;
-      font-weight: normal;
-    }
+  font-weight: bold;
+  color: $off-black;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0  2px $disabled;
+  background-color: #ffffff;
 
-    &:hover {
-
-    }
-  
-    &--hide {
-      display: none;
-    }
+  @include desktop {
+    background-color: rgba($white, 0);
+    box-shadow: none;
+    color: $disabled;
+    font-size: 40px;
+    font-weight: normal;
   }
+
+  &:hover {
+
+  }
+
+  &--hide {
+    display: none;
+  }
+}

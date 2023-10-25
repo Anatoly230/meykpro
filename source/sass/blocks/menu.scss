@@ -1,5 +1,6 @@
 .menu {
   background-color: $grey;
+
   @include reset-list-style;
 
   @include tablet {
@@ -23,10 +24,11 @@
     padding-inline: rem(16);
     padding-block-start: rem(8);
     padding-block-end: rem(10);
+
     @include reset-link-style($white);
     border: rem(2) solid rgba($white, 0);
     border-radius: rem(8);
-    
+
     @include tablet {
       color: rgba($white, 0.85);
       padding-block-start: rem(14);
@@ -41,7 +43,7 @@
 
   &__item-link:hover {
     border-color: rgba($white, 0.7);
-    
+
     @include tablet {
       color: rgba($white, 1);
       border-color: rgba($pink, 1);
@@ -64,7 +66,7 @@
   }
 
   &--show {
-    
+
     position: absolute;
     width: 100%;
     height: 100vh;

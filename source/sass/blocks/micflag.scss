@@ -1,55 +1,56 @@
 .micflag {
-    // z-index: -1;
-    background-color: #fff;
+  // z-index: -1;
+  background-color: #ffffff;
 
-    &__about {}
+  &__about {}
 
-    &__why-us {}
+  &__why-us {}
 
-    &__price {}
-    &__work-stages{}
+  &__price {}
 
-    &__contacts {}
+  &__work-stages{}
 
-    &__slider {
-        width: 100vw;
-        overflow: hidden;
-        // background: linear-gradient(to bottom right, $white, #D5D8DF);
+  &__contacts {}
 
-        background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
-        padding-block: rem(40);
+  &__slider {
+    width: 100vw;
+    overflow: hidden;
+    // background: linear-gradient(to bottom right, $white, #D5D8DF);
 
-        @include tablet {
-            padding-block-start: rem(50);
-            padding-block-end: rem(70);
-        }
+    background: linear-gradient(to bottom right, #e4f0f8, #b6d0e7);
+    padding-block: rem(40);
 
-        @include desktop {
-            padding-block-start: rem(80);
-            padding-block-end: rem(100);
-        }
+    @include tablet {
+      padding-block-start: rem(50);
+      padding-block-end: rem(70);
     }
 
-    &__slider-content {
+    @include desktop {
+      padding-block-start: rem(80);
+      padding-block-end: rem(100);
+    }
+  }
 
+  &__slider-content {
+
+  }
+
+  &__portfolio {
+    @include section-wrapper;
+    padding-block: rem(40);
+
+    @include tablet {
+      padding-block: rem(60);
     }
 
-    &__portfolio {
-        @include section-wrapper;
-        padding-block: rem(40);
-
-        @include tablet {
-            padding-block: rem(60);
-        }
-
-        @include desktop {
-            padding-block: rem(75);
-        }
+    @include desktop {
+      padding-block: rem(75);
     }
+  }
 
-    &__portfolio-heading {
-        margin-block-end: rem(40)
-    }
+  &__portfolio-heading {
+    margin-block-end: rem(40);
+  }
 
-    &__portfolio-wrapper {}
+  &__portfolio-wrapper {}
 }

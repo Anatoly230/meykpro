@@ -1,15 +1,15 @@
 .poster {
-    text-align: center;
-    background-color: $poster-cl;
-    color: $white;
-    font-weight: 400;
-    font-size: rem(calc(16 * 1.5));
-    padding: rem(15) rem(20);
+  text-align: center;
+  background-color: $poster-cl;
+  color: $white;
+  font-weight: 400;
+  font-size: rem(calc(16 * 1.5));
+  padding: rem(15) rem(20);
 
-    @include tablet {
-        max-width: 350px;
-        border-radius: 0 40px;
-    }
+  @include tablet {
+    max-width: 350px;
+    border-radius: 0 40px;
+  }
 }
 
 .poster--about {}

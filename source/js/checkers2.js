@@ -1,7 +1,7 @@
-const LEFT = 'arrowLeft',
-    RIGHT = 'arrowRight',
-    UP = 'arrowUp',
-    DOWN = 'arrowDown',
+const LEFT = 'ArrowLeft',
+    RIGHT = 'ArrowRight',
+    UP = 'ArrowUp',
+    DOWN = 'ArrowDown',
     ENTER = 'Enter',
     SPACE = 'Space';
 
@@ -11,7 +11,6 @@ let focusedButton = checkersGroup.querySelector('.checked'),
     focusedIndex = checkers.indexOf(focusedButton);
 
 checkersGroup.addEventListener('keydown', (e) => {
-    // console.log(e.code);
     switch (e.code) {
         case LEFT:
         case UP: {
@@ -48,5 +47,10 @@ checkersGroup.addEventListener('keydown', (e) => {
 })
 
 function changeFocus() {
-    console.log('focus chaged', focusedButton, focusedIndex);
+    focusedButton.tabIndex = '-1';
+    focusedButton.classList.remove('checked');
+    focusedButton = checkers[focusedIndex];
+    focusedButton.classList.add('checked');
+    focusedButton.tabIndex = '0';
+    focusedButton.focus();
 }

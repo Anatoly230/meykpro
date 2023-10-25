@@ -19,7 +19,7 @@ mixin workStage(data)
             a.work-stage__more-link(class= ws.mLink href= data.link) Поддробнее
 
 section.work-stages.work-stages
-    +sectionTitle('work-stages__heading', 'Этапы работ')
+    +sectionTitle('work-stages', 'Этапы работ')
     ul.work-stages__list
         each stage in stages
             +workStage(stage)

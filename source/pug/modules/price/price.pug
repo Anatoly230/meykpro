@@ -1,5 +1,6 @@
 include ../../mixins/imgGen
 include ./price-data
+
 -
     function statusIdentifier(some){
         const template = '.item-status'; 
@@ -55,5 +56,8 @@ mixin getPriceItem(data)
         +getToggles
 //- 
     mixins end
-each price in prices
-    +getPriceItem(price)
+section.micflag__price.price
+    +sectionTitle('price', 'Прайс')
+    ul.price__list
+        each price in prices
+            +getPriceItem(price)

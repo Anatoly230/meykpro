@@ -1,47 +1,47 @@
 .portfolio {
-    @include reset-list-style;
-    padding-block: rem(30);
-    display: grid;
-    column-gap: rem(10);
-    row-gap: rem(10);
-    grid-template-columns: repeat(2, minmax(130px, 330px));
+  @include reset-list-style;
+  padding-block: rem(30);
+  display: grid;
+  column-gap: rem(10);
+  row-gap: rem(10);
+  grid-template-columns: repeat(2, minmax(130px, 330px));
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    column-gap: rem(20);
+    row-gap: rem(20);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: rem(20);
+    row-gap: rem(20);
+  }
+
+
+  &__item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
 
     @include tablet {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        column-gap: rem(20);
-        row-gap: rem(20);
+      border-radius: 5px;
     }
 
-    @include desktop {
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: rem(20);
-        row-gap: rem(20);
+    &:hover {
+      opacity: 0.8;
+      // box-shadow: 0 0 3px $off-black;
+      transform: scale(101%);
+      transition-property: opacity;
+      transition-duration: 300ms;
     }
+  }
 
+  &__pic-contaner {}
 
-    &__item {
-        cursor: pointer;
-        overflow: hidden;
-        border-radius: 15px;
-
-        @include tablet {
-            border-radius: 5px;
-        }
-
-        &:hover {
-            opacity: 0.8;
-            // box-shadow: 0 0 3px $off-black;
-            transform: scale(101%);
-            transition-property: opacity;
-            transition-duration: 300ms;
-        }
-    }
-
-    &__pic-contaner {}
-
-    &__pic {
-        display: block;
-        width: 100%;
-        object-fit: cover;
-    }
+  &__pic {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
 }

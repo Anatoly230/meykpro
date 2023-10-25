@@ -1,52 +1,54 @@
 .benefits {
-    &::before {
-        @include tablet {
-            @include solidPer100vw;
-        }
+  &::before {
+    @include tablet {
+      @include solidPer100vw;
     }
+  }
 
-    position: relative;
-    @include reset-list-style;
-    padding-block: rem(10);
-    background-color: $grey;
+  position: relative;
+
+  @include reset-list-style;
+  padding-block: rem(10);
+  background-color: $grey;
+
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-block: rem(20);
+  }
+
+  &__item {
+    margin-block-end: rem(10);
+    text-align: center;
+    color: $white;
+    font-style: italic;
+    vertical-align: baseline;
 
     @include tablet {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-block: rem(20);
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-block-end: 0;
+      padding-inline: rem(15);
+      width: calc(100% / 3);
+      border-inline-end: rem(2) solid $white;
     }
+  }
 
-    &__item {
-        margin-block-end: rem(10);
-        text-align: center;
-        color: $white;
-        font-style: italic;
-        vertical-align: baseline;
-        
-        @include tablet {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            margin-block-end: 0;
-            padding-inline: rem(15);
-            width: calc(100% / 3);
-            border-inline-end: rem(2) solid $white;
-        }
-    }
+  &__item:last-of-type {
+    margin-block-end: 0;
+    border-inline-end: none;
+  }
 
-    &__item:last-of-type {
-        margin-block-end: 0;
-        border-inline-end: none;
-    }
-    &__item:nth-of-type(3n) {
-        border-inline-end: none;
-        margin-block-end: 0;
-    }
+  &__item:nth-of-type(3n) {
+    border-inline-end: none;
+    margin-block-end: 0;
+  }
 
-    &__item-region {
-        margin-inline-start: .2em;
-        font-size: .8em;
-        vertical-align: baseline;
-    }
+  &__item-region {
+    margin-inline-start: 0.2em;
+    font-size: 0.8em;
+    vertical-align: baseline;
+  }
 }
