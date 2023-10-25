@@ -1,0 +1,20 @@
+.page-nav {
+
+    &__heading {
+
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+    }
+    &__item--selected{
+        font-weight: 800;
+    }
+
+    &__link {
+    }
+}
