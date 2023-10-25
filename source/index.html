@@ -74,37 +74,17 @@
     </header>
     <main class="page-body__content">   
       <h1 class="visually-hidden">Кубики на микрофон</h1>
-      <section class="contacts micflag__contacts" id="contacts">
-              <h2 class="heading contacts__heading"><span class="heading__content">Оставить заявку</span></h2>
-        <p class="contacts__desc">* или проконсультироваться по интересующему вас вопросу</p>
-        <form class="form contacts__form" action="./php/action.php" method="POST">
-          <div class="form__group">
-                  <div class="input">
-                    <label class="input__name" id="name">Имя*</label>
-                    <input class="input__field" for="name" type="text" name="name" required placeholder="Александр...">
-                  </div>
-                  <div class="input">
-                    <label class="input__name" id="phone">Телефон*</label>
-                    <input class="input__field" for="phone" type="tel" name="phone" required placeholder="+7 900 000 00 00" pattern="/^+?[7|7|8]?s?(?d{3})?[s|-]?d{3}[s|-]?d{2}[s|-]?d{2}$/gm">
-                  </div>
-                  <div class="input">
-                    <label class="input__name" id="email">Почта*</label>
-                    <input class="input__field" for="email" type="tel" name="email" required placeholder="custom@gmail.com">
-                  </div>
-          </div>
-          <div class="form__group form__group--message">
-                  <div class="input form__group-message">
-                    <label class="input__name" id="message">Сообщение</label>
-                    <textarea class="input__field input__field--message" for="message" name="message" placeholder="Александр..."></textarea>
-                  </div>
-            <button class="form__submit btn" id="submit" type="submit">Отправить</button>
-          </div>
-        </form>
-        <p class="contacts__info">* - звёздочкой помечены обязательные поля</p>
-        <div class="contacts__map map">
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6387687ad754f9796c6f7a9550b0d755eeea9515528b740c62898012840d4687&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
-        </div>
-      </section>
+      <div class="page-nav">
+        <h3 class="page-nav__heading">На этой странице</h3>
+        <ul class="page-nav__list">
+          <li class="page-nav__item"><a class="page-nav__link">О нас</a></li>
+          <li class="page-nav__item"><a class="page-nav__link">Прайс</a></li>
+          <li class="page-nav__item page-nav__item--selected"><a class="page-nav__link">Галлерея</a></li>
+          <li class="page-nav__item"><a class="page-nav__link">О нас</a></li>
+          <li class="page-nav__item"><a class="page-nav__link">Сделано</a></li>
+          <li class="page-nav__item"><a class="page-nav__link">Контакты</a></li>
+        </ul>
+      </div>
     </main>
     <footer class="page-body__footer footer">
       <div class="footer__wrapper">

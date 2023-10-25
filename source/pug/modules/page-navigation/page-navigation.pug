@@ -1,0 +1,8 @@
+include ./page-navigation-data
+
+.page-nav
+    h3.page-nav__heading= navInfo.heading
+    ul.page-nav__list
+        each content in navInfo.content
+            li.page-nav__item()&attributes(content.class)
+                a.page-nav__link= content.text
