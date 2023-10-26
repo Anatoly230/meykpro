@@ -1,6 +1,8 @@
 .page-nav {
+    position: fixed;
+    top: 250px;
+    right: 0;
     margin-inline-start: 30px;
-    // @include show-outline;
     width: fit-content;
 
 
@@ -15,7 +17,7 @@
         list-style: none;
         padding: 0;
         max-height: 250px;
-        overflow-y:auto;
+        overflow-y: auto;
 
     }
 
@@ -25,11 +27,20 @@
         border-inline-start: 2px solid rgb(grey, 0.3);
     }
 
+    &__item:hover {
+        color: $pink;
+    }
+
     &__item--selected {
         font-weight: 800;
         border-inline-start-width: 3px;
-        background-color: rgb(grey, 0.3);
+        background-color: rgb(grey, 0.15);
         // @include show-outline(green);
+    }
+
+    &__item--selected:hover {
+        color: inherit;
+        background-color: rgb(grey, 0.2);
     }
 
     &__link {
