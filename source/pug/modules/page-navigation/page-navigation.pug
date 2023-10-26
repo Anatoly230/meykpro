@@ -5,4 +5,4 @@ include ./page-navigation-data
     ul.page-nav__list
         each content in navInfo.content
             li.page-nav__item()&attributes(content.class)
-                a.page-nav__link= content.text
+                a.page-nav__link(href='#')= content.text

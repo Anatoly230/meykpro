@@ -1,20 +1,40 @@
 .page-nav {
+    margin-inline-start: 30px;
+    // @include show-outline;
+    width: fit-content;
+
 
     &__heading {
-
+        padding: 10px;
+        padding-inline-start: 0;
+        font-size: 16px;
+        font-weight: 100;
     }
 
     &__list {
         list-style: none;
         padding: 0;
+        max-height: 250px;
+        overflow-y:auto;
+
     }
 
     &__item {
+        padding: 5px;
+        padding-inline-start: 20px;
+        border-inline-start: 2px solid rgb(grey, 0.3);
     }
-    &__item--selected{
+
+    &__item--selected {
         font-weight: 800;
+        border-inline-start-width: 3px;
+        background-color: rgb(grey, 0.3);
+        // @include show-outline(green);
     }
 
     &__link {
+        font-size: 14px;
+        text-decoration: none;
+        color: inherit;
     }
 }
