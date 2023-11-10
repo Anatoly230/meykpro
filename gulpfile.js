@@ -47,7 +47,7 @@ export const styles = () => {
 // HTML
 
 const html = () => {
-  return gulp.src(['source/*.html', '!source/html/pugResult'])
+  return gulp.src('source/*.html')
     .pipe(fileInclude())
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(stripComment())
