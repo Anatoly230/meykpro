@@ -3,7 +3,7 @@ include ./price-data
 
 -
     function statusIdentifier(some){
-        const template = '.item-status'; 
+        const template = 'item-status'; 
         if(typeof some === 'string'){
             return `${template} ${template}--${some}`
         }
@@ -20,12 +20,12 @@ mixin getParametrs(data)
         each item, index in data
             if index === 0
                 .parametr(data-about= 'hide')
-                    dt.parametr__name= item.name
-                    dd.parametr__value= item.value
+                    dt.parametr__name!= item.name
+                    dd.parametr__value!= item.value
             else
                 .parametr
-                    dt.parametr__name= item.name
-                    dd.parametr__value= item.value
+                    dt.parametr__name!= item.name
+                    dd.parametr__value!= item.value
 mixin getToggles()
     .parametrs__toggle-wrapper
         a.parametrs__toggle.btn.btn--more.btn--js-collapse.btn--hide(href= '' aria-label='сметреть подробности').

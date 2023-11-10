@@ -1,15 +1,15 @@
 import { isEscape } from "./utils.js";
+import { popUpConsult } from "./view/pop-up-consult.js";
+import { render } from './framework/render.js';
 import sendData from "./fetcher.js";
 import { config, validatePhoneFormat } from "./pristine-configs.js";
-import { getTemporaryNotice, callMessage } from "./alert.js";
+import { getTemporaryNotice} from "./alert.js";
 import addPhoneMask from "./utils/tel-mask.js";
 
 
 const requestBtn = document.querySelector('.header__callback-btn');
 const body = document.querySelector('body');
 const popUpForm = null;
-
-
 
 let popUpBody = null,
     popUpCloseBtn = null;
@@ -22,7 +22,7 @@ function popUpFormProces(popup) {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault()
-        console.log(form.querySelector('[type=tel]').value);
+        // console.log(form.querySelector('[type=tel]').value);
         // const isValid = regularOrder.validate() && sendData(this, './php/fast-order.php');
         const isValid = fastOrder.validate();
 
@@ -31,12 +31,13 @@ function popUpFormProces(popup) {
             let promise = new Promise((resolve, reject) => {
                 setTimeout(() => {
                     this.reset();
-                    getTemporaryNotice(callMessage, 4000)
                     closePopUpInfo();
+                    getTemporaryNotice('callback')
                 }, 1000);
                 resolve('name')
             })
-
+            
+            
             //сообщение об успешной отправки формы
         } else {
 
@@ -63,29 +64,24 @@ function isPopUpBg(e) {
     return e.target.classList.contains('pop-up-background');
 }
 
-function createPopUpInfo() {
-    const popUpTemplate = document.querySelector('#pop-up-info').content;
-    const popUpInfo = popUpTemplate.cloneNode(true);
-    body.appendChild(popUpInfo)
-}
 
 function closePopUpInfo() {
     popUpCloseBtn.removeEventListener('click', closePopUpInfo)
-    popUpBody.removeEventListener('click', onClickingOnVoid)
+    popUpBody.element.removeEventListener('click', onClickingOnVoid)
+    popUpBody.element.remove()
+    popUpBody.removeElement()
     window.removeEventListener('keydown', onEscapeKeyDown)
-    popUpBody.remove()
 }
 
-function onClickRequestBtn(e) {
-    createPopUpInfo()
-    popUpBody = body.querySelector('.pop-up-background')
-    popUpFormProces(popUpBody);
-    popUpCloseBtn = popUpBody.querySelector('.popUp-info__close')
+function onClickRequestBtn() {
+    popUpBody = new popUpConsult();
+    popUpFormProces(popUpBody.element);
+    popUpCloseBtn = popUpBody.element.querySelector('.popUp-info__close')
     popUpCloseBtn.addEventListener('click', closePopUpInfo)
-    popUpBody.addEventListener('click', onClickingOnVoid)
+    popUpBody.element.addEventListener('click', onClickingOnVoid)
     window.addEventListener('keydown', onEscapeKeyDown)
+    render(popUpBody,document.body)
 }
 
 requestBtn.addEventListener('click', onClickRequestBtn)
-
 export { requestBtn };

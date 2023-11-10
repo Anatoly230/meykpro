@@ -1,4 +1,4 @@
-include about-data
+include why-us-data
 
 mixin listGenerate(data)
     each part in data
@@ -9,4 +9,4 @@ mixin listGenerate(data)
 section.about.micflag__about
     +sectionTitle('about', 'Почему именно у&nbsp;нас?')
     ul.about__list.simple-grid
-        +listGenerate(aboutData)
+        +listGenerate(whyUsData)

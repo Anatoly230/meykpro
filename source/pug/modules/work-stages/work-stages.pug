@@ -16,7 +16,7 @@ mixin workStage(data)
             src= `${wsPath}${data.picNme}`)
             h4.work-stage__heading= data.heading
             p.work-stage__description= data.description
-            a.work-stage__more-link(class= ws.mLink href= data.link) Поддробнее
+            a.work-stage__more-link.work-stage__arrow-body.work-stage__arrow(class= ws.mLink href= data.link) Подробнее
 
 section.work-stages.work-stages
     +sectionTitle('work-stages', 'Этапы работ')

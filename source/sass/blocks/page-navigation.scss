@@ -1,15 +1,20 @@
 .page-nav {
+    font-family: "Oswald","Arial",sans-serif;
+    z-index: 10;
     position: fixed;
     top: 250px;
-    right: 0;
+    right: 10px;
     margin-inline-start: 30px;
     width: fit-content;
-
+    max-width: 200px;
+    background-color: rgba(#fff,0.85);
+    padding: 20px;
+    border-radius: 10px;
 
     &__heading {
-        padding: 10px;
-        padding-inline-start: 0;
-        font-size: 16px;
+        padding: 0;
+        padding-block-end: 10px;
+        font-size: 20px;
         font-weight: 100;
     }
 
@@ -32,19 +37,19 @@
     }
 
     &__item--selected {
-        font-weight: 800;
-        border-inline-start-width: 3px;
+        // font-weight: 800;
+        border-inline-start: 3px solid $green;
         background-color: rgb(grey, 0.15);
         // @include show-outline(green);
     }
 
     &__item--selected:hover {
         color: inherit;
-        background-color: rgb(grey, 0.2);
+        background-color: rgb(grey, 0.5);
     }
 
     &__link {
-        font-size: 14px;
+        font-size: 16px;
         text-decoration: none;
         color: inherit;
     }

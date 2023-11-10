@@ -25,12 +25,12 @@ include ../../mixins/section-title
 mixin input(data)
     if data.tag
         .input.form__group-message
-            label.input__name(id= data.id? data.id: false)= data.name
-            #{data.tag}(for= data.id? data.id: false)&attributes(data.attr)
+            label.input__name(for= data.id? data.id: false)= data.name
+            #{data.tag}(id= data.id? data.id: false)&attributes(data.attr)
     else
         .input
-            label.input__name(id= data.id? data.id: false)= data.name
-            input.input__field(for= data.id? data.id: false)&attributes(data.attr)
+            label.input__name(for= data.id? data.id: false)= data.name
+            input.input__field(id= data.id? data.id: false)&attributes(data.attr)
 
 section.contacts()&attributes(contactsAtr)
     +sectionTitle('contacts', 'Оставить заявку')

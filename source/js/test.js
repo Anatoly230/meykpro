@@ -75,3 +75,4 @@ class ImageGenerate {
 }
 
 let imageFabric = new ImageGenerate(galerySettings)
+// console.log(imageFabric)
