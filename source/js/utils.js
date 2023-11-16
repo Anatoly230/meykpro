@@ -3,6 +3,16 @@ function isEscape(e) {
   return e.key === 'Escape';
 }
 
+function IsTab(e) {
+  return e.key === 'Tab';
+}
+function IsShift(e) {
+  return e.code.includes('Shift');
+}
+function IsRevTab(e) {
+  return IsShift(e) && IsTab(e);
+}
+
 function getValueOfArguments(from, to) {
   if (typeof from !== 'number') {
     return false;
@@ -219,4 +229,4 @@ function debounce(callback, timeoutDelay = 500) {
 }
 
 
-export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape, defineIndex, debounce };
+export { getRangeNumbers, arrayCopy, detachFromArray, selectFromArray, getRandomNum, getObjects, isEscape, defineIndex, debounce, IsTab, IsRevTab };

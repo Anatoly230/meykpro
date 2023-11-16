@@ -1,4 +1,27 @@
 import AbstractView from '../framework/view/abstract-view.js';
+import { isEscape, IsTab, IsRevTab } from '../utils.js';
+
+
+
+// const addPopUpAttr(callBack){
+//     document.body.addEventListener('click', callBack);
+//     document.body.addEventListener('click', callBack);
+//     document.body.addEventListener('keydown', callBack);
+// }
+// перед открытием popUp обязательно 
+
+
+function tabCicle(coll, initVal) {
+    let initial;
+    if (!initial) {
+        let classList = coll.map((item) => {
+            return item.classList.value;
+        })
+        let index = classList.indexOf(initVal);
+        return index;
+    }
+
+}
 
 const createTempletePopUp = () => {
     return `<div class="pop-up-background">
@@ -33,6 +56,7 @@ export class popUpConsult extends AbstractView {
     #submitBtn = null;
     #closeBtn = null;
     #input = null;
+    #lastActiveElement = null;
     #documentBody = document.body;
 
     get template() {
@@ -49,8 +73,17 @@ export class popUpConsult extends AbstractView {
         this.#closeBtn.addEventListener('click', (e) => {
             this.#hide()
         })
+
+        document.body.addEventListener('keydown', (e) => {
+            if (isEscape(e)) {
+                console.log('has event')
+                this.hidePopup();
+            }
+        })
         this.#popUpBg.addEventListener('click', (e) => {
-            this.#hide()
+            if (e.target.classList.contains('pop-up-background')) {
+                this.#hide()
+            }
         })
     }
 
@@ -62,14 +95,29 @@ export class popUpConsult extends AbstractView {
         this.#show()
     }
     #show() {
-        this.#documentBody.appendChild(this.element)
+        this.#lastActiveElement = document.activeElement;
+        this.#documentBody.appendChild(this.element);
+        console.log(this.#lastActiveElement);
+        this.#documentBody.addEventListener('keydown', (e) => {
+            const tabs = [this.#closeBtn, this.#input, this.#submitBtn]
+            if (IsTab(e) || IsTab(e) && IsRevTab(e)) {
+                e.preventDefault()
+                console.log(tabCicle(tabs, 'input__field'));
+            }
+
+        })
     }
     showPopUp() {
         this.#show()
+
+    }
+    hidePopup() {
+        this.#hide()
     }
 
     #hide() {
         this.element.remove()
+        this.#lastActiveElement.focus();
     }
 }
 
@@ -78,7 +126,6 @@ const popUpEl = new popUpConsult();
 popUpEl.init()
 pseudoBtn.addEventListener('click', function (e) {
     e.preventDefault();
-
     popUpEl.showPopUp();
 })
 
