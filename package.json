@@ -41,7 +41,7 @@
     "lintfix": "stylelint \"source/sass/**/*.scss\" --fix --syntax scss --ignore-path .gitignore",
     "build": "gulp build",
     "start": "gulp", 
-    "dev": "nodemon ./source/js/devTest.js"  
+    "dev": "nodemon ./source/js/developTest.js"  
 
   },
   "browserslist": [
